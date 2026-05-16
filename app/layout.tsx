@@ -18,30 +18,42 @@ const bodyFont = Inter({
 });
 
 /* =========================
-   SEO METADATA (GLOBAL)
+   GLOBAL SEO METADATA
 ========================= */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://malhotrastourandtravel.in/"), // change if needed
+  metadataBase: new URL("https://boostupdigital.co.in "),
 
-  title: "Malhotra's Tour & Travel — We'll help you create memories",
+  title: {
+    default: "Boost Up Digital — Lead-Focused Digital Marketing Agency",
+    template: "%s | Boost Up Digital",
+  },
+
   description:
-    "Handcrafted journeys across India — Kashmir, Ladakh, Rajasthan, Goa and beyond. Personalized itineraries, expert guides and boutique stays by Malhotra's Tour & Travel.",
+    "Boost Up Digital is a modern digital marketing and entertainment studio based in Singur, Hooghly, WB. We help brands grow through SEO, SMM, Meta Ads, Google Ads, website design, ad films, TVCs, and cinematic brand storytelling.",
+
   keywords: [
-    "Malhotra Tour and Travel",
-    "Travel Agency India",
-    "Kashmir Tour Package",
-    "Manali Tour Package",
-    "Kedarnath Yatra Package",
-    "Shimla Tour Package",
-    "Travel Agency Delhi",
-    "Himachal Tour",
-    "India Holiday Packages",
-    "Affordable Tour Packages",
+    "Boost Up Digital",
+    "Digital Marketing Agency",
+    "SEO Services",
+    "Social Media Marketing",
+    "Meta Ads Agency",
+    "Google Ads Expert",
+    "Lead Generation Agency",
+    "Website Design Company",
+    "Boost Up Entertainment",
+    "TVC Production",
+    "Ad Film Production",
+    "Short Film Production",
+    "Digital Marketing Hooghly",
+    "Digital Marketing West Bengal",
+    "Marketing Agency India",
   ],
 
-  authors: [{ name: "Malhotra's Tour & Travel" }],
-  creator: "Malhotra's Tour & Travel",
-  publisher: "Malhotra's Tour & Travel",
+  authors: [{ name: "Boost Up Digital" }],
+
+  creator: "Boost Up Digital",
+
+  publisher: "Boost Up Digital",
 
   alternates: {
     canonical: "/",
@@ -50,6 +62,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -61,39 +74,55 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
+
     locale: "en_IN",
-    url: "https://www.malhotrastourandtravel.com", // change if needed
-    siteName: "Malhotra's Tour & Travel",
-    title: "Malhotra's Tour & Travel — Premium Travel Experiences",
+
+    url: "https://boostupdigital.co.in ",
+
+    siteName: "Boost Up Digital",
+
+    title: "Boost Up Digital — SEO, Ads, Social Media & Entertainment Studio",
+
     description:
-      "Curated travel packages across India with personalized stays, sightseeing, transport and unforgettable memories.",
+      "Lead-focused digital marketing agency helping businesses grow through SEO, Meta Ads, Google Ads, social media marketing, web design, TVCs, ad films and cinematic storytelling.",
+
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Malhotra's Tour & Travel",
+        alt: "Boost Up Digital",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Malhotra's Tour & Travel",
+
+    title: "Boost Up Digital",
+
     description:
-      "Explore unforgettable travel experiences across India.",
+      "Performance marketing, creative storytelling and cinematic ad films that help brands grow faster.",
+
     images: ["/og-image.jpg"],
   },
 
   icons: {
     icon: [
-      { url: "/logo.jpeg", media: "(prefers-color-scheme: light)" },
-      { url: "/logo.jpeg", media: "(prefers-color-scheme: dark)" },
+      {
+        url: "/logo.webp",
+        media: "(prefers-color-scheme: light)",
+      },
+
+      {
+        url: "/logo.webp",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
-    apple: "/logo.jpeg",
+
+    apple: "/logo.webp",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -148,7 +177,7 @@ export default function RootLayout({
             }),
           }}
         /> */}
-        <Header/>
+        <Header />
 
         {children}
         <Footer />
