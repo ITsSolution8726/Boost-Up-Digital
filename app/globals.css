@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@source "../app";
+@source "../components";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand-magenta: var(--brand-magenta);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-cyan: var(--brand-cyan);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.08 0.01 280);
+  --foreground: oklch(0.98 0.005 280);
+  --card: oklch(0.12 0.015 280);
+  --card-foreground: oklch(0.98 0.005 280);
+  --popover: oklch(0.12 0.015 280);
+  --popover-foreground: oklch(0.98 0.005 280);
+  --primary: oklch(0.68 0.28 350);
+  --primary-foreground: oklch(0.08 0.01 280);
+  --secondary: oklch(0.18 0.02 280);
+  --secondary-foreground: oklch(0.98 0.005 280);
+  --muted: oklch(0.18 0.02 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+  --accent: oklch(0.72 0.22 60);
+  --accent-foreground: oklch(0.08 0.01 280);
+  --destructive: oklch(0.62 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.22 0.02 280 / 60%);
+  --input: oklch(0.2 0.02 280);
+  --ring: oklch(0.68 0.28 350);
+
+  --brand-magenta: oklch(0.62 0.3 340);
+  --brand-pink: oklch(0.7 0.28 0);
+  --brand-orange: oklch(0.72 0.22 45);
+  --brand-yellow: oklch(0.88 0.18 95);
+  --brand-cyan: oklch(0.78 0.15 200);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --gradient-brand: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-pink) 30%, var(--brand-orange) 60%, var(--brand-yellow) 100%);
+  --gradient-cool: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-magenta) 100%);
+  --gradient-radial: radial-gradient(circle at 50% 50%, oklch(0.62 0.3 340 / 0.4), transparent 60%);
+  --shadow-glow: 0 0 60px -10px oklch(0.68 0.28 350 / 0.6);
+  --shadow-card: 0 20px 60px -20px oklch(0.05 0 0 / 0.8);
+}
+
+.dark {
+  --background: oklch(0.08 0.01 280);
+  --foreground: oklch(0.98 0.005 280);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.68 0.28 350 / 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 80%, oklch(0.78 0.15 200 / 0.1), transparent);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+@utility glass {
+  background-color: oklch(0.12 0.015 280 / 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid oklch(1 0 0 / 0.08);
+}
