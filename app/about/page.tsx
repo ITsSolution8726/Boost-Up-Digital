@@ -15,7 +15,6 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { DirReveal } from "@/components/DirReveal";
 
-
 // export const Route = createFileRoute("/about")({
 //   head: () => ({
 //     meta: [
@@ -101,28 +100,22 @@ const values = [
 
 const team = [
   {
-    img: "/team-1.jpg",
-    name: "Arjun Mukherjee",
+    img: "/team-3.jpg",
+    name: "Arpan Bhattacharyya",
     role: "Founder & Growth Lead",
     bio: "10+ yrs across performance marketing and brand strategy. Obsessed with CAC payback.",
   },
   {
-    img: "/team-2.jpg",
-    name: "Priya Banerjee",
+    img: "/team-1.jpg",
+    name: "Arpan Halder",
     role: "Creative Director",
     bio: "Award-winning art direction across TVCs and digital. Story-first, always.",
   },
   {
-    img: "/team-3.jpg",
-    name: "Rohan Saha",
+    img: "/person-3.jpg",
+    name: "Santanu Ghosh",
     role: "Head of Paid Media",
     bio: "Scaled 7-figure ad accounts on Meta, Google and YouTube — ROAS first, vanity last.",
-  },
-  {
-    img: "/team-4.jpg",
-    name: "Neha Iyer",
-    role: "Web & UX Lead",
-    bio: "Designs and ships conversion-focused sites with Core Web Vitals in mind.",
   },
 ];
 
@@ -165,19 +158,75 @@ const portfolio = [
   },
 ];
 
-const clients = [
-  "NestCart",
-  "Roy Jewellers",
-  "Urban Bazaar",
-  "FitFuel",
-  "EduPro",
-  "Singur Sweets",
-  "Aroma Café",
-  "Hooghly Homes",
-  "Drape Studio",
-  "MetroFit",
-  "GreenLeaf",
-  "Bengal Brew",
+type ClientLogo = {
+  name: string;
+  mark: string; // monogram
+  shape: "circle" | "square" | "hex" | "diamond";
+  from: "magenta" | "orange" | "yellow" | "cyan";
+  to: "orange" | "yellow" | "magenta" | "cyan";
+};
+
+const clients: ClientLogo[] = [
+  {
+    name: "NestCart",
+    mark: "NC",
+    shape: "circle",
+    from: "magenta",
+    to: "orange",
+  },
+  {
+    name: "Roy Jewellers",
+    mark: "RJ",
+    shape: "diamond",
+    from: "yellow",
+    to: "orange",
+  },
+  {
+    name: "Urban Bazaar",
+    mark: "UB",
+    shape: "square",
+    from: "cyan",
+    to: "magenta",
+  },
+  { name: "FitFuel", mark: "FF", shape: "hex", from: "orange", to: "yellow" },
+  { name: "EduPro", mark: "EP", shape: "circle", from: "cyan", to: "orange" },
+  {
+    name: "Singur Sweets",
+    mark: "SS",
+    shape: "diamond",
+    from: "magenta",
+    to: "yellow",
+  },
+  {
+    name: "Aroma Café",
+    mark: "AC",
+    shape: "square",
+    from: "orange",
+    to: "magenta",
+  },
+  {
+    name: "Hooghly Homes",
+    mark: "HH",
+    shape: "hex",
+    from: "yellow",
+    to: "cyan",
+  },
+  {
+    name: "Drape Studio",
+    mark: "DS",
+    shape: "circle",
+    from: "magenta",
+    to: "cyan",
+  },
+  { name: "MetroFit", mark: "MF", shape: "square", from: "cyan", to: "yellow" },
+  {
+    name: "GreenLeaf",
+    mark: "GL",
+    shape: "diamond",
+    from: "yellow",
+    to: "magenta",
+  },
+  { name: "Bengal Brew", mark: "BB", shape: "hex", from: "orange", to: "cyan" },
 ];
 
 const testimonials = [
@@ -200,6 +249,64 @@ const testimonials = [
     role: "CEO, Urban Bazaar",
   },
 ];
+function LogoMark({ c }: { c: ClientLogo }) {
+  const gradId = `lg-${c.mark}`;
+  const fromVar = `var(--brand-${c.from})`;
+  const toVar = `var(--brand-${c.to})`;
+  return (
+    <svg viewBox="0 0 64 64" className="h-12 w-12 shrink-0" aria-hidden="true">
+      <defs>
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={fromVar} />
+          <stop offset="100%" stopColor={toVar} />
+        </linearGradient>
+      </defs>
+      {c.shape === "circle" && (
+        <circle cx="32" cy="32" r="28" fill={`url(#${gradId})`} />
+      )}
+      {c.shape === "square" && (
+        <rect
+          x="6"
+          y="6"
+          width="52"
+          height="52"
+          rx="10"
+          fill={`url(#${gradId})`}
+        />
+      )}
+      {c.shape === "diamond" && (
+        <rect
+          x="14"
+          y="14"
+          width="36"
+          height="36"
+          rx="6"
+          transform="rotate(45 32 32)"
+          fill={`url(#${gradId})`}
+        />
+      )}
+      {c.shape === "hex" && (
+        <polygon
+          points="32,4 56,18 56,46 32,60 8,46 8,18"
+          fill={`url(#${gradId})`}
+        />
+      )}
+      <text
+        x="32"
+        y="32"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontFamily="ui-sans-serif, system-ui, sans-serif"
+        fontWeight="800"
+        fontSize="22"
+        fill="#0b0b14"
+        letterSpacing="-1"
+      >
+        {c.mark}
+      </text>
+    </svg>
+  );
+}
 
 export default function About() {
   return (
@@ -234,7 +341,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden glass">
+            <div className="relative aspect-4/3 rounded-3xl overflow-hidden glass">
               <img
                 src="/story.jpg"
                 alt="The Boost Up Digital team in studio"
@@ -243,7 +350,7 @@ export default function About() {
                 height={900}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent" />
             </div>
             <div className="absolute -z-10 -left-10 top-10 h-72 w-72 rounded-full bg-gradient-brand opacity-30 blur-3xl" />
           </motion.div>
@@ -341,7 +448,7 @@ export default function About() {
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-               <DirReveal key={v.title} from="left" delay={i * 0.15}>
+              <DirReveal key={v.title} from="left" delay={i * 0.15}>
                 <div className="glass rounded-2xl p-6 h-full">
                   <div className="h-11 w-11 rounded-lg bg-gradient-brand grid place-items-center mb-4">
                     <v.icon className="h-5 w-5 text-primary-foreground" />
@@ -371,14 +478,14 @@ export default function About() {
               treat your business like their own.
             </p>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m, i) => (
               <Reveal key={m.name} delay={i * 0.1}>
                 <motion.div
                   whileHover={{ y: -8 }}
                   className="group relative glass rounded-3xl overflow-hidden h-full"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="relative aspect-4/5 overflow-hidden">
                     <img
                       src={m.img}
                       alt={`${m.name}, ${m.role} at Boost Up Digital`}
@@ -387,7 +494,7 @@ export default function About() {
                       height={960}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5">
                       <div className="text-xs uppercase tracking-widest text-brand-yellow mb-1">
                         {m.role}
@@ -446,7 +553,7 @@ export default function About() {
               <Reveal key={p.title} delay={(i % 3) * 0.1}>
                 <motion.div
                   whileHover={{ y: -6 }}
-                  className="group relative aspect-[4/5] rounded-3xl overflow-hidden glass"
+                  className="group relative aspect-4/5 rounded-3xl overflow-hidden glass"
                 >
                   <img
                     src={p.img}
@@ -456,7 +563,7 @@ export default function About() {
                     height={1280}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent" />
                   <div className="absolute top-5 left-5 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
                     {p.tag}
                   </div>
@@ -496,24 +603,22 @@ export default function About() {
           </Reveal>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {clients.map((c, i) => (
-              <motion.div
-                key={c}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: (i % 4) * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                whileHover={{ y: -4, scale: 1.03 }}
-                className="group relative glass rounded-2xl p-6 h-24 grid place-items-center overflow-hidden"
+              <DirReveal
+                key={c.name}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={(i % 4) * 0.08}
               >
-                <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-10 transition-opacity" />
-                <div className="font-display font-bold text-xl tracking-tight bg-gradient-to-br from-foreground to-foreground/60 group-hover:from-brand-magenta group-hover:via-brand-orange group-hover:to-brand-yellow bg-clip-text text-transparent transition-all">
-                  {c}
-                </div>
-              </motion.div>
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.03 }}
+                  className="group relative glass rounded-2xl p-5 h-24 flex items-center gap-3 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-10 transition-opacity" />
+                  <LogoMark c={c} />
+                  <div className="font-display font-bold text-base sm:text-lg tracking-tight leading-tight bg-gradient-to-br from-foreground to-foreground/60 group-hover:from-brand-magenta group-hover:via-brand-orange group-hover:to-brand-yellow bg-clip-text text-transparent transition-all">
+                    {c.name}
+                  </div>
+                </motion.div>
+              </DirReveal>
             ))}
           </div>
         </div>
@@ -531,7 +636,7 @@ export default function About() {
             </h2>
           </Reveal>
           <div className="relative">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-magenta via-brand-orange to-brand-yellow" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-brand-magenta via-brand-orange to-brand-yellow" />
             {milestones.map((m, i) => (
               <Reveal key={m.title} delay={i * 0.08}>
                 <div

@@ -9,8 +9,13 @@ import {
   Monitor,
   Sparkles,
   ArrowRight,
+  Mail,
+  Quote,
+  Clapperboard,
+  Video,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { DirReveal } from "@/components/DirReveal";
 
 // export const Route = createFileRoute("/entertainment")({
 //   head: () => ({
@@ -38,7 +43,12 @@ const works = [
   { src: "/ent-3.jpg", title: "Short Film Direction", tag: "Cinema" },
   { src: "/ent-4.jpg", title: "Reels & Social Spots", tag: "Social" },
   { src: "/ent-5.jpg", title: "Digital Screen Network", tag: "DOOH" },
-  { src: "/ent-6.jpg", title: "Brand Films", tag: "Film", span: "md:col-span-2" },
+  {
+    src: "/ent-6.jpg",
+    title: "Brand Films",
+    tag: "Film",
+    span: "md:col-span-2",
+  },
 ];
 
 const offerings = [
@@ -62,6 +72,36 @@ const offerings = [
     title: "Films & Short Films",
     desc: "Narrative storytelling that builds brand love at scale.",
   },
+  {
+    icon: Clapperboard,
+    title: "Film Production",
+    desc: "Full-length cinematic productions from script to screen — storytelling at its finest.",
+  },
+  {
+    icon: Video,
+    title: "Web Series",
+    desc: "Binge-worthy episodic content crafted for OTT platforms and digital audiences.",
+  },
+];
+const testimonials = [
+  {
+    quote:
+      "Boost Up Entertainment turned our product launch into a cinematic event. The ad film they created drove a 300% spike in pre-orders.",
+    name: "Rohit Malakar",
+    role: "Marketing Head, NovaTech",
+  },
+  {
+    quote:
+      "From script to screen, the team delivered a web series that hit 2 million views in its first month. Pure storytelling magic.",
+    name: "Ananya Bose",
+    role: "Founder, Bengal Streams",
+  },
+  {
+    quote:
+      "Their short film for our CSR campaign won us industry recognition and genuine audience love. Not just views — real impact.",
+    name: "Sourav Das",
+    role: "Brand Director, GreenLeaf India",
+  },
 ];
 
 export default function Entertainment() {
@@ -79,8 +119,8 @@ export default function Entertainment() {
               <br /> Entertainment
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cinematic ad films, TVCs and short films engineered as marketing
-              weapons. We don't just shoot — we sell.
+              Cinematic ad films, TVCs, films and web series engineered as
+              marketing weapons. We don't just shoot — we sell.
             </p>
           </Reveal>
         </div>
@@ -136,9 +176,9 @@ export default function Entertainment() {
               Stories that <span className="text-gradient-brand">sell</span>.
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offerings.map((o, i) => (
-              <Reveal key={o.title} delay={i * 0.1}>
+              <Reveal key={o.title} delay={i * 0.08}>
                 <div className="glass rounded-2xl p-6 h-full">
                   <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center mb-4 shadow-glow">
                     <o.icon className="h-5 w-5 text-primary-foreground" />
@@ -152,23 +192,78 @@ export default function Entertainment() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16">
+      {/* TESTIMONIALS */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-14">
+            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              Testimonials
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold">
+              What our <span className="text-gradient-brand">partners</span>{" "}
+              say.
+            </h2>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <DirReveal
+                key={t.name}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={i * 0.12}
+              >
+                <div className="glass rounded-2xl p-6 h-full flex flex-col">
+                  <Quote className="h-8 w-8 text-brand-magenta mb-4 opacity-60" />
+                  <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">
+                    {t.quote}
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-gradient-brand grid place-items-center text-primary-foreground font-bold text-sm">
+                      {t.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm">{t.name}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {t.role}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </DirReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CAREER / COLLABORATION */}
+      <section className="py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="rounded-3xl bg-gradient-brand p-10 md:p-14 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
-                Have a story worth shooting?
+            <div className="rounded-3xl glass p-10 md:p-14 text-center relative overflow-hidden">
+              <div className="absolute -z-10 -right-20 -top-20 h-72 w-72 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+              <div className="absolute -z-10 -left-20 -bottom-20 h-72 w-72 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+                Career / Collaboration
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                Have a script or story to tell?
               </h2>
-              <p className="text-primary-foreground/80 mb-6">
-                From concept to delivery in weeks, not quarters.
+              <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                We are always looking for fresh voices, bold scripts and
+                creative collaborators. Whether you are a writer, director,
+                actor or production partner — we want to hear from you.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-background text-foreground px-7 py-3.5 font-semibold hover:scale-105 transition-transform"
+              <a
+                href="mailto:boostupdigital.official03@gmail.com?subject=Script%20Submission%20/%20Collaboration%20Inquiry"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
               >
-                Pitch Your Project <ArrowRight className="h-4 w-4" />
-              </Link>
+                <Mail className="h-4 w-4" /> Email Us Your Script
+              </a>
+              <p className="mt-4 text-xs text-muted-foreground">
+                boostupdigital.official03@gmail.com
+              </p>
             </div>
           </Reveal>
         </div>

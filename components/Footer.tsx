@@ -21,8 +21,8 @@ const navItems = [
 
 export default function Footer() {
   return (
-    <footer className="mt-32 border-t border-border/40 glass">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 md:grid-cols-4">
+    <footer className="mt-12 border-t border-border/40 glass">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -100,22 +100,27 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border/40 py-6 text-center text-xs text-muted-foreground space-y-1">
-        <p>
-          © {new Date().getFullYear()} Boost Up Digital. Crafted with passion.
-        </p>
+      <div className="py-6">
+        <div className="mx-auto max-w-7xl border-t border-border px-4 pt-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-2 text-center text-xs text-muted-foreground lg:flex-row lg:items-center lg:justify-between lg:text-left">
+            <p>
+              © {new Date().getFullYear()} Boost Up Digital. Crafted with
+              passion.
+            </p>
 
-        <p>
-          Designed & Developed by{" "}
-          <a
-            href="https://itssolution.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-foreground hover:text-brand-yellow transition-colors"
-          >
-            IT&apos;s Solution
-          </a>
-        </p>
+            <p>
+              Designed & Developed by{" "}
+              <a
+                href="https://itssolution.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground hover:text-brand-yellow transition-colors"
+              >
+                IT&apos;s Solution
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );
