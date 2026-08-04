@@ -133,50 +133,6 @@ export default function RootLayout({
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <body className="font-body">
         {/* Google Analytics */}
-        {/* <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "TravelAgency",
-
-              name: "Malhotra's Tour & Travel",
-
-              url: "https://malhotrastourandtravel.in/", // change if needed
-
-              logo: "https://malhotrastourandtravel.in//logo.jpeg",
-
-              image: "https://malhotrastourandtravel.in//og-image.jpg",
-
-              description:
-                "Premium handcrafted travel experiences across India including Kashmir, Manali, Shimla, Kedarnath and more.",
-
-              telephone: "+91 9211690364",
-
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "IN",
-              },
-
-              sameAs: [
-                "https://www.instagram.com/malhotrastourandtravel",
-              ],
-
-              areaServed: {
-                "@type": "Country",
-                name: "India",
-              },
-
-              serviceType: [
-                "Tour Packages",
-                "Holiday Planning",
-                "Hotel Booking",
-                "Travel Consultation",
-                "Group Tours",
-              ],
-            }),
-          }}
-        /> */}
         <Header />
 
         {children}

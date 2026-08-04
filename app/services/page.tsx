@@ -20,34 +20,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// export const Route = createFileRoute("/services")({
-//   head: () => ({
-//     meta: [
-//       {
-//         title:
-//           "Digital Marketing Services in India — SEO, Ads, Social & Web | Boost Up Digital",
-//       },
-//       {
-//         name: "description",
-//         content:
-//           "Full-service digital marketing agency offering SEO, Meta Ads, Google Ads, social media management, conversion-focused web design and cinematic ad film production — engineered for measurable ROI.",
-//       },
-//       {
-//         name: "keywords",
-//         content:
-//           "digital marketing services, SEO agency India, Meta Ads, Google Ads, social media marketing, web design, Boost Up Digital",
-//       },
-//       { property: "og:title", content: "Services — Boost Up Digital" },
-//       {
-//         property: "og:description",
-//         content:
-//           "SEO, Meta & Google Ads, social media management, web design, and ad films — built around your business outcomes.",
-//       },
-//     ],
-//   }),
-//   component: Services,
-// });
-
 const services = [
   {
     icon: Search,
@@ -332,6 +304,184 @@ export default function Services() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              Pricing
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl font-bold">
+              Plans that <span className="text-gradient-brand">grow</span> with you.
+            </h2>
+
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Whether you're just starting or ready to scale aggressively, we have a
+              package designed to generate measurable business growth.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-8 lg:grid-cols-3 items-stretch">
+
+            {/* Starter */}
+            <Reveal delay={0}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative glass rounded-3xl p-8 h-full flex flex-col"
+              >
+                <div className="mb-6">
+                  <div className="inline-flex rounded-full bg-brand-cyan/15 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-cyan">
+                    Starter
+                  </div>
+
+                  <h3 className="mt-5 text-3xl font-bold">
+                    ₹9,999
+                    <span className="text-lg text-muted-foreground font-normal">
+                      /month
+                    </span>
+                  </h3>
+
+                  <p className="mt-3 text-muted-foreground">
+                    Perfect for startups and local businesses.
+                  </p>
+                </div>
+
+                <ul className="space-y-4 flex-1">
+                  {[
+                    "Social Media Management",
+                    "12 Creative Posts",
+                    "Facebook & Instagram",
+                    "Monthly Performance Report",
+                    "Basic SEO",
+                    "WhatsApp Support",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Check className="h-5 w-5 shrink-0 text-brand-cyan" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href="/contact?quote=true&plan=Starter"
+                  className="mt-8 inline-flex justify-center items-center rounded-full border border-border px-6 py-3 font-semibold hover:bg-secondary transition"
+                >
+                  Get Quote
+                </Link>
+              </motion.div>
+            </Reveal>
+
+            {/* Growth */}
+            <Reveal delay={0.1}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative h-full rounded-3xl overflow-hidden bg-gradient-brand p-[1px]"
+              >
+                <div className="absolute top-5 right-5 rounded-full bg-background px-4 py-1 text-xs font-semibold text-brand-yellow">
+                  MOST POPULAR
+                </div>
+
+                <div className="glass rounded-[calc(1.5rem-1px)] p-8 h-full flex flex-col">
+                  <div className="mb-6">
+                    <div className="inline-flex rounded-full bg-brand-yellow/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-yellow">
+                      Growth
+                    </div>
+
+                    <h3 className="mt-5 text-3xl font-bold">
+                      ₹24,999
+                      <span className="text-lg text-muted-foreground font-normal">
+                        /month
+                      </span>
+                    </h3>
+
+                    <p className="mt-3 text-muted-foreground">
+                      Designed for brands ready to scale.
+                    </p>
+                  </div>
+
+                  <ul className="space-y-4 flex-1">
+                    {[
+                      "Everything in Starter",
+                      "Meta Ads Management",
+                      "Google Ads",
+                      "Advanced SEO",
+                      "Landing Page",
+                      "Weekly Reporting",
+                      "Lead Generation Funnel",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <Check className="h-5 w-5 shrink-0 text-brand-yellow" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link href="/contact?quote=true&plan=Growth"
+                    className="mt-8 inline-flex justify-center items-center rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+                  >
+                    Get Quote
+                  </Link>
+                </div>
+              </motion.div>
+            </Reveal>
+
+            {/* Enterprise */}
+            <Reveal delay={0.2}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative glass rounded-3xl p-8 h-full flex flex-col"
+              >
+                <div className="mb-6">
+                  <div className="inline-flex rounded-full bg-brand-magenta/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-magenta">
+                    Enterprise
+                  </div>
+
+                  <h3 className="mt-5 text-3xl font-bold">
+                    Custom
+                  </h3>
+
+                  <p className="mt-3 text-muted-foreground">
+                    Complete growth partner for ambitious brands.
+                  </p>
+                </div>
+
+                <ul className="space-y-4 flex-1">
+                  {[
+                    "Unlimited Campaigns",
+                    "Dedicated Account Manager",
+                    "SEO + Ads + Social",
+                    "Website Development",
+                    "Ad Film Production",
+                    "Brand Strategy",
+                    "Priority Support",
+                    "Monthly Growth Meetings",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Check className="h-5 w-5 shrink-0 text-brand-magenta" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href="/contact?quote=true&plan=Enterprise"
+                  className="mt-8 inline-flex justify-center items-center rounded-full border border-border px-6 py-3 font-semibold hover:bg-secondary transition"
+                >
+                  Get Quote
+                </Link>
+              </motion.div>
+            </Reveal>
+
+          </div>
+
+          <Reveal delay={0.3}>
+            <p className="mt-10 text-center text-sm text-muted-foreground">
+              Need a custom solution? Every business is different. Contact us for a
+              tailored proposal based on your goals and budget.
+            </p>
+          </Reveal>
         </div>
       </section>
 

@@ -1,5 +1,4 @@
 "use client";
-// import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Mail,
@@ -16,16 +15,10 @@ import { Reveal } from "@/components/Reveal";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { DirReveal } from "@/components/DirReveal";
+import { useSearchParams } from "next/navigation";
+import QuoteForm from "@/components/QuoteForm";
 
-// export const Route = createFileRoute("/contact")({
-//   head: () => ({
-//     meta: [
-//       { title: "Contact — Boost Up Digital" },
-//       { name: "description", content: "Talk to Boost Up Digital. Email boostupdigital.official03@gmail.com or call 8509121389. Based in Singur, Hooghly, WB." },
-//     ],
-//   }),
-//   component: Contact,
-// });
+
 
 const channels = [
   {
@@ -52,6 +45,10 @@ const socials = [
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
+
+const isQuote = searchParams.get("quote") === "true";
+const plan = searchParams.get("plan");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,6 +60,9 @@ export default function Contact() {
     }, 900);
   };
 
+if (isQuote) {
+   return <QuoteForm plan={plan} />;
+}
   return (
     <>
       <Toaster theme="dark" />
