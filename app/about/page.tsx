@@ -100,7 +100,7 @@ const values = [
 
 const team = [
   {
-    img: "/team-3.jpg",
+    img: "/ArpanB.png",
     name: "Arpan Bhattacharyya",
     role: "Founder & Growth Lead",
     bio: "10+ yrs across performance marketing and brand strategy. Obsessed with CAC payback.",

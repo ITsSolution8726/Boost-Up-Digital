@@ -89,99 +89,178 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-20 pb-32">
+      <section className="relative overflow-hidden pt-28 pb-24">
+        {/* Background */}
         <div className="absolute inset-0 -z-10">
           <video
             autoPlay
-            loop
             muted
+            loop
             playsInline
-            src={"/hero-video.mp4"}
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
+            src="/hero-video.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-10"
           />
-          <div className="absolute inset-0 bg-linear-to-b from-background/60 via-background/80 to-background" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 h-150 w-150 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+
+          <div className="absolute left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-brand-magenta/10 blur-[120px]" />
+
+          <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-brand-cyan/10 blur-[120px]" />
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium mb-8"
-          >
-            <Sparkles className="h-3.5 w-3.5 text-brand-yellow" />
-            Award-winning digital growth studio · Est. 2024
-          </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter"
-          >
-            We boost brands
-            <br /> that{" "}
-            <span className="text-gradient-brand">
-              <Typewriter
-                words={[
-                  "scale fast.",
-                  "rank #1.",
-                  "go viral.",
-                  "convert hard.",
-                  "refuse limits.",
-                ]}
-              />
-            </span>
-          </motion.h1>
+        <div className="mx-auto max-w-7xl px-6">
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground"
-          >
-            Performance marketing, content & cinematic ad films — engineered to
-            generate leads, scale revenue, and make the world remember your
-            name.
-          </motion.p>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10 flex flex-wrap gap-4 justify-center"
-          >
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
-            >
-              Start Your Growth{" "}
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-full glass px-7 py-3.5 font-semibold hover:bg-secondary transition-colors"
-            >
-              Explore Services
-            </Link>
-          </motion.div>
+            {/* LEFT */}
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="mt-20 flex justify-center"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-brand blur-3xl opacity-40 animate-pulse" />
-              <img
-                src="/logo.webp"
-                alt=""
-                className="relative h-40 w-40 rounded-3xl shadow-glow"
-              />
+            <div>
+
+              <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs mb-8">
+
+                <Sparkles className="h-4 w-4 text-brand-yellow" />
+
+                Performance-Driven Digital Marketing Agency
+
+              </div>
+
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+
+                Helping Businesses
+
+                <br />
+
+                <span className="text-gradient-brand">
+
+                  Generate More Leads,
+
+                </span>
+
+                <br />
+
+                Increase Revenue
+
+              </h1>
+
+              <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-8">
+
+                We help ambitious brands grow through SEO,
+
+                Google Ads, Meta Ads, Social Media,
+
+                Web Development and creative campaigns.
+
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+
+                <Link
+                  href="/contact"
+                  className="rounded-full bg-gradient-brand px-7 py-4 font-semibold text-primary-foreground shadow-glow"
+                >
+                  Get Free Marketing Audit
+                </Link>
+
+                <Link
+                  href="/services"
+                  className="rounded-full glass px-7 py-4 font-semibold"
+                >
+                  View Services
+                </Link>
+
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {[
+                  { icon: Megaphone, label: "Google Ads", color: "text-brand-magenta" },
+                  { icon: Search, label: "SEO", color: "text-brand-cyan" },
+                  { icon: Target, label: "Meta Ads", color: "text-brand-yellow" },
+                  { icon: Globe, label: "Web Development", color: "text-brand-magenta" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-2 rounded-full glass px-4 py-2 border border-border/40"
+                  >
+                    <item.icon className={`h-4 w-4 ${item.color}`} />
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
             </div>
-          </motion.div>
+
+            {/* RIGHT */}
+
+            <div className="relative hidden lg:block">
+
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="glass rounded-3xl p-8 shadow-glow"
+              >
+
+                <img
+                  src="/dashboard.png"
+                  alt=""
+                  className="rounded-2xl"
+                />
+
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [10, -10, 10] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
+                className="absolute -left-8 top-12 glass rounded-2xl p-5"
+              >
+
+                <div className="text-xs text-muted-foreground">
+                  Leads
+                </div>
+
+                <div className="text-3xl font-bold text-brand-cyan">
+
+                  +125%
+
+                </div>
+
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                }}
+                className="absolute -right-6 bottom-16 glass rounded-2xl p-5"
+              >
+
+                <div className="text-xs text-muted-foreground">
+
+                  ROAS
+
+                </div>
+
+                <div className="text-3xl font-bold text-brand-magenta">
+
+                  4.8x
+
+                </div>
+
+              </motion.div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </section>
 
       {/* STATS */}
