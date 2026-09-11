@@ -4,86 +4,23 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Sparkles,
-  TrendingUp,
-  Award,
-  Users,
   Search,
   Megaphone,
   Target,
-  Share2,
   Globe,
-  Film,
   Quote,
   Star,
+  MapPin,
+  CheckCircle2,
+  ChevronDown,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Counter, Typewriter } from "@/components/Counter";
 
 import Link from "next/link";
 import { DirReveal } from "@/components/DirReveal";
-const services = [
-  {
-    icon: Search,
-    title: "SEO",
-    desc: "Climb the SERPs with data-led, white-hat search optimisation.",
-  },
-  {
-    icon: Share2,
-    title: "Social Media",
-    desc: "Strategy, content & community for Instagram, Facebook, LinkedIn & more.",
-  },
-  {
-    icon: Target,
-    title: "Meta Ads",
-    desc: "High-ROAS Facebook & Instagram campaigns built to convert.",
-  },
-  {
-    icon: Megaphone,
-    title: "Google Ads",
-    desc: "Search, Display, YouTube & Performance Max that scale.",
-  },
-  {
-    icon: Globe,
-    title: "Web Design",
-    desc: "Lightning-fast, conversion-focused websites with stunning UI.",
-  },
-  {
-    icon: Film,
-    title: "Ad Films & TVC",
-    desc: "Cinema-grade ad films, TVCs & social spots that move audiences.",
-  },
-];
+import { caseStudies, faqs, industries, services, stats, testimonials, tools, whyChooseUs } from "@/lib/data";
 
-const stats = [
-  { to: 120, suffix: "+", label: "Brands Boosted" },
-  { to: 10, suffix: "M+", label: "Impressions Driven" },
-  { to: 4.9, suffix: "★", label: "Client Rating", decimals: 1 },
-  { to: 350, suffix: "%", label: "Avg ROAS Lift" },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Boost Up Digital didn't just run our ads — they built a pipeline. CPL dropped 64% in 90 days and we haven't looked back.",
-    name: "Aritra Sen",
-    role: "Founder, NestCart",
-    img: "./person-1.jpg",
-  },
-  {
-    quote:
-      "Our TVC tripled enquiries in the first month. The creative team understands how to make stories sell.",
-    name: "Megha Roy",
-    role: "MD, Roy Jewellers",
-    img: "./person-2.jpg",
-  },
-  {
-    quote:
-      "Easily the most professional agency we've worked with. Transparent reporting, real growth, zero fluff.",
-    name: "Vikram Das",
-    role: "CEO, Urban Bazaar",
-    img: "./person-3.jpg",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -124,7 +61,7 @@ export default function HomePage() {
 
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight">
 
                 Helping Businesses
 
@@ -263,6 +200,104 @@ export default function HomePage() {
 
       </section>
 
+      {/* TRUSTED BY */}
+      <section className="border-y border-border/40 bg-background/60">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+
+          <Reveal className="text-center mb-8">
+            <div className="text-xs uppercase tracking-[0.25em] text-brand-cyan">
+              Trusted by Growing Businesses
+            </div>
+
+            <p className="mt-2 text-sm text-muted-foreground max-w-2xl mx-auto">
+              We've partnered with businesses across healthcare, education,
+              retail, manufacturing and local services to generate leads,
+              improve visibility and drive sustainable business growth.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4 items-center">
+            {[
+              {
+                name: "Bongoshree",
+                logo: "/logos/bongoshree.jpeg",
+              },
+              {
+                name: "Adi Ap Jewellers",
+                logo: "/logos/adi-ap-jewellers.jpeg",
+              },
+              {
+                name: "Tony & Guy",
+                logo: "/logos/tony-guy.jpeg",
+              },
+              {
+                name: "New Looks",
+                logo: "/logos/new-looks.jpeg",
+              },
+              {
+                name: "Spandan",
+                logo: "/logos/spandan.jpeg",
+              },
+              {
+                name: "AKS",
+                logo: "/logos/aks.jpeg",
+              },
+              {
+                name: "Bindubasini",
+                logo: "/logos/bindubasini.jpeg",
+              },
+              {
+                name: "Hazra",
+                logo: "/logos/hazra.jpeg",
+              },
+              {
+                name: "Hearup",
+                logo: "/logos/hearup.jpeg",
+              },
+              {
+                name: "Annapurna",
+                logo: "/logos/annapurna.jpeg",
+              },
+            ].map((brand) => (
+              <div
+                key={brand.name}
+                className="
+            group
+            flex items-center justify-center
+            h-20 sm:h-24
+            rounded-xl
+            border border-border/40
+            bg-background/70
+            px-3 sm:px-4
+            transition-all duration-300
+            hover:bg-background
+            hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+          "
+              >
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  className="
+              max-h-16
+              sm:max-h-14
+              max-w-full
+              w-auto
+              object-contain
+              opacity-75
+              grayscale
+              transition-all duration-300
+              group-hover:opacity-100
+              group-hover:grayscale-0
+              group-hover:scale-135
+            "
+                />
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* STATS */}
       <section className="border-y border-border/40 glass">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -280,6 +315,99 @@ export default function HomePage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ABOUT BOOST UP DIGITAL */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* IMAGE */}
+            <DirReveal from="left">
+              <div className="relative overflow-hidden rounded-3xl glass">
+                <img
+                  src="/about-office.jpg"
+                  alt="Boost Up Digital office"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-background/90 backdrop-blur-md px-4 py-2 text-xs font-semibold">
+                    <MapPin className="h-4 w-4 text-brand-magenta" />
+                    Kolkata, West Bengal
+                  </div>
+                </div>
+              </div>
+            </DirReveal>
+
+            {/* CONTENT */}
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+                About Boost Up Digital
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+                Digital Marketing That Delivers{" "}
+                <span className="text-gradient-brand">
+                  Business Growth
+                </span>
+              </h2>
+
+              <div className="mt-6 space-y-4 text-muted-foreground leading-7">
+                <p>
+                  Boost Up Digital is a performance-driven digital marketing
+                  agency based in Kolkata, helping businesses grow through
+                  strategic online marketing.
+                </p>
+
+                <p>
+                  We don't believe in marketing for the sake of marketing.
+                  Every campaign we create is designed with one objective —
+                  to generate more leads, increase sales and deliver measurable
+                  business growth.
+                </p>
+
+                <p>
+                  Whether you're a healthcare clinic looking for more patient
+                  enquiries, an educational institution trying to increase
+                  admissions, or a local business wanting more customers,
+                  our team builds customized digital marketing strategies
+                  around your business goals.
+                </p>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                {[
+                  "Performance focused",
+                  "Transparent reporting",
+                  "Affordable pricing",
+                  "Industry-focused strategies",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-sm font-medium"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-brand-magenta shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/about"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+              >
+                Learn More About Us
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Reveal>
+
+          </div>
+
         </div>
       </section>
 
@@ -344,57 +472,277 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AWARDS */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-              Why Boost Up
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              Awards are nice.{" "}
-              <span className="text-gradient-brand">Results</span> are nicer.
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Founded in 2024 with one stubborn mission — make digital marketing
-              actually work for businesses that pay for it. Every campaign is
-              built around leads, revenue and measurable ROI.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: TrendingUp, t: "ROI First", d: "Every rupee tracked." },
-                { icon: Award, t: "Award-Winning", d: "Recognised craft." },
-                { icon: Users, t: "Lead Engine", d: "Pipelines that fill." },
-                { icon: Film, t: "Cinematic Craft", d: "Films that sell." },
-              ].map((x) => (
-                <div key={x.t} className="glass rounded-xl p-4">
-                  <x.icon className="h-5 w-5 text-brand-yellow mb-2" />
-                  <div className="font-semibold text-sm">{x.t}</div>
-                  <div className="text-xs text-muted-foreground">{x.d}</div>
-                </div>
+      {/* INDUSTRIES */}
+      <section className="py-24 bg-muted/20 border-y border-border/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+                Industries We Help Grow
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+                Industries We've{" "}
+                <span className="text-gradient-brand">
+                  Delivered Results In
+                </span>
+              </h2>
+
+              <p className="mt-5 text-muted-foreground leading-7">
+                Every industry has different customers, buying behaviour
+                and competition. That's why we create customized marketing
+                strategies tailored to your business goals.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {industries.map((industry, i) => (
+                <DirReveal
+                  key={industry.title}
+                  from={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
+                  delay={(i % 3) * 0.08}
+                >
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="h-full min-h-[150px] rounded-2xl glass p-5 flex flex-col items-center justify-center text-center"
+                  >
+                    <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-4">
+                      <industry.icon className="h-6 w-6 text-primary-foreground" />
+                    </div>
+
+                    <h3 className="font-semibold text-sm">
+                      {industry.title}
+                    </h3>
+
+                    <p className="mt-2 text-xs text-muted-foreground leading-5">
+                      {industry.desc}
+                    </p>
+                  </motion.div>
+                </DirReveal>
               ))}
             </div>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="relative aspect-square rounded-3xl glass p-8 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-radial opacity-50" />
-              <div className="relative h-full flex items-center justify-center">
-                <motion.img
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  src="/logo.webp"
-                  alt=""
-                  className="h-64 w-64 rounded-3xl shadow-glow"
-                />
-              </div>
-            </div>
-          </Reveal>
+
+          </div>
         </div>
       </section>
+
+      {/* WHY CHOOSE BOOST UP DIGITAL */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              Why Choose Boost Up Digital
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl font-bold">
+              Your Growth is{" "}
+              <span className="text-gradient-brand">
+                Our Mission
+              </span>
+            </h2>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {whyChooseUs.map((item, i) => (
+              <DirReveal
+                key={item.title}
+                from={
+                  i % 3 === 0
+                    ? "left"
+                    : i % 3 === 1
+                      ? "up"
+                      : "right"
+                }
+                delay={(i % 3) * 0.08}
+              >
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="h-full glass rounded-2xl p-6"
+                >
+                  <item.icon className="h-6 w-6 text-brand-magenta mb-4" />
+
+                  <h3 className="font-semibold text-base mb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-6">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              </DirReveal>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* CASE STUDIES */}
+      <section className="py-24 bg-muted/20 border-y border-border/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12">
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+                Case Studies
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold">
+                Real Results.{" "}
+                <span className="text-gradient-brand">
+                  Real Impact.
+                </span>
+              </h2>
+            </Reveal>
+
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-gradient-brand shrink-0"
+            >
+              View All Case Studies
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6">
+            {caseStudies.map((item, i) => (
+              <DirReveal
+                key={item.title}
+                from={i === 0 ? "left" : i === 1 ? "up" : "right"}
+              >
+                <motion.article
+                  whileHover={{ y: -6 }}
+                  className="group overflow-hidden rounded-3xl glass h-full"
+                >
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-2">
+                      {item.category}
+                    </div>
+
+                    <h3 className="text-xl font-bold">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm text-muted-foreground leading-6">
+                      {item.desc}
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-border/40">
+                      <div>
+                        <div className="text-xl font-bold text-gradient-brand">
+                          {item.metric1}
+                        </div>
+                        <div className="text-[10px] text-muted-foreground">
+                          {item.metric1Label}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-xl font-bold text-gradient-brand">
+                          {item.metric2}
+                        </div>
+                        <div className="text-[10px] text-muted-foreground">
+                          {item.metric2Label}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-xl font-bold text-gradient-brand">
+                          {item.metric3}
+                        </div>
+                        <div className="text-[10px] text-muted-foreground">
+                          {item.metric3Label}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              </DirReveal>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* TOOLS & TECHNOLOGIES */}
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+          <Reveal className="text-center mb-10">
+            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              Tools & Technologies We Use
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              Powered by the{" "}
+              <span className="text-gradient-brand">
+                right tools
+              </span>
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {tools.map((tool, i) => (
+              <DirReveal
+                key={tool.name}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={(i % 5) * 0.04}
+              >
+                <div
+                  className="
+          group
+          flex items-center gap-3
+          rounded-xl
+          glass
+          border border-border/40
+          px-4 py-4
+          min-h-[72px]
+          transition-all duration-300
+          hover:border-brand-magenta/40
+          hover:-translate-y-1
+          hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+        "
+                >
+                  <div
+                    className="
+            flex h-10 w-10 shrink-0
+            items-center justify-center
+            rounded-lg
+            bg-background/80
+            border border-border/30
+            p-2
+            transition-transform duration-300
+            group-hover:scale-110
+          "
+                  >
+                    <img
+                      src={tool.logo}
+                      alt={`${tool.name} logo`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+
+                  <span className="text-sm font-medium text-foreground/90">
+                    {tool.name}
+                  </span>
+                </div>
+              </DirReveal>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
 
       {/* TESTIMONIALS */}
       <section className="py-24">
@@ -452,6 +800,99 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ + SEO */}
+      <section className="py-24 bg-muted/20 border-y border-border/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+            {/* FAQ */}
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+                Frequently Asked Questions
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold mb-8">
+                Questions businesses{" "}
+                <span className="text-gradient-brand">
+                  ask us
+                </span>
+              </h2>
+
+              <div className="space-y-3">
+                {faqs.map((faq) => (
+                  <details
+                    key={faq.question}
+                    className="group rounded-xl glass border border-border/40"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium">
+                      <span>{faq.question}</span>
+
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" />
+                    </summary>
+
+                    <div className="px-5 pb-5 text-sm leading-6 text-muted-foreground">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* SEO CONTENT */}
+            <Reveal delay={0.15}>
+              <div className="h-full rounded-3xl glass p-7 sm:p-9">
+
+                <h2 className="text-3xl font-bold mb-5">
+                  Best Digital Marketing Agency in Kolkata
+                </h2>
+
+                <div className="space-y-4 text-sm text-muted-foreground leading-7">
+                  <p>
+                    Boost Up Digital is a leading digital marketing agency
+                    in Kolkata focused on delivering measurable business growth
+                    through strategic online marketing.
+                  </p>
+
+                  <p>
+                    From performance marketing and Google Ads to Meta Ads,
+                    SEO, social media marketing and web development, we help
+                    businesses build stronger online visibility and generate
+                    qualified leads.
+                  </p>
+
+                  <p>
+                    Our approach combines performance-focused campaigns,
+                    transparent reporting and customized strategies designed
+                    around your business goals and budget.
+                  </p>
+                </div>
+
+                <div className="mt-7 space-y-3">
+                  {[
+                    "Performance-focused marketing",
+                    "Transparent reporting",
+                    "Customized growth strategies",
+                    "Serving businesses across multiple industries",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2 text-sm"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-brand-magenta shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            </Reveal>
+
+          </div>
+
         </div>
       </section>
 

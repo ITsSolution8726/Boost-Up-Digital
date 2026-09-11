@@ -106,13 +106,13 @@ const team = [
     bio: "10+ yrs across performance marketing and brand strategy. Obsessed with CAC payback.",
   },
   {
-    img: "/team-1.jpg",
+    img: "/ArpanH.png",
     name: "Arpan Halder",
     role: "Creative Director",
     bio: "Award-winning art direction across TVCs and digital. Story-first, always.",
   },
   {
-    img: "/person-3.jpg",
+    img: "/Santanu.jpeg",
     name: "Santanu Ghosh",
     role: "Head of Paid Media",
     bio: "Scaled 7-figure ad accounts on Meta, Google and YouTube — ROAS first, vanity last.",
