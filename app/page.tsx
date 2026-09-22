@@ -61,7 +61,7 @@ export default function HomePage() {
 
               </div>
 
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight">
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight tracking-tight">
 
                 Helping Businesses
 
@@ -75,18 +75,29 @@ export default function HomePage() {
 
                 <br />
 
-                Increase Revenue
-
+                Increase Sales &
+                Grow Faster
               </h1>
 
               <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-8">
 
-                We help ambitious brands grow through SEO,
+                We help businesses attract the right audience, generate qualified leads, and turn digital marketing into measurable business growth.
 
-                Google Ads, Meta Ads, Social Media,
+              </p>
+              <p className="mt-8 text-sm sm:text-md max-w-xl leading-8 font-bold tracking-wide flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span className="text-brand-cyan">Strategy</span>
+                <span className="text-muted-foreground/50">•</span>
 
-                Web Development and creative campaigns.
+                <span className="text-brand-magenta">Acquisition</span>
+                <span className="text-muted-foreground/50">•</span>
 
+                <span className="text-brand-yellow">Conversion</span>
+                <span className="text-muted-foreground/50">•</span>
+
+                <span className="text-brand-cyan">Measurement</span>
+                <span className="text-muted-foreground/50">•</span>
+
+                <span className="text-brand-magenta">Optimization</span>
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -216,7 +227,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4 items-center">
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4 items-center">
             {[
               {
                 name: "Bongoshree",
@@ -278,17 +289,15 @@ export default function HomePage() {
                   src={brand.logo}
                   alt={`${brand.name} logo`}
                   className="
-              max-h-16
-              sm:max-h-14
+              max-h-20
+              sm:max-h-18
               max-w-full
               w-auto
               object-contain
-              opacity-75
-              grayscale
               transition-all duration-300
               group-hover:opacity-100
               group-hover:grayscale-0
-              group-hover:scale-135
+              group-hover:scale-165
             "
                 />
               </div>
@@ -307,7 +316,7 @@ export default function HomePage() {
                 <Counter
                   to={s.to}
                   suffix={s.suffix}
-                  decimals={s.decimals ?? 0}
+                // decimals={s.decimals ?? 0}
                 />
               </div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">
@@ -418,21 +427,23 @@ export default function HomePage() {
             <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
               What We Do
             </div>
+
             <h2 className="text-4xl sm:text-5xl font-bold">
-              A full-stack growth engine
+              Performance-Driven
+              <br />
+              <span className="text-gradient-brand">
+                Digital Marketing Services
+              </span>
             </h2>
+
             <p className="mt-4 text-muted-foreground">
-              From the first impression to the final conversion — and the encore
-              performance.
+              Data-driven digital marketing solutions designed to increase
+              visibility, generate quality leads, and drive measurable growth.
             </p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => {
-              // Row 1 (0,1,2): left, up (down-into-place from above), right
-              // Row 2 (3,4,5): left, up-from-below, right
-              // Row 1: from left, from above, from right
-              // Row 2: from left, from below, from right
               const dirs: Array<"left" | "right" | "up" | "down"> = [
                 "left",
                 "up",
@@ -441,19 +452,31 @@ export default function HomePage() {
                 "down",
                 "right",
               ];
+
               return (
-                <DirReveal key={s.title} from={dirs[i]} delay={(i % 3) * 0.08}>
+                <DirReveal
+                  key={s.title}
+                  from={dirs[i]}
+                  delay={(i % 3) * 0.08}
+                >
                   <motion.div
                     whileHover={{ y: -6 }}
                     className="group relative h-full rounded-2xl glass p-7 overflow-hidden"
                   >
                     <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 blur-2xl transition-opacity" />
+
                     <div className="relative">
                       <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center mb-5 shadow-glow">
                         <s.icon className="h-6 w-6 text-primary-foreground" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                      <p className="text-sm text-muted-foreground">{s.desc}</p>
+
+                      <h3 className="text-xl font-semibold mb-2">
+                        {s.title}
+                      </h3>
+
+                      <p className="text-sm text-muted-foreground">
+                        {s.desc}
+                      </p>
                     </div>
                   </motion.div>
                 </DirReveal>

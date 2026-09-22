@@ -1,43 +1,59 @@
-import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award } from "lucide-react";
+import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award, Code2, MapPin } from "lucide-react";
 
 export const services = [
   {
-    icon: Search,
-    title: "SEO",
-    desc: "Climb the SERPs with data-led, white-hat search optimisation.",
-  },
-  {
-    icon: Share2,
-    title: "Social Media",
-    desc: "Strategy, content & community for Instagram, Facebook, LinkedIn & more.",
-  },
-  {
-    icon: Target,
-    title: "Meta Ads",
-    desc: "High-ROAS Facebook & Instagram campaigns built to convert.",
-  },
-  {
-    icon: Megaphone,
     title: "Google Ads",
-    desc: "Search, Display, YouTube & Performance Max that scale.",
+    desc: "Reach high-intent customers with targeted Google Ads campaigns built to generate quality leads and maximize your return on ad spend.",
+    icon: Search,
   },
   {
-    icon: Globe,
-    title: "Web Design",
-    desc: "Lightning-fast, conversion-focused websites with stunning UI.",
+    title: "Meta Ads",
+    desc: "Turn attention into action with performance-focused Facebook and Instagram advertising campaigns.",
+    icon: Megaphone,
   },
   {
-    icon: Film,
-    title: "Ad Films & TVC",
-    desc: "Cinema-grade ad films, TVCs & social spots that move audiences.",
+    title: "SEO",
+    desc: "Improve your search visibility and attract consistent organic traffic with data-driven SEO strategies.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Local SEO",
+    desc: "Get discovered by customers near you and strengthen your presence across local search and Google Maps.",
+    icon: MapPin,
+  },
+  {
+    title: "Website Development",
+    desc: "Build fast, modern, conversion-focused websites designed to turn visitors into customers.",
+    icon: Code2,
+  },
+  {
+    title: "Social Media Marketing",
+    desc: "Build a stronger digital presence with engaging social media strategies, content, and consistent audience growth.",
+    icon: Share2,
   },
 ];
 
 export const stats = [
-  { to: 120, suffix: "+", label: "Brands Boosted" },
-  { to: 10, suffix: "M+", label: "Impressions Driven" },
-  { to: 4.9, suffix: "★", label: "Client Rating", decimals: 1 },
-  { to: 350, suffix: "%", label: "Avg ROAS Lift" },
+  {
+    to: 30,
+    suffix: "+",
+    label: "Businesses Served",
+  },
+  {
+    to: 2,
+    suffix: "M+",
+    label: "Advertising Impressions",
+  },
+  {
+    to: 10000,
+    suffix: "+",
+    label: "Qualified Leads Generated",
+  },
+  {
+    to: 50,
+    suffix: "L+",
+    label: "Advertising Budget Managed",
+  },
 ];
 
 export const testimonials = [
