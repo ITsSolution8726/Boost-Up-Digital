@@ -1,35 +1,35 @@
-import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award, Code2, MapPin } from "lucide-react";
+import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award, Code2, MapPin, Clapperboard } from "lucide-react";
 
 export const services = [
   {
-    title: "Google Ads",
-    desc: "Reach high-intent customers with targeted Google Ads campaigns built to generate quality leads and maximize your return on ad spend.",
-    icon: Search,
-  },
-  {
-    title: "Meta Ads",
-    desc: "Turn attention into action with performance-focused Facebook and Instagram advertising campaigns.",
-    icon: Megaphone,
-  },
-  {
     title: "SEO",
-    desc: "Improve your search visibility and attract consistent organic traffic with data-driven SEO strategies.",
+    desc: "Climb the SERPs with data-led, white-hat search optimization.",
     icon: TrendingUp,
   },
   {
-    title: "Local SEO",
-    desc: "Get discovered by customers near you and strengthen your presence across local search and Google Maps.",
-    icon: MapPin,
+    title: "Social Media",
+    desc: "Strategy, content and community management for Instagram, Facebook, LinkedIn and more.",
+    icon: Share2,
   },
   {
-    title: "Website Development",
-    desc: "Build fast, modern, conversion-focused websites designed to turn visitors into customers.",
+    title: "Meta Ads",
+    desc: "High-ROI Facebook and Instagram campaigns built to convert.",
+    icon: Megaphone,
+  },
+  {
+    title: "Google Ads",
+    desc: "Search, Display, YouTube and Performance Max campaigns focused on qualified leads and conversions.",
+    icon: Search,
+  },
+  {
+    title: "Web Design & Development",
+    desc: "Fast, modern, mobile-first websites designed to turn visitors into customers.",
     icon: Code2,
   },
   {
-    title: "Social Media Marketing",
-    desc: "Build a stronger digital presence with engaging social media strategies, content, and consistent audience growth.",
-    icon: Share2,
+    title: "Ad Films & TVC",
+    desc: "Cinema-grade ad films, TVCs & social spots that move audiences.",
+    icon: Clapperboard,
   },
 ];
 

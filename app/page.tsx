@@ -75,7 +75,7 @@ export default function HomePage() {
 
                 <br />
 
-                Increase Sales &
+                Increase Sales & <br />
                 Grow Faster
               </h1>
 
@@ -487,9 +487,10 @@ export default function HomePage() {
           <Reveal className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gradient-brand"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
             >
-              See all services <ArrowRight className="h-4 w-4" />
+              Explore All Services
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
         </div>

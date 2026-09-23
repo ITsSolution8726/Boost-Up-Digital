@@ -31,14 +31,15 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/logo.webp"
+              src="/logo.svg"
               alt="Boost Up Digital"
-              width={48}
-              height={48}
-              className="rounded-lg object-cover"
+              width={180}
+              height={55}
+              className="h-auto w-[160px] sm:w-[160px] object-contain"
+              // className="rounded-lg object-cover"
             />
 
-            <div className="hidden sm:block leading-tight">
+            {/* <div className="hidden sm:block leading-tight">
               <div className="font-display font-bold text-lg text-gradient-brand">
                 Boost Up
               </div>
@@ -46,7 +47,7 @@ export default function Header() {
               <div className="text-[10px] tracking-[0.3em] text-muted-foreground -mt-1">
                 DIGITAL
               </div>
-            </div>
+            </div> */}
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
