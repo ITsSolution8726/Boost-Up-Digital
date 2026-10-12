@@ -13,6 +13,9 @@ import {
   MapPin,
   CheckCircle2,
   ChevronDown,
+  ChartNoAxesCombined,
+  SlidersHorizontal,
+  TrendingUp,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Counter, Typewriter } from "@/components/Counter";
@@ -26,7 +29,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-28 pb-24">
+      <section className="relative isolate overflow-hidden py-16 sm:py-20 md:py-24 lg:pt-28 lg:pb-24">
         {/* Background */}
         <div className="absolute inset-0 -z-10">
           <video
@@ -45,15 +48,13 @@ export default function HomePage() {
           <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-brand-cyan/10 blur-[120px]" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-6">
-
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid min-w-0 grid-cols-1 items-center gap-12 sm:gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
 
             {/* LEFT */}
-
             <div>
 
-              <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs mb-8">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
 
                 <Sparkles className="h-4 w-4 text-brand-yellow" />
 
@@ -79,12 +80,12 @@ export default function HomePage() {
                 Grow Faster
               </h1>
 
-              <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-8">
+              <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-8 ">
 
                 We help businesses attract the right audience, generate qualified leads, and turn digital marketing into measurable business growth.
 
               </p>
-              <p className="mt-8 text-sm sm:text-md max-w-xl leading-8 font-bold tracking-wide flex flex-wrap items-center gap-x-2 gap-y-1">
+              <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold leading-6 tracking-wide sm:text-sm sm:leading-8">
                 <span className="text-brand-cyan">Strategy</span>
                 <span className="text-muted-foreground/50">•</span>
 
@@ -100,22 +101,20 @@ export default function HomePage() {
                 <span className="text-brand-magenta">Optimization</span>
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-
+              <div className="mt-10 flex w-full flex-nowrap items-center gap-3 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-gradient-brand px-7 py-4 font-semibold text-primary-foreground shadow-glow"
+                  className="relative isolate flex h-14 flex-1 items-center justify-center whitespace-nowrap rounded-full bg-gradient-brand px-2 text-center text-[13px] font-semibold leading-none text-primary-foreground shadow-glow sm:px-6 sm:text-base lg:px-7"
                 >
                   Get Free Marketing Audit
                 </Link>
 
                 <Link
-                  href="/services"
-                  className="rounded-full glass px-7 py-4 font-semibold"
+                  href="#services"
+                  className="relative isolate glass flex h-14 flex-1 items-center justify-center whitespace-nowrap rounded-full px-2 text-center text-[13px] font-semibold leading-none sm:px-6 sm:text-base lg:px-7"
                 >
                   View Services
                 </Link>
-
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -211,12 +210,200 @@ export default function HomePage() {
 
       </section>
 
+      {/* STATS */}
+      <section className="border-y border-border/40 glass">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.1} className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-gradient-brand font-display">
+                <Counter
+                  to={s.to}
+                  suffix={s.suffix}
+                  decimals={s.decimals ?? 0}
+                />
+              </div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">
+                {s.label}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* GROWTH SYSTEMS */}
+      <section className="relative overflow-hidden py-20 sm:py-24">
+        {/* Background accents */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-brand-magenta/10 blur-[100px]" />
+          <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-brand-cyan/10 blur-[100px]" />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-4xl text-center">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
+              Our Growth Philosophy
+            </div>
+
+            <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              We don't just do marketing.
+              <br className="hidden sm:block" />{" "}
+              <span className="text-gradient-brand">
+                We build growth systems.
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
+              Most agencies sell individual marketing services. We connect
+              strategy, acquisition, conversion and measurement to help
+              businesses turn digital attention into real customers and
+              measurable growth.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-24" id="services">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto mb-16">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
+              What We Do
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl font-bold">
+              Performance-Driven
+              <br />
+              <span className="text-gradient-brand">
+                Digital Marketing Services
+              </span>
+            </h2>
+
+            <p className="mt-4 text-muted-foreground">
+              Data-driven digital marketing solutions designed to increase
+              visibility, generate quality leads, and drive measurable growth.
+            </p>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, i) => {
+              const dirs: Array<"left" | "right" | "up" | "down"> = [
+                "left",
+                "up",
+                "right",
+                "left",
+                "down",
+                "right",
+              ];
+
+              return (
+                <DirReveal
+                  key={s.title}
+                  from={dirs[i]}
+                  delay={(i % 3) * 0.08}
+                >
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    className="group relative h-full rounded-2xl glass p-7 overflow-hidden"
+                  >
+                    <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 blur-2xl transition-opacity" />
+
+                    <div className="relative">
+                      <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center mb-5 shadow-glow">
+                        <s.icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+
+                      <h3 className="text-xl font-semibold mb-2">
+                        {s.title}
+                      </h3>
+
+                      <p className="text-sm text-muted-foreground">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </DirReveal>
+              );
+            })}
+          </div>
+
+          {/* <Reveal className="text-center mt-12">
+            <Link
+              href="/services"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+            >
+              Explore All Services
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal> */}
+        </div>
+      </section>
+
+      {/* INDUSTRIES */}
+      <section className="py-24 bg-muted/20 border-y border-border/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+
+            <Reveal>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+                <Sparkles className="h-4 w-4 text-brand-yellow" />
+                Industries We Help Grow
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+                Industries We've{" "}
+                <span className="text-gradient-brand">
+                  Delivered Results In
+                </span>
+              </h2>
+
+              <p className="mt-5 text-muted-foreground leading-7">
+                Every industry has different customers, buying behaviour
+                and competition. That's why we create customized marketing
+                strategies tailored to your business goals.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+              {industries.map((industry, i) => (
+                <DirReveal
+                  key={industry.title}
+                  from={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
+                  delay={(i % 3) * 0.08}
+                >
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="h-full min-h-[150px] rounded-2xl glass p-5 flex flex-col items-center justify-center text-center"
+                  >
+                    <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-4">
+                      <industry.icon className="h-6 w-6 text-primary-foreground" />
+                    </div>
+
+                    <h3 className="font-semibold text-sm">
+                      {industry.title}
+                    </h3>
+
+                    <p className="mt-2 text-xs text-muted-foreground leading-5">
+                      {industry.desc}
+                    </p>
+                  </motion.div>
+                </DirReveal>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* TRUSTED BY */}
       <section className="border-y border-border/40 bg-background/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
 
           <Reveal className="text-center mb-8">
-            <div className="text-xs uppercase tracking-[0.25em] text-brand-cyan">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
               Trusted by Growing Businesses
             </div>
 
@@ -307,309 +494,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="border-y border-border/40 glass">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-gradient-brand font-display">
-                <Counter
-                  to={s.to}
-                  suffix={s.suffix}
-                // decimals={s.decimals ?? 0}
-                />
-              </div>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">
-                {s.label}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ABOUT BOOST UP DIGITAL */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-            {/* IMAGE */}
-            <DirReveal from="left">
-              <div className="relative overflow-hidden rounded-3xl glass">
-                <img
-                  src="/about-office.jpg"
-                  alt="Boost Up Digital office"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-background/90 backdrop-blur-md px-4 py-2 text-xs font-semibold">
-                    <MapPin className="h-4 w-4 text-brand-magenta" />
-                    Kolkata, West Bengal
-                  </div>
-                </div>
-              </div>
-            </DirReveal>
-
-            {/* CONTENT */}
-            <Reveal>
-              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-                About Boost Up Digital
-              </div>
-
-              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-                Digital Marketing That Delivers{" "}
-                <span className="text-gradient-brand">
-                  Business Growth
-                </span>
-              </h2>
-
-              <div className="mt-6 space-y-4 text-muted-foreground leading-7">
-                <p>
-                  Boost Up Digital is a performance-driven digital marketing
-                  agency based in Kolkata, helping businesses grow through
-                  strategic online marketing.
-                </p>
-
-                <p>
-                  We don't believe in marketing for the sake of marketing.
-                  Every campaign we create is designed with one objective —
-                  to generate more leads, increase sales and deliver measurable
-                  business growth.
-                </p>
-
-                <p>
-                  Whether you're a healthcare clinic looking for more patient
-                  enquiries, an educational institution trying to increase
-                  admissions, or a local business wanting more customers,
-                  our team builds customized digital marketing strategies
-                  around your business goals.
-                </p>
-              </div>
-
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                {[
-                  "Performance focused",
-                  "Transparent reporting",
-                  "Affordable pricing",
-                  "Industry-focused strategies",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-2 text-sm font-medium"
-                  >
-                    <CheckCircle2 className="h-4 w-4 text-brand-magenta shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href="/about"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
-              >
-                Learn More About Us
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Reveal>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-              What We Do
-            </div>
-
-            <h2 className="text-4xl sm:text-5xl font-bold">
-              Performance-Driven
-              <br />
-              <span className="text-gradient-brand">
-                Digital Marketing Services
-              </span>
-            </h2>
-
-            <p className="mt-4 text-muted-foreground">
-              Data-driven digital marketing solutions designed to increase
-              visibility, generate quality leads, and drive measurable growth.
-            </p>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => {
-              const dirs: Array<"left" | "right" | "up" | "down"> = [
-                "left",
-                "up",
-                "right",
-                "left",
-                "down",
-                "right",
-              ];
-
-              return (
-                <DirReveal
-                  key={s.title}
-                  from={dirs[i]}
-                  delay={(i % 3) * 0.08}
-                >
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    className="group relative h-full rounded-2xl glass p-7 overflow-hidden"
-                  >
-                    <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 blur-2xl transition-opacity" />
-
-                    <div className="relative">
-                      <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center mb-5 shadow-glow">
-                        <s.icon className="h-6 w-6 text-primary-foreground" />
-                      </div>
-
-                      <h3 className="text-xl font-semibold mb-2">
-                        {s.title}
-                      </h3>
-
-                      <p className="text-sm text-muted-foreground">
-                        {s.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                </DirReveal>
-              );
-            })}
-          </div>
-
-          <Reveal className="text-center mt-12">
-            <Link
-              href="/services"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
-            >
-              Explore All Services
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="py-24 bg-muted/20 border-y border-border/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
-
-            <Reveal>
-              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-                Industries We Help Grow
-              </div>
-
-              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-                Industries We've{" "}
-                <span className="text-gradient-brand">
-                  Delivered Results In
-                </span>
-              </h2>
-
-              <p className="mt-5 text-muted-foreground leading-7">
-                Every industry has different customers, buying behaviour
-                and competition. That's why we create customized marketing
-                strategies tailored to your business goals.
-              </p>
-            </Reveal>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {industries.map((industry, i) => (
-                <DirReveal
-                  key={industry.title}
-                  from={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
-                  delay={(i % 3) * 0.08}
-                >
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="h-full min-h-[150px] rounded-2xl glass p-5 flex flex-col items-center justify-center text-center"
-                  >
-                    <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-4">
-                      <industry.icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
-
-                    <h3 className="font-semibold text-sm">
-                      {industry.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs text-muted-foreground leading-5">
-                      {industry.desc}
-                    </p>
-                  </motion.div>
-                </DirReveal>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE BOOST UP DIGITAL */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <Reveal className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-              Why Choose Boost Up Digital
-            </div>
-
-            <h2 className="text-4xl sm:text-5xl font-bold">
-              Your Growth is{" "}
-              <span className="text-gradient-brand">
-                Our Mission
-              </span>
-            </h2>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whyChooseUs.map((item, i) => (
-              <DirReveal
-                key={item.title}
-                from={
-                  i % 3 === 0
-                    ? "left"
-                    : i % 3 === 1
-                      ? "up"
-                      : "right"
-                }
-                delay={(i % 3) * 0.08}
-              >
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="h-full glass rounded-2xl p-6"
-                >
-                  <item.icon className="h-6 w-6 text-brand-magenta mb-4" />
-
-                  <h3 className="font-semibold text-base mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground leading-6">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              </DirReveal>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
       {/* CASE STUDIES */}
       <section className="py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+                <Sparkles className="h-4 w-4 text-brand-yellow" />
                 Case Studies
               </div>
 
@@ -698,13 +590,250 @@ export default function HomePage() {
         </div>
       </section>
 
+
+
+      {/* HOW WE THINK */}
+      <section className="relative overflow-hidden bg-background py-24 text-foreground sm:py-28">
+        {/* Multicolor background accents */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-[5%] top-10 h-80 w-80 rounded-full bg-brand-cyan/10 blur-[130px]" />
+          <div className="absolute left-1/3 top-1/2 h-72 w-72 rounded-full bg-brand-magenta/10 blur-[130px]" />
+          <div className="absolute right-[5%] bottom-0 h-80 w-80 rounded-full bg-brand-yellow/10 blur-[130px]" />
+          <div className="absolute right-1/3 top-1/4 h-64 w-64 rounded-full bg-purple-500/5 blur-[120px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Heading */}
+          <Reveal className="mb-16 max-w-4xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
+              How We Think
+            </div>
+
+            <h2 className="text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+              Marketing that moves
+              <br className="hidden sm:block" /> the{" "}
+              <span className="text-gradient-brand">
+                business forward.
+              </span>
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              We connect strategy, acquisition, conversion and measurement
+              into a structured growth process that turns digital attention
+              into real customers and measurable business results.
+            </p>
+          </Reveal>
+
+          {/*
+      Each step has its own theme color.
+      Desktop: horizontal timeline.
+      Mobile/tablet: vertical timeline.
+    */}
+
+          {(() => {
+            const steps = [
+              {
+                number: "01",
+                title: "STRATEGY",
+                desc: "Understand your business, audience, competition and growth objective.",
+                icon: Target,
+                color: "text-brand-cyan",
+                line: "border-brand-cyan/30",
+                iconBorder: "border-brand-cyan/30 group-hover:border-brand-cyan",
+                iconBg: "bg-brand-cyan/10",
+                glow: "group-hover:shadow-[0_0_30px_rgba(0,220,255,0.12)]",
+                numberColor: "text-brand-cyan/40 group-hover:text-brand-cyan",
+                dot: "bg-brand-cyan",
+              },
+              {
+                number: "02",
+                title: "ACQUISITION",
+                desc: "Reach the right people through Google, Meta, SEO, social and content.",
+                icon: Megaphone,
+                color: "text-brand-magenta",
+                line: "border-brand-magenta/30",
+                iconBorder: "border-brand-magenta/30 group-hover:border-brand-magenta",
+                iconBg: "bg-brand-magenta/10",
+                glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.12)]",
+                numberColor: "text-brand-magenta/40 group-hover:text-brand-magenta",
+                dot: "bg-brand-magenta",
+              },
+              {
+                number: "03",
+                title: "CONVERSION",
+                desc: "Turn attention into enquiries, leads and customers.",
+                icon: TrendingUp,
+                color: "text-brand-yellow",
+                line: "border-brand-yellow/30",
+                iconBorder: "border-brand-yellow/30 group-hover:border-brand-yellow",
+                iconBg: "bg-brand-yellow/10",
+                glow: "group-hover:shadow-[0_0_30px_rgba(250,204,21,0.12)]",
+                numberColor: "text-brand-yellow/40 group-hover:text-brand-yellow",
+                dot: "bg-brand-yellow",
+              },
+              {
+                number: "04",
+                title: "MEASUREMENT",
+                desc: "Track performance to understand what is actually working.",
+                icon: ChartNoAxesCombined,
+                color: "text-purple-400",
+                line: "border-purple-400/30",
+                iconBorder: "border-purple-400/30 group-hover:border-purple-400",
+                iconBg: "bg-purple-400/10",
+                glow: "group-hover:shadow-[0_0_30px_rgba(192,132,252,0.12)]",
+                numberColor: "text-purple-400/40 group-hover:text-purple-400",
+                dot: "bg-purple-400",
+              },
+              {
+                number: "05",
+                title: "OPTIMIZATION",
+                desc: "Improve campaigns, funnels and customer acquisition over time.",
+                icon: SlidersHorizontal,
+                color: "text-emerald-400",
+                line: "border-emerald-400/30",
+                iconBorder: "border-emerald-400/30 group-hover:border-emerald-400",
+                iconBg: "bg-emerald-400/10",
+                glow: "group-hover:shadow-[0_0_30px_rgba(52,211,153,0.12)]",
+                numberColor: "text-emerald-400/40 group-hover:text-emerald-400",
+                dot: "bg-emerald-400",
+              },
+            ];
+
+            return (
+              <>
+                {/* Desktop timeline */}
+                <div className="relative hidden lg:block">
+                  {/* Multicolor dotted connector */}
+                  <div className="absolute left-0 right-0 top-11 flex border-t border-dashed border-border/60">
+                    {steps.map((step) => (
+                      <div
+                        key={step.number}
+                        className={`flex-1 border-t-2 border-dashed ${step.line}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="relative grid grid-cols-5 gap-5">
+                    {steps.map((step, i) => (
+                      <Reveal key={step.number} delay={i * 0.1}>
+                        <motion.div
+                          whileHover={{ y: -6 }}
+                          className="group flex h-full flex-col items-center text-center"
+                        >
+                          {/* Icon box */}
+                          <div
+                            className={`relative z-10 grid h-[88px] w-[88px] place-items-center rounded-[22px] border bg-card/80 backdrop-blur-md transition-all duration-300 ${step.iconBorder} ${step.iconBg} ${step.glow}`}
+                          >
+                            <step.icon
+                              className={`h-8 w-8 ${step.color} transition-transform duration-300 group-hover:scale-110`}
+                              strokeWidth={1.8}
+                            />
+                          </div>
+
+                          {/* Number */}
+                          <div
+                            className={`mt-6 font-display text-5xl font-extrabold tracking-tight transition-colors duration-300 ${step.numberColor}`}
+                          >
+                            {step.number}
+                          </div>
+
+                          <h3
+                            className={`mt-3 text-lg font-extrabold tracking-tight transition-colors duration-300 ${step.color}`}
+                          >
+                            {step.title}
+                          </h3>
+
+                          <p className="mt-4 max-w-[220px] text-sm leading-7 text-muted-foreground">
+                            {step.desc}
+                          </p>
+                        </motion.div>
+                      </Reveal>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mobile and tablet vertical timeline */}
+                <div className="relative lg:hidden">
+                  {/* Vertical dotted connector */}
+                  {/* Vertical multicolor dotted connector */}
+                  <div className="absolute bottom-12 left-[35px] top-10 flex flex-col">
+                    <div className="flex-1 border-l-2 border-dashed border-brand-cyan/50" />
+                  </div>
+
+                  <div className="space-y-9">
+                    {steps.map((step, i) => (
+                      <DirReveal
+                        key={step.number}
+                        from="left"
+                        delay={i * 0.08}
+                      >
+                        <motion.div
+                          whileHover={{ x: 3 }}
+                          className="group relative flex items-start gap-5 sm:gap-6"
+                        >
+                          {/* Icon */}
+                          <div
+                            className={`relative z-10 grid h-[72px] w-[72px] shrink-0 place-items-center rounded-2xl border bg-card/90 backdrop-blur-md transition-all duration-300 ${step.iconBorder} ${step.iconBg} ${step.glow}`}
+                          >
+                            <step.icon
+                              className={`h-7 w-7 ${step.color}`}
+                              strokeWidth={1.8}
+                            />
+                          </div>
+
+                          {/* Text */}
+                          <div className="min-w-0 flex-1 pt-1">
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                              <span
+                                className={`font-display text-3xl font-extrabold transition-colors duration-300 ${step.numberColor}`}
+                              >
+                                {step.number}
+                              </span>
+
+                              <h3
+                                className={`text-lg font-extrabold tracking-tight sm:text-xl ${step.color}`}
+                              >
+                                {step.title}
+                              </h3>
+                            </div>
+
+                            <p className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+                              {step.desc}
+                            </p>
+                          </div>
+                        </motion.div>
+                      </DirReveal>
+                    ))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
+
+          {/* Closing message */}
+          <Reveal className="mt-14 text-center">
+            <p className="text-sm font-medium text-muted-foreground">
+              A continuous cycle of{" "}
+              <span className="text-brand-cyan">learning</span>,{" "}
+              <span className="text-brand-magenta">improving</span>,{" "}
+              <span className="text-brand-yellow">measuring</span> and{" "}
+              <span className="text-emerald-400">growing.</span>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+
+
       {/* TOOLS & TECHNOLOGIES */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
           <Reveal className="text-center mb-10">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
-              Tools & Technologies We Use
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
+              Tools &amp; Technologies We Use
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold">
@@ -768,11 +897,107 @@ export default function HomePage() {
       </section>
 
 
+      {/* ABOUT BOOST UP DIGITAL */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* IMAGE */}
+            <DirReveal from="left">
+              <div className="relative overflow-hidden rounded-3xl glass">
+                <img
+                  src="/about-office.jpg"
+                  alt="Boost Up Digital office"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-background/90 backdrop-blur-md px-4 py-2 text-xs font-semibold">
+                    <MapPin className="h-4 w-4 text-brand-magenta" />
+                    Kolkata, West Bengal
+                  </div>
+                </div>
+              </div>
+            </DirReveal>
+
+            {/* CONTENT */}
+            <Reveal>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+                <Sparkles className="h-4 w-4 text-brand-yellow" />
+                About Boost Up Digital
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+                Digital Marketing That Delivers{" "}
+                <span className="text-gradient-brand">
+                  Business Growth
+                </span>
+              </h2>
+
+              <div className="mt-6 space-y-4 text-muted-foreground leading-7">
+                <p>
+                  Boost Up Digital is a performance-driven digital marketing
+                  agency based in Kolkata, helping businesses grow through
+                  strategic online marketing.
+                </p>
+
+                <p>
+                  We don't believe in marketing for the sake of marketing.
+                  Every campaign we create is designed with one objective —
+                  to generate more leads, increase sales and deliver measurable
+                  business growth.
+                </p>
+
+                <p>
+                  Whether you're a healthcare clinic looking for more patient
+                  enquiries, an educational institution trying to increase
+                  admissions, or a local business wanting more customers,
+                  our team builds customized digital marketing strategies
+                  around your business goals.
+                </p>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                {[
+                  "Performance focused",
+                  "Transparent reporting",
+                  "Affordable pricing",
+                  "Industry-focused strategies",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-sm font-medium"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-brand-magenta shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/about"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+              >
+                Learn More About Us
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Reveal>
+
+          </div>
+
+        </div>
+      </section>
+
+
       {/* TESTIMONIALS */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+              <Sparkles className="h-4 w-4 text-brand-yellow" />
               Testimonials
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold">
@@ -827,6 +1052,7 @@ export default function HomePage() {
         </div>
       </section>
 
+
       {/* FAQ + SEO */}
       <section className="py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -835,7 +1061,8 @@ export default function HomePage() {
 
             {/* FAQ */}
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
+                <Sparkles className="h-4 w-4 text-brand-yellow" />
                 Frequently Asked Questions
               </div>
 

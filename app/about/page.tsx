@@ -14,38 +14,8 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { DirReveal } from "@/components/DirReveal";
+import Image from "next/image";
 
-// export const Route = createFileRoute("/about")({
-//   head: () => ({
-//     meta: [
-//       {
-//         title:
-//           "About Us — Boost Up Digital | Lead-Generating Marketing Agency Since 2024",
-//       },
-//       {
-//         name: "description",
-//         content:
-//           "Founded in 2024 in Singur, Hooghly, Boost Up Digital is a results-obsessed digital marketing and entertainment studio helping 100+ brands across India generate leads, scale revenue and craft cinematic stories.",
-//       },
-//       {
-//         name: "keywords",
-//         content:
-//           "about Boost Up Digital, digital marketing agency Hooghly, lead generation agency India, our team, our clients, portfolio",
-//       },
-//       {
-//         property: "og:title",
-//         content:
-//           "About Boost Up Digital — A studio built for measurable growth",
-//       },
-//       {
-//         property: "og:description",
-//         content:
-//           "Meet the team, see the work, and read the story behind India's most outcome-driven new-age marketing agency.",
-//       },
-//     ],
-//   }),
-//   component: About,
-// });
 
 const milestones = [
   {
@@ -166,67 +136,19 @@ type ClientLogo = {
   to: "orange" | "yellow" | "magenta" | "cyan";
 };
 
-const clients: ClientLogo[] = [
-  {
-    name: "NestCart",
-    mark: "NC",
-    shape: "circle",
-    from: "magenta",
-    to: "orange",
-  },
-  {
-    name: "Roy Jewellers",
-    mark: "RJ",
-    shape: "diamond",
-    from: "yellow",
-    to: "orange",
-  },
-  {
-    name: "Urban Bazaar",
-    mark: "UB",
-    shape: "square",
-    from: "cyan",
-    to: "magenta",
-  },
-  { name: "FitFuel", mark: "FF", shape: "hex", from: "orange", to: "yellow" },
-  { name: "EduPro", mark: "EP", shape: "circle", from: "cyan", to: "orange" },
-  {
-    name: "Singur Sweets",
-    mark: "SS",
-    shape: "diamond",
-    from: "magenta",
-    to: "yellow",
-  },
-  {
-    name: "Aroma Café",
-    mark: "AC",
-    shape: "square",
-    from: "orange",
-    to: "magenta",
-  },
-  {
-    name: "Hooghly Homes",
-    mark: "HH",
-    shape: "hex",
-    from: "yellow",
-    to: "cyan",
-  },
-  {
-    name: "Drape Studio",
-    mark: "DS",
-    shape: "circle",
-    from: "magenta",
-    to: "cyan",
-  },
-  { name: "MetroFit", mark: "MF", shape: "square", from: "cyan", to: "yellow" },
-  {
-    name: "GreenLeaf",
-    mark: "GL",
-    shape: "diamond",
-    from: "yellow",
-    to: "magenta",
-  },
-  { name: "Bengal Brew", mark: "BB", shape: "hex", from: "orange", to: "cyan" },
+const clients = [
+  { name: "ADS Hospital", logo: "/logos/ads.jpeg" },
+  { name: "Bengal Institute of Health Science", logo: "/logos/bihs.jpeg" },
+  { name: "Jewellery Brand", logo: "/logos/Jewar.jpeg" },
+  { name: "Red Plus Society Nursing Home", logo: "/logos/rps.jpeg" },
+  { name: "VIMT", logo: "/logos/vimt.jpeg" },
+  { name: "Client 6", logo: "/logos/client-6.jpeg" },
+  { name: "Client 7", logo: "/logos/client-7.jpeg" },
+  { name: "Client 8", logo: "/logos/client-8.jpeg" },
+  { name: "Client 9", logo: "/logos/client-9.jpeg" },
+  { name: "Client 10", logo: "/logos/client-10.jpeg" },
+  { name: "Client 11", logo: "/logos/client-11.jpeg" },
+  { name: "Client 12", logo: "/logos/client-12.jpeg" },
 ];
 
 const testimonials = [
@@ -249,64 +171,6 @@ const testimonials = [
     role: "CEO, Urban Bazaar",
   },
 ];
-function LogoMark({ c }: { c: ClientLogo }) {
-  const gradId = `lg-${c.mark}`;
-  const fromVar = `var(--brand-${c.from})`;
-  const toVar = `var(--brand-${c.to})`;
-  return (
-    <svg viewBox="0 0 64 64" className="h-12 w-12 shrink-0" aria-hidden="true">
-      <defs>
-        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={fromVar} />
-          <stop offset="100%" stopColor={toVar} />
-        </linearGradient>
-      </defs>
-      {c.shape === "circle" && (
-        <circle cx="32" cy="32" r="28" fill={`url(#${gradId})`} />
-      )}
-      {c.shape === "square" && (
-        <rect
-          x="6"
-          y="6"
-          width="52"
-          height="52"
-          rx="10"
-          fill={`url(#${gradId})`}
-        />
-      )}
-      {c.shape === "diamond" && (
-        <rect
-          x="14"
-          y="14"
-          width="36"
-          height="36"
-          rx="6"
-          transform="rotate(45 32 32)"
-          fill={`url(#${gradId})`}
-        />
-      )}
-      {c.shape === "hex" && (
-        <polygon
-          points="32,4 56,18 56,46 32,60 8,46 8,18"
-          fill={`url(#${gradId})`}
-        />
-      )}
-      <text
-        x="32"
-        y="32"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontFamily="ui-sans-serif, system-ui, sans-serif"
-        fontWeight="800"
-        fontSize="22"
-        fill="#0b0b14"
-        letterSpacing="-1"
-      >
-        {c.mark}
-      </text>
-    </svg>
-  );
-}
 
 export default function About() {
   return (
@@ -588,35 +452,41 @@ export default function About() {
       {/* CLIENTS */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+          <Reveal className="mb-12 text-center">
+            <div className="mb-3 text-xs uppercase tracking-[0.3em] text-brand-cyan">
               Our Clients
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold">
+
+            <h2 className="text-4xl font-bold sm:text-5xl">
               Trusted by{" "}
               <span className="text-gradient-brand">100+ brands</span>.
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              From scrappy D2C startups to legacy retailers — here are a few
-              names that put their growth in our hands.
+
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              From healthcare and education to retail, jewellery and hospitality,
+              we partner with businesses across different industries.
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {clients.map((c, i) => (
+
+          <div className="grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-6 lg:gap-x-10 lg:gap-y-12">
+            {clients.map((client, i) => (
               <DirReveal
-                key={c.name}
+                key={client.name}
                 from={i % 2 === 0 ? "left" : "right"}
                 delay={(i % 4) * 0.08}
               >
                 <motion.div
-                  whileHover={{ y: -4, scale: 1.03 }}
-                  className="group relative glass rounded-2xl p-5 h-24 flex items-center gap-3 overflow-hidden"
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ duration: 0.25 }}
+                  className="relative mx-auto h-24 w-full max-w-44 sm:h-28 sm:max-w-52"
                 >
-                  <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-10 transition-opacity" />
-                  <LogoMark c={c} />
-                  <div className="font-display font-bold text-base sm:text-lg tracking-tight leading-tight bg-gradient-to-br from-foreground to-foreground/60 group-hover:from-brand-magenta group-hover:via-brand-orange group-hover:to-brand-yellow bg-clip-text text-transparent transition-all">
-                    {c.name}
-                  </div>
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 220px"
+                    className="object-contain"
+                  />
                 </motion.div>
               </DirReveal>
             ))}

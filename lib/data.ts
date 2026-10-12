@@ -1,4 +1,4 @@
-import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award, Code2, MapPin, Clapperboard } from "lucide-react";
+import { Search, Share2, Target, Megaphone, Globe, Film, HeartPulse, GraduationCap, Sofa, Factory, Gem, PawPrint, TrendingUp, Link2, ThumbsUp, BarChart3, Award, Code2, MapPin, Clapperboard, BriefcaseBusiness, Building2, Hotel } from "lucide-react";
 
 export const services = [
   {
@@ -35,24 +35,25 @@ export const services = [
 
 export const stats = [
   {
-    to: 30,
+    to: 125,
     suffix: "+",
-    label: "Businesses Served",
+    label: "Brands Boosted",
   },
   {
-    to: 2,
+    to: 10,
     suffix: "M+",
-    label: "Advertising Impressions",
+    label: "Impressions Driven",
   },
   {
-    to: 10000,
-    suffix: "+",
-    label: "Qualified Leads Generated",
+    to: 4.9,
+    suffix: "/5",
+    label: "Client Rating",
+    decimals: 1,
   },
   {
-    to: 50,
-    suffix: "L+",
-    label: "Advertising Budget Managed",
+    to: 73,
+    suffix: "%+",
+    label: "Average Campaign Growth",
   },
 ];
 
@@ -84,32 +85,42 @@ export const industries = [
   {
     icon: HeartPulse,
     title: "Healthcare",
-    desc: "Doctors, clinics, hospitals & healthcare brands",
+    desc: "Hospitals, clinics, doctors and healthcare brands",
   },
   {
     icon: GraduationCap,
     title: "Education",
-    desc: "Schools, institutes & education businesses",
+    desc: "Schools, colleges, coaching institutes and education businesses",
   },
   {
     icon: Sofa,
     title: "Interior Design",
-    desc: "Interior designers & home design brands",
+    desc: "Interior designers, architecture studios and home design brands",
   },
   {
     icon: Factory,
     title: "Manufacturing",
-    desc: "Manufacturers, industrial & B2B businesses",
+    desc: "Manufacturers, industrial companies and B2B businesses",
   },
   {
     icon: Gem,
     title: "Retail & Jewellery",
-    desc: "Retail, fashion & jewellery businesses",
+    desc: "Retail stores, jewellery brands, fashion and lifestyle businesses",
   },
   {
-    icon: PawPrint,
-    title: "Pet Care",
-    desc: "Pet stores, clinics & pet-care brands",
+    icon: Building2,
+    title: "Real Estate",
+    desc: "Property developers, real estate agencies and property consultants",
+  },
+  {
+    icon: Hotel,
+    title: "Hospitality",
+    desc: "Hotels, restaurants, resorts and hospitality businesses",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Professional Services",
+    desc: "Consultants, agencies and other professional service providers",
   },
 ];
 

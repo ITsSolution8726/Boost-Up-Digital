@@ -11,8 +11,8 @@ import Image from "next/image";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/entertainment", label: "Entertainment" },
+  // { to: "/services", label: "Services" },
+  // { to: "/entertainment", label: "Entertainment" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -36,21 +36,10 @@ export default function Header() {
               width={180}
               height={55}
               className="h-auto w-[160px] sm:w-[160px] object-contain"
-              // className="rounded-lg object-cover"
             />
-
-            {/* <div className="hidden sm:block leading-tight">
-              <div className="font-display font-bold text-lg text-gradient-brand">
-                Boost Up
-              </div>
-
-              <div className="text-[10px] tracking-[0.3em] text-muted-foreground -mt-1">
-                DIGITAL
-              </div>
-            </div> */}
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => {
               const active = pathname === item.to;
 
