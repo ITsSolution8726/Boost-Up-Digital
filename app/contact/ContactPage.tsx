@@ -33,7 +33,7 @@ const channels = [
     value: "+91 85091 21389",
     href: "tel:+918509121389",
   },
-  { icon: MapPin, label: "Studio", value: "Singur, Hooghly, West Bengal" },
+  { icon: MapPin, label: "Studio", value: "Kolkata, West Bengal" },
 ];
 
 const socials = [

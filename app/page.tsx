@@ -20,12 +20,40 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { Counter, Typewriter } from "@/components/Counter";
 
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+
+
 import Link from "next/link";
 import { DirReveal } from "@/components/DirReveal";
 import { caseStudies, faqs, industries, services, stats, testimonials, tools, whyChooseUs } from "@/lib/data";
 
 
 export default function HomePage() {
+
+  const [selectedCaseStudy, setSelectedCaseStudy] =
+    useState<(typeof caseStudies)[number] | null>(null);
+
+  useEffect(() => {
+    if (!selectedCaseStudy) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedCaseStudy(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedCaseStudy]);
+
   return (
     <>
       {/* HERO */}
@@ -450,7 +478,7 @@ export default function HomePage() {
               },
               {
                 name: "Hearup",
-                logo: "/logos/hearup.jpeg",
+                logo: "/logos/hearup.png",
               },
               {
                 name: "Annapurna",
@@ -522,17 +550,24 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             {caseStudies.map((item, i) => (
               <DirReveal
                 key={item.title}
                 from={i === 0 ? "left" : i === 1 ? "up" : "right"}
+                className="h-full"
               >
-                <motion.article
-                  whileHover={{ y: -6 }}
-                  className="group overflow-hidden rounded-3xl glass h-full"
+                <motion.button
+                  type="button"
+                  onClick={() => setSelectedCaseStudy(item)}
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-label={`View case study: ${item.title}`}
+                  className="group flex h-full w-full flex-col overflow-hidden rounded-3xl glass text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
-                  <div className="aspect-[16/10] overflow-hidden">
+                  {/* Fixed image height */}
+                  <div className="h-56 w-full shrink-0 overflow-hidden sm:h-64">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -540,20 +575,22 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="p-6">
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-2">
+                  {/* Content fills remaining height */}
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-brand-cyan">
                       {item.category}
                     </div>
 
-                    <h3 className="text-xl font-bold">
+                    <h3 className="line-clamp-2 min-h-[3.5rem] text-xl font-bold">
                       {item.title}
                     </h3>
 
-                    <p className="mt-3 text-sm text-muted-foreground leading-6">
+                    <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">
                       {item.desc}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-border/40">
+                    {/* Metrics stay aligned at the bottom */}
+                    <div className="mt-auto grid grid-cols-3 gap-3 border-t border-border/40 pt-5 mt-6">
                       <div>
                         <div className="text-xl font-bold text-gradient-brand">
                           {item.metric1}
@@ -582,15 +619,164 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                </motion.article>
+                </motion.button>
               </DirReveal>
             ))}
           </div>
 
+
         </div>
       </section>
+      {/* CASE STUDY MODAL */}
+      {selectedCaseStudy && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-3 backdrop-blur-sm sm:p-6"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setSelectedCaseStudy(null);
+            }
+          }}
+        >
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="case-study-modal-title"
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.2 }}
+            className="modal-scrollbar-hidden relative max-h-[92dvh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-border/40 bg-background shadow-2xl sm:rounded-3xl"
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setSelectedCaseStudy(null)}
+              aria-label="Close case study"
+              className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition hover:bg-black/80 sm:right-4 sm:top-4"
+            >
+              <X className="h-5 w-5" />
+            </button>
 
+            {/* Case study image */}
+            <div className="aspect-[16/9] overflow-hidden bg-muted">
+              <img
+                src={selectedCaseStudy.image}
+                alt={selectedCaseStudy.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
 
+            <div className="p-5 sm:p-8 lg:p-10">
+              {/* Category */}
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-cyan">
+                {selectedCaseStudy.category}
+              </p>
+
+              {/* Title */}
+              <h2
+                id="case-study-modal-title"
+                className="mt-3 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl"
+              >
+                {selectedCaseStudy.title}
+              </h2>
+
+              <p className="mt-4 leading-7 text-muted-foreground">
+                {selectedCaseStudy.desc}
+              </p>
+
+              {/* Results */}
+              <div className="mt-7 grid grid-cols-3 gap-3 border-y border-border/40 py-6 sm:gap-6">
+                {[
+                  {
+                    value: selectedCaseStudy.metric1,
+                    label: selectedCaseStudy.metric1Label,
+                  },
+                  {
+                    value: selectedCaseStudy.metric2,
+                    label: selectedCaseStudy.metric2Label,
+                  },
+                  {
+                    value: selectedCaseStudy.metric3,
+                    label: selectedCaseStudy.metric3Label,
+                  },
+                ].map((metric) => (
+                  <div key={metric.label} className="min-w-0">
+                    <p className="break-words text-xl font-bold text-gradient-brand sm:text-3xl">
+                      {metric.value}
+                    </p>
+                    <p className="mt-1 text-[10px] leading-4 text-muted-foreground sm:text-sm">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Challenge */}
+              <div className="mt-7">
+                <h3 className="text-lg font-bold sm:text-xl">
+                  The Challenge
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
+                  {selectedCaseStudy.challenge}
+                </p>
+              </div>
+
+              {/* Strategy */}
+              <div className="mt-7">
+                <h3 className="text-lg font-bold sm:text-xl">
+                  Our Digital Marketing Strategy
+                </h3>
+
+                <ul className="mt-3 space-y-3">
+                  {selectedCaseStudy.strategy.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-sm leading-6 text-muted-foreground sm:text-base"
+                    >
+                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-brand-cyan" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Outcome */}
+              <div className="mt-7 rounded-2xl border border-border/40 bg-muted/30 p-5 sm:p-6">
+                <h3 className="text-lg font-bold sm:text-xl">
+                  Results &amp; Outcomes
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
+                  {selectedCaseStudy.outcome}
+                </p>
+              </div>
+
+              {/* Relevant keywords */}
+              <div className="mt-7">
+                <h3 className="text-sm font-semibold">Related Services</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {selectedCaseStudy.keywords.map((keyword) => (
+                    <span
+                      key={keyword}
+                      className="rounded-full border border-border/50 px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <Link
+                href="/contact"
+                onClick={() => setSelectedCaseStudy(null)}
+                className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-center text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.01] sm:w-auto"
+              >
+                Discuss Your Marketing Goals
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      )}
 
       {/* HOW WE THINK */}
       <section className="relative overflow-hidden bg-background py-24 text-foreground sm:py-28">
@@ -824,8 +1010,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* TOOLS & TECHNOLOGIES */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -907,7 +1091,7 @@ export default function HomePage() {
             <DirReveal from="left">
               <div className="relative overflow-hidden rounded-3xl glass">
                 <img
-                  src="/about-office.jpg"
+                  src="/about-office.png"
                   alt="Boost Up Digital office"
                   className="w-full aspect-[4/3] object-cover"
                 />

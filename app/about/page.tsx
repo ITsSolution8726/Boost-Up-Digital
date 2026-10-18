@@ -137,18 +137,30 @@ type ClientLogo = {
 };
 
 const clients = [
+  // Existing clients
   { name: "ADS Hospital", logo: "/logos/ads.jpeg" },
   { name: "Bengal Institute of Health Science", logo: "/logos/bihs.jpeg" },
   { name: "Jewellery Brand", logo: "/logos/Jewar.jpeg" },
   { name: "Red Plus Society Nursing Home", logo: "/logos/rps.jpeg" },
   { name: "VIMT", logo: "/logos/vimt.jpeg" },
-  { name: "Client 6", logo: "/logos/client-6.jpeg" },
-  { name: "Client 7", logo: "/logos/client-7.jpeg" },
-  { name: "Client 8", logo: "/logos/client-8.jpeg" },
-  { name: "Client 9", logo: "/logos/client-9.jpeg" },
-  { name: "Client 10", logo: "/logos/client-10.jpeg" },
-  { name: "Client 11", logo: "/logos/client-11.jpeg" },
-  { name: "Client 12", logo: "/logos/client-12.jpeg" },
+
+  // New clients
+  { name: "AP's Glow Star", logo: "/logos/ap-glowstar.png" },
+  { name: "AP's Champion Gym", logo: "/logos/ap-gym.jpeg" },
+  { name: "Appayan Caterer", logo: "/logos/appayan.jpeg" },
+  { name: "Brainsight Neurovision Institute", logo: "/logos/brainsight.jpeg" },
+  { name: "Hare Krishna Nursing Home", logo: "/logos/hare-krishna-nursing.jpeg" },
+  { name: "HK Health Care Private Limited", logo: "/logos/hk-healthcare.jpeg" },
+  { name: "Jewellery Museum", logo: "/logos/jewellery-museum.jpeg" },
+  { name: "Kidz Dental Solution", logo: "/logos/kidz-dental.jpeg" },
+  { name: "Malati Speech & Hearing Clinic", logo: "/logos/malati.jpeg" },
+  { name: "Ma Manasha Jewellers", logo: "/logos/ma-manasha-jewellers.jpeg" },
+  { name: "Mediseure Diagnostic Centre", logo: "/logos/mediseure.jpeg" },
+  { name: "Nabaday Netralay", logo: "/logos/nabaday.jpeg" },
+  { name: "Nayandisha Eye Foundation", logo: "/logos/nayandisha.jpeg" },
+  { name: "Nirvi Ventures", logo: "/logos/nirvi.jpeg" },
+  { name: "Reshmi Gallery", logo: "/logos/reshmi-gallry.jpeg" },
+  { name: "Susthiti", logo: "/logos/susthiti.jpeg" },
 ];
 
 const testimonials = [
@@ -468,7 +480,7 @@ export default function About() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-6 lg:gap-x-10 lg:gap-y-12">
+          <div className="grid grid-cols-3 items-center gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-7 lg:gap-x-10 lg:gap-y-12">
             {clients.map((client, i) => (
               <DirReveal
                 key={client.name}

@@ -82,8 +82,14 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -93,7 +99,16 @@
       radial-gradient(ellipse 60% 40% at 90% 80%, oklch(0.78 0.15 200 / 0.1), transparent);
     background-attachment: fixed;
   }
-  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
 
 @utility text-gradient-brand {
@@ -102,14 +117,27 @@
   background-clip: text;
   color: transparent;
 }
+
 @utility bg-gradient-brand {
   background-image: var(--gradient-brand);
 }
+
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
 }
+
 @utility glass {
   background-color: oklch(0.12 0.015 280 / 0.6);
   backdrop-filter: blur(16px);
   border: 1px solid oklch(1 0 0 / 0.08);
+}
+
+/* Hide scrollbar while keeping modal scrolling functional */
+.modal-scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer / Edge legacy */
+}
+
+.modal-scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and modern Chromium browsers */
 }

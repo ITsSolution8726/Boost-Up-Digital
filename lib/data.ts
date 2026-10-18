@@ -157,44 +157,94 @@ export const whyChooseUs = [
   },
 ];
 
+
 export const caseStudies = [
   {
-    category: "Healthcare",
-    title: "+120% Increase in Leads",
-    desc: "Targeted Google & local SEO strategy helped improve qualified enquiries.",
+    category: "Healthcare Digital Marketing",
+    title: "Healthcare Digital Marketing Case Study: 120% Lead Growth",
+    shortTitle: "Healthcare Lead Generation",
+    desc: "A targeted digital marketing strategy combining Google Ads and local SEO to help a healthcare business increase qualified patient enquiries.",
+    image: "/case-study-healthcare.jpeg",
     metric1: "120%",
     metric1Label: "Lead Growth",
     metric2: "₹75",
     metric2Label: "Cost per Lead",
     metric3: "2.8x",
     metric3Label: "ROAS",
-    image: "/case-study-healthcare.jpg",
+    challenge:
+      "Improve online visibility and attract more relevant enquiries from people searching for healthcare services.",
+    strategy: [
+      "Targeted Google Ads campaigns focused on relevant healthcare searches.",
+      "Local SEO improvements to strengthen visibility in location-based searches.",
+      "Campaign performance monitoring to evaluate lead generation and acquisition costs.",
+    ],
+    outcome:
+      "The reported campaign results included 120% lead growth, a ₹75 cost per lead, and 2.8x return on ad spend.",
+    keywords: [
+      "Healthcare digital marketing",
+      "Healthcare lead generation",
+      "Google Ads for healthcare",
+      "Local SEO for healthcare",
+    ],
   },
   {
-    category: "Eye Hospital",
-    title: "Appointment Growth with Google Ads",
-    desc: "Performance campaigns generated more qualified appointment enquiries.",
+    category: "Eye Hospital Marketing",
+    title: "Google Ads for Eye Hospitals: Appointment Lead Generation",
+    shortTitle: "Eye Hospital Appointment Growth",
+    desc: "A performance marketing approach designed to generate qualified appointment enquiries and help an eye hospital reach people actively searching for eye care.",
+    image: "/case-study-eye.jpeg",
     metric1: "85%",
     metric1Label: "More Enquiries",
     metric2: "₹90",
     metric2Label: "Cost per Lead",
     metric3: "3.1x",
     metric3Label: "ROAS",
-    image: "/case-study-eye.jpg",
+    challenge:
+      "Reach people looking for eye care services and generate more appointment-related enquiries through digital campaigns.",
+    strategy: [
+      "Google Ads campaigns aligned with relevant eye care and hospital searches.",
+      "Audience and search targeting focused on appointment intent.",
+      "Performance tracking to assess enquiry volume and cost per lead.",
+    ],
+    outcome:
+      "The reported campaign results included 85% more enquiries, a ₹90 cost per lead, and 3.1x return on ad spend.",
+    keywords: [
+      "Digital marketing for eye hospitals",
+      "Google Ads for eye clinics",
+      "Hospital appointment lead generation",
+      "Healthcare performance marketing",
+    ],
   },
   {
-    category: "Diagnostics Centre",
-    title: "Local SEO Success",
-    desc: "Improved local search visibility and generated stronger organic enquiries.",
+    category: "Diagnostic Centre SEO",
+    title: "Local SEO for Diagnostic Centres: 65% Traffic Growth",
+    shortTitle: "Diagnostic Centre Local SEO",
+    desc: "A local search marketing strategy focused on improving diagnostic centre visibility, attracting relevant organic traffic, and generating monthly enquiries.",
+    image: "/case-study-diagnostics.jpeg",
     metric1: "65%",
     metric1Label: "Traffic Growth",
     metric2: "150+",
     metric2Label: "Monthly Leads",
     metric3: "4.2x",
     metric3Label: "ROAS",
-    image: "/case-study-diagnostics.jpg",
+    challenge:
+      "Improve local search visibility and help potential customers discover diagnostic services online.",
+    strategy: [
+      "Local SEO improvements targeting relevant diagnostic service searches.",
+      "Search visibility optimization for location-based discovery.",
+      "Organic traffic and enquiry monitoring to evaluate campaign performance.",
+    ],
+    outcome:
+      "The reported results included 65% traffic growth, more than 150 monthly leads, and 4.2x return on ad spend.",
+    keywords: [
+      "Local SEO for diagnostic centres",
+      "Diagnostic centre digital marketing",
+      "SEO for pathology labs",
+      "Local healthcare lead generation",
+    ],
   },
 ];
+
 
 export const tools = [
   {

@@ -14,8 +14,7 @@ import {
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/work", label: "Work" },
+  { to: "/#services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -24,21 +23,15 @@ const services = [
   { to: "/services#google-ads", label: "Google Ads" },
   { to: "/services#meta-ads", label: "Meta Ads" },
   { to: "/services#social-media", label: "Social Media" },
-  {
-    to: "/services#web-development",
-    label: "Web Design & Development",
-  },
-  {
-    to: "/services#ad-films",
-    label: "Ad Films & TVC",
-  },
+  { to: "/services#web-development", label: "Web Design & Development", },
+  { to: "/services#ad-films", label: "Ad Films & TVC", },
 ];
 
 export default function Footer() {
   return (
     <footer className="mt-12 border-t border-border/40 glass">
       {/* Main Footer */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* COLUMN 1 - Logo & Social */}
@@ -106,12 +99,12 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               {services.map((service) => (
                 <li key={service.to}>
-                  <Link
+                  {/* <Link
                     href={service.to}
                     className="text-foreground/80 hover:text-brand-magenta transition-colors"
-                  >
+                  > */}
                     {service.label}
-                  </Link>
+                  {/* </Link> */}
                 </li>
               ))}
             </ul>
