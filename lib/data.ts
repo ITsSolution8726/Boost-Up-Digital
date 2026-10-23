@@ -66,34 +66,15 @@ export const testimonials = [
     role: "Annapurna Interior",
     img: "/logos/annapurna.jpeg",
   },
-  {
-    quote:
-      "BoostUp Digital has helped Bak Sruti Speech & Hearing Clinic generate regular, high-quality leads through Google Ads and Meta Ads. Their Local SEO strategies have also improved our visibility in local search results, helping us reach more potential patients. We appreciate their strategic approach and consistent efforts toward our digital growth.",
-    name: "Nirmalya Ghosh",
-    role: "Bardhaman Speech and Hearing Centre",
-    img: "/logos/bak-sruti.jpeg",
-  },
-  {
-    quote:
-      "BoostUp Digital brought a fresh approach to our online marketing. Their social media campaigns, Meta Ads, and Local SEO have helped AKS Medicare Pvt. Ltd. connect with a wider audience and strengthen their digital presence.",
-    name: "Apurba Krishna Sinha",
-    role: "AKS Medicare Pvt. Ltd.",
-    img: "/logos/aks.jpeg",
-  },
+ 
   {
     quote:
       "With BoostUp Digital’s support, Redplus has taken a step forward in digital marketing. Their social media campaigns, Meta Ads, and Local SEO have helped us build stronger online visibility and connect with our target audience.",
     name: "Apurba Krishna Sinha",
     role: "Red Plus Nursing Home",
-    img: "/logos/red-plus.jpeg",
+    img: "/logos/rps.jpeg",
   },
-  {
-    quote:
-      "From building our online presence to reaching more local audiences, BoostUp Digital has supported Navshruti Clinic with creative social media marketing, targeted Meta Ads, and Local SEO.",
-    name: "Debashis Basu",
-    role: "Navshruti",
-    img: "/logos/navshruti.jpeg",
-  },
+  
   {
     quote:
       "Since partnering with BoostUp Digital, New Looks has been building a stronger digital presence. Their targeted ads, creative social media, and Local SEO have helped us reach the right audience.",

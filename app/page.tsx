@@ -470,7 +470,7 @@ export default function HomePage() {
               },
               {
                 name: "AKS",
-                logo: "/logos/aks.jpeg",
+                logo: "/logos/aks.png",
               },
               {
                 name: "Bindubasini",
@@ -478,7 +478,7 @@ export default function HomePage() {
               },
               {
                 name: "Hazra",
-                logo: "/logos/hazra.jpeg",
+                logo: "/logos/hazra.png",
               },
               {
                 name: "Hearup",

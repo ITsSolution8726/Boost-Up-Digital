@@ -11,6 +11,7 @@ import {
   Linkedin,
   Twitter,
   ExternalLink,
+  Star,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { DirReveal } from "@/components/DirReveal";
@@ -70,22 +71,22 @@ const values = [
 
 const team = [
   {
-    img: "/ArpanB.png",
-    name: "Arpan Bhattacharyya",
-    role: "Founder & Growth Lead",
-    bio: "10+ yrs across performance marketing and brand strategy. Obsessed with CAC payback.",
+    img: "/Santanu.jpeg",
+    name: "Santanu Ghosh",
+    role: "Founder",
+    bio: "Leads business vision and growth strategy, bringing 10+ years of experience in performance marketing, customer acquisition, and brand development.",
   },
   {
     img: "/ArpanH.png",
     name: "Arpan Halder",
-    role: "Creative Director",
-    bio: "Award-winning art direction across TVCs and digital. Story-first, always.",
+    role: "Co-founder & CMO",
+    bio: "Drives creative strategy and brand communication, combining impactful art direction with compelling storytelling across digital campaigns and TV commercials.",
   },
   {
-    img: "/Santanu.jpeg",
-    name: "Santanu Ghosh",
-    role: "Head of Paid Media",
-    bio: "Scaled 7-figure ad accounts on Meta, Google and YouTube — ROAS first, vanity last.",
+    img: "/ArpanB.png",
+    name: "Arpan Bhattacharyya",
+    role: "Co-founder & COO",
+    bio: "Oversees campaign execution and operations, focusing on data-driven advertising, performance optimization, and measurable growth across Meta, Google, and YouTube.",
   },
 ];
 
@@ -128,13 +129,6 @@ const portfolio = [
   },
 ];
 
-type ClientLogo = {
-  name: string;
-  mark: string; // monogram
-  shape: "circle" | "square" | "hex" | "diamond";
-  from: "magenta" | "orange" | "yellow" | "cyan";
-  to: "orange" | "yellow" | "magenta" | "cyan";
-};
 
 const clients = [
   // Existing clients
@@ -166,21 +160,24 @@ const clients = [
 const testimonials = [
   {
     quote:
-      "Our cost-per-lead dropped 64% in the first 90 days. Boost Up Digital just gets performance — and they prove it on a dashboard, not a deck.",
-    name: "Aritra Sen",
-    role: "Founder, NestCart",
+      "BoostUp Digital has helped Bak Sruti Speech & Hearing Clinic generate regular, high-quality leads through Google Ads and Meta Ads. Their Local SEO strategies have also improved our visibility in local search results, helping us reach more potential patients. We appreciate their strategic approach and consistent efforts toward our digital growth.",
+    name: "Nirmalya Ghosh",
+    role: "Bardhaman Speech and Hearing Centre",
+    img: "/logos/bak-sruti.jpeg",
   },
   {
     quote:
-      "They made our brand look like a Fortune 500. The TVC alone tripled our showroom enquiries within a month.",
-    name: "Megha Roy",
-    role: "MD, Roy Jewellers",
+      "BoostUp Digital brought a fresh approach to our online marketing. Their social media campaigns, Meta Ads, and Local SEO have helped AKS Medicare Pvt. Ltd. connect with a wider audience and strengthen their digital presence.",
+    name: "Apurba Krishna Sinha",
+    role: "AKS Medicare Pvt. Ltd.",
+    img: "/logos/aks.png",
   },
   {
     quote:
-      "Best decision of 2024. Honest reporting, real growth, and creative that pops on every feed.",
-    name: "Vikram Das",
-    role: "CEO, Urban Bazaar",
+      "From building our online presence to reaching more local audiences, BoostUp Digital has supported Navshruti Clinic with creative social media marketing, targeted Meta Ads, and Local SEO.",
+    name: "Debashis Basu",
+    role: "Navshruti",
+    img: "/logos/navshruti.jpeg",
   },
 ];
 
@@ -549,21 +546,56 @@ export default function About() {
               Clients, on record.
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {testimonials.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.1}>
+              <Reveal
+                key={`${t.name}-${i}`}
+                delay={i * 0.12}
+                className="h-full"
+              >
                 <motion.div
-                  whileHover={{ y: -4 }}
-                  className="glass rounded-2xl p-7 h-full"
+                  whileHover={{ y: -8 }}
+                  className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl glass p-7"
                 >
-                  <Quote className="h-7 w-7 text-brand-magenta mb-4" />
-                  <p className="text-foreground/90 mb-6 leading-relaxed">
+                  {/* Decorative hover effect */}
+                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30" />
+
+                  {/* Quote icon */}
+                  <Quote className="relative h-8 w-8 shrink-0 text-brand-magenta mb-4" />
+
+                  {/* Star rating */}
+                  <div className="relative flex gap-1 mb-4 shrink-0">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star
+                        key={j}
+                        className="h-4 w-4 fill-brand-yellow text-brand-yellow"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Testimonial text */}
+                  <p className="relative mb-6 flex-1 text-foreground/90 leading-relaxed">
                     "{t.quote}"
                   </p>
-                  <div className="border-t border-border/40 pt-4">
-                    <div className="font-semibold">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {t.role}
+
+                  {/* Reviewer details: consistently aligned at the bottom */}
+                  <div className="relative mt-auto flex min-h-[65px] shrink-0 items-center gap-3 border-t border-border/40 pt-4">
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      loading="lazy"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-brand-magenta/40"
+                    />
+
+                    <div className="min-w-0">
+                      <div className="font-semibold leading-snug">
+                        {t.name}
+                      </div>
+                      <div className="text-xs text-muted-foreground leading-relaxed">
+                        {t.role}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
