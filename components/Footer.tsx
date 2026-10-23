@@ -24,7 +24,7 @@ const services = [
   { to: "/services#meta-ads", label: "Meta Ads" },
   { to: "/services#social-media", label: "Social Media" },
   { to: "/services#web-development", label: "Web Design & Development", },
-  { to: "/services#ad-films", label: "Ad Films & TVC", },
+  { to: "/services#ad-films", label: "Ad Films & Entertainment", },
 ];
 
 export default function Footer() {

@@ -400,20 +400,24 @@ export default function HomePage() {
                   key={industry.title}
                   from={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
                   delay={(i % 3) * 0.08}
+                  className="h-full"
                 >
                   <motion.div
                     whileHover={{ y: -5 }}
-                    className="h-full min-h-[150px] rounded-2xl glass p-5 flex flex-col items-center justify-center text-center"
+                    className="flex h-full min-h-[190px] flex-col items-center rounded-2xl glass p-5 text-center"
                   >
-                    <div className="h-12 w-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-4">
+                    {/* Fixed icon position */}
+                    <div className="mb-4 grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-brand shadow-glow">
                       <industry.icon className="h-6 w-6 text-primary-foreground" />
                     </div>
 
-                    <h3 className="font-semibold text-sm">
+                    {/* Industry title */}
+                    <h3 className="min-h-[40px] flex items-center justify-center text-sm font-semibold leading-5">
                       {industry.title}
                     </h3>
 
-                    <p className="mt-2 text-xs text-muted-foreground leading-5">
+                    {/* Description */}
+                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
                       {industry.desc}
                     </p>
                   </motion.div>
@@ -790,7 +794,7 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Heading */}
-          <Reveal className="mb-16 max-w-4xl">
+          <Reveal className="mx-auto mb-16 max-w-4xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
               <Sparkles className="h-4 w-4 text-brand-yellow" />
               How We Think
@@ -804,7 +808,7 @@ export default function HomePage() {
               </span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               We connect strategy, acquisition, conversion and measurement
               into a structured growth process that turns digital attention
               into real customers and measurable business results.
@@ -1080,7 +1084,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* ABOUT BOOST UP DIGITAL */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1175,7 +1178,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* TESTIMONIALS */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1193,16 +1195,26 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {testimonials.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.12}>
+              <Reveal
+                key={`${t.name}-${i}`}
+                delay={i * 0.12}
+                className="h-full"
+              >
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className="group relative h-full glass rounded-3xl p-7 overflow-hidden"
+                  className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl glass p-7"
                 >
-                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 blur-3xl transition-opacity" />
-                  <Quote className="h-8 w-8 text-brand-magenta mb-4" />
-                  <div className="flex gap-1 mb-4">
+                  {/* Decorative hover effect */}
+                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30" />
+
+                  {/* Quote icon */}
+                  <Quote className="relative h-8 w-8 shrink-0 text-brand-magenta mb-4" />
+
+                  {/* Star rating */}
+                  <div className="relative flex gap-1 mb-4 shrink-0">
                     {Array.from({ length: 5 }).map((_, j) => (
                       <Star
                         key={j}
@@ -1210,21 +1222,28 @@ export default function HomePage() {
                       />
                     ))}
                   </div>
-                  <p className="text-foreground/90 mb-6 leading-relaxed">
+
+                  {/* Testimonial text */}
+                  <p className="relative mb-6 flex-1 text-foreground/90 leading-relaxed">
                     "{t.quote}"
                   </p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-border/40">
+
+                  {/* Reviewer details: consistently aligned at the bottom */}
+                  <div className="relative mt-auto flex min-h-[65px] shrink-0 items-center gap-3 border-t border-border/40 pt-4">
                     <img
                       src={t.img}
                       alt={t.name}
                       loading="lazy"
-                      width={768}
-                      height={768}
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-brand-magenta/40"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-brand-magenta/40"
                     />
-                    <div>
-                      <div className="font-semibold">{t.name}</div>
-                      <div className="text-xs text-muted-foreground">
+
+                    <div className="min-w-0">
+                      <div className="font-semibold leading-snug">
+                        {t.name}
+                      </div>
+                      <div className="text-xs text-muted-foreground leading-relaxed">
                         {t.role}
                       </div>
                     </div>

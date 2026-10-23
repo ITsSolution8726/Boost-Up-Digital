@@ -27,7 +27,7 @@ export const services = [
     icon: Code2,
   },
   {
-    title: "Ad Films & TVC",
+    title: "Ad Films & Entertainment",
     desc: "Cinema-grade ad films, TVCs & social spots that move audiences.",
     icon: Clapperboard,
   },
@@ -57,29 +57,73 @@ export const stats = [
   },
 ];
 
+
 export const testimonials = [
   {
     quote:
-      "Boost Up Digital didn't just run our ads — they built a pipeline. CPL dropped 64% in 90 days and we haven't looked back.",
-    name: "Aritra Sen",
-    role: "Founder, NestCart",
-    img: "./person-1.jpg",
+      "BoostUp Digital has helped Annapurna Interior strengthen its online presence through social media marketing, Meta Ads, and Local SEO. Their strategic approach has helped us reach more potential customers and improve our local visibility. We appreciate their efforts in supporting our business growth.",
+    name: "Supratim Kundu",
+    role: "Annapurna Interior",
+    img: "/logos/annapurna.jpeg",
   },
   {
     quote:
-      "Our TVC tripled enquiries in the first month. The creative team understands how to make stories sell.",
-    name: "Megha Roy",
-    role: "MD, Roy Jewellers",
-    img: "./person-2.jpg",
+      "BoostUp Digital has helped Bak Sruti Speech & Hearing Clinic generate regular, high-quality leads through Google Ads and Meta Ads. Their Local SEO strategies have also improved our visibility in local search results, helping us reach more potential patients. We appreciate their strategic approach and consistent efforts toward our digital growth.",
+    name: "Nirmalya Ghosh",
+    role: "Bardhaman Speech and Hearing Centre",
+    img: "/logos/bak-sruti.jpeg",
   },
   {
     quote:
-      "Easily the most professional agency we've worked with. Transparent reporting, real growth, zero fluff.",
-    name: "Vikram Das",
-    role: "CEO, Urban Bazaar",
-    img: "./person-3.jpg",
+      "BoostUp Digital brought a fresh approach to our online marketing. Their social media campaigns, Meta Ads, and Local SEO have helped AKS Medicare Pvt. Ltd. connect with a wider audience and strengthen their digital presence.",
+    name: "Apurba Krishna Sinha",
+    role: "AKS Medicare Pvt. Ltd.",
+    img: "/logos/aks.jpeg",
+  },
+  {
+    quote:
+      "With BoostUp Digital’s support, Redplus has taken a step forward in digital marketing. Their social media campaigns, Meta Ads, and Local SEO have helped us build stronger online visibility and connect with our target audience.",
+    name: "Apurba Krishna Sinha",
+    role: "Red Plus Nursing Home",
+    img: "/logos/red-plus.jpeg",
+  },
+  {
+    quote:
+      "From building our online presence to reaching more local audiences, BoostUp Digital has supported Navshruti Clinic with creative social media marketing, targeted Meta Ads, and Local SEO.",
+    name: "Debashis Basu",
+    role: "Navshruti",
+    img: "/logos/navshruti.jpeg",
+  },
+  {
+    quote:
+      "Since partnering with BoostUp Digital, New Looks has been building a stronger digital presence. Their targeted ads, creative social media, and Local SEO have helped us reach the right audience.",
+    name: "Mithun Das",
+    role: "New Looks",
+    img: "/logos/new-looks.jpeg",
+  },
+  {
+    quote:
+      "Our online reach is growing with BoostUp Digital’s support. From Meta Ads to social media and Local SEO, their team has helped AP’s Glow Star get noticed by more potential customers.",
+    name: "Amit Paul",
+    role: "AP’s Glow Star",
+    img: "/logos/ap-glowstar.png",
+  },
+  {
+    quote:
+      "A fresh digital approach with visible impact! BoostUp Digital has helped Jewar Jewellers strengthen its online presence and showcase our brand to a wider audience.",
+    name: "Subham Barman",
+    role: "Jewar Jewellers",
+    img: "/logos/Jewar.jpeg",
+  },
+  {
+    quote:
+      "From showcasing our collections to reaching new customers, BoostUp Digital has added value to Adi A.P. Jewellers’ online marketing journey. A creative and supportive team!",
+    name: "Amit Paul",
+    role: "Adi A.P. Jewellers",
+    img: "/logos/adi-ap-jewellers.jpeg",
   },
 ];
+
 
 export const industries = [
   {
