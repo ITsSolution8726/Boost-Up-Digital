@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Check,
   MessageCircle,
+  Clapperboard,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -27,14 +28,15 @@ const services = [
     title: "Search Engine Optimisation",
     tag: "SEO",
     image: "/svc-seo.jpg",
-    desc: "Rank where buyers search. We engineer on-page, off-page and technical SEO programmes that turn Google into your most reliable salesperson — compounding traffic and qualified leads month after month.",
+    desc: "Rank higher, get discovered, and turn organic search into a consistent source of qualified traffic and leads.",
     long: "From technical audits and Core Web Vitals fixes to high-intent keyword strategy, content briefs, authority link building and local SEO for Google Business Profile — every lever is pulled to dominate your category SERPs.",
     points: [
-      "Keyword research & mapping",
-      "Technical & on-page SEO",
-      "Authority link building",
-      "Local & Google Business SEO",
-      "Monthly rank & traffic reports",
+      "Keyword & Search Strategy",
+      "On-Page SEO",
+      "Technical SEO",
+      "Local SEO",
+      "Content Optimization",
+      "Performance Tracking",
     ],
   },
   {
@@ -43,14 +45,15 @@ const services = [
     title: "Social Media Marketing",
     tag: "SMM",
     image: "/svc-social.jpg",
-    desc: "Show up daily, sound like a brand, sell every week. We run end-to-end social media strategy, content calendars and community building across Instagram, Facebook, LinkedIn and YouTube.",
+    desc: "Build a stronger social presence with strategic content, consistent communication and campaigns designed to grow reach, engagement and demand.",
     long: "Strategy-first content systems — pillar-driven reels, carousels, stories and long-form video produced in-house. We blend brand storytelling with performance hooks so every post earns either attention, trust or a tap on 'Buy Now'.",
     points: [
-      "Brand voice & content pillars",
-      "Daily publishing & reels",
-      "Community management",
-      "Influencer & UGC outreach",
-      "Monthly growth reports",
+      "Social Media Strategy",
+      "Content Planning",
+      "Creative Direction",
+      "Community Management",
+      "Instagram & Facebook",
+      "LinkedIn & Other Platforms",
     ],
   },
   {
@@ -59,14 +62,15 @@ const services = [
     title: "Meta Ads — Facebook & Instagram",
     tag: "Meta Ads",
     image: "/svc-meta.jpg",
-    desc: "Funnels engineered for CAC, not vanity metrics. Our Meta Ads pods build creative-led campaigns across Facebook and Instagram designed to lower cost-per-lead and scale ROAS predictably.",
+    desc: "Reach the right audience with performance-focused Meta campaigns built to generate qualified leads, enquiries and conversions.",
     long: "From Advantage+ shopping campaigns to retargeting funnels, catalog ads, lead-gen forms and conversion API tracking — we run rapid creative testing cycles to find winners fast and pour budget into what actually pays back.",
     points: [
-      "Creative testing framework",
-      "Advantage+ & Manual campaigns",
-      "Retargeting & catalog ads",
-      "Conversion API setup",
-      "Daily optimisation",
+      "Campaign Strategy",
+      "Audience Research",
+      "Lead Generation",
+      "Conversion Campaigns",
+      "Retargeting",
+      "Performance Optimization",
     ],
   },
   {
@@ -75,14 +79,15 @@ const services = [
     title: "Google Ads & Performance Max",
     tag: "Google Ads",
     image: "/svc-google.jpg",
-    desc: "Capture demand the moment it appears. Search, Shopping, YouTube, Display and Performance Max campaigns built around conversion tracking and daily bid optimisation.",
+    desc: "Capture high-intent demand with Google Search, Display, YouTube and Performance Max campaigns focused on qualified leads and measurable conversions.",
     long: "We architect Google Ads accounts the right way — clean campaign structure, exact-match priority, SKAGs where they fit, asset-rich PMax, and YouTube TrueView funnels that drive both reach and revenue.",
     points: [
-      "Search & Shopping ads",
-      "Performance Max campaigns",
-      "YouTube video ads",
-      "Bid & budget optimisation",
-      "GA4 & GTM tracking setup",
+      "Google Search Ads",
+      "Display Advertising",
+      "YouTube Ads",
+      "Performance Max",
+      "Keyword Strategy",
+      "Conversion Tracking & Optimization",
     ],
   },
   {
@@ -91,54 +96,77 @@ const services = [
     title: "Web Design & Development",
     tag: "Web",
     image: "/svc-web.jpg",
-    desc: "Lightning-fast, conversion-first websites that look stunning on every screen. We build landing pages, full marketing sites and e-commerce experiences with measurable goals baked in.",
+    desc: "Fast, modern and mobile-first websites designed around your brand, user experience and business goals — not just aesthetics.",
     long: "Modern stack, blazing performance, SEO-ready architecture and pixel-perfect UI. Whether it's a 3-page lead magnet, a 50-page corporate site or a fully integrated Shopify/WordPress build — we ship sites that convert.",
     points: [
-      "High-converting landing pages",
-      "Corporate & marketing sites",
-      "E-commerce builds",
-      "Core Web Vitals tuning",
-      "CMS training & handoff",
+      "UI/UX Design",
+      "Responsive Development",
+      "Landing Pages",
+      "Conversion-Focused Websites",
+      "Website Optimization",
+      "Analytics & Tracking",
     ],
   },
   {
     icon: MessageCircle,
     color: "from-brand-magenta to-brand-cyan",
-    title: "End-to-End Social Media Handling",
+    title: "Content & Creative",
     tag: "Handling",
     image: "/svc-handling.jpg",
-    desc: "Hand us the keys. We manage every channel — Facebook, Instagram, LinkedIn, WhatsApp Business, YouTube — replying, posting, growing and reporting so you can focus on the business.",
+    desc: "From campaign concepts to social content, branded visuals and short-form video, we create creative that captures attention and supports your marketing goals.",
     long: "From inbox triage and WhatsApp catalogue setup to LinkedIn thought-leadership posting and YouTube channel growth — your customers feel heard within minutes and your brand stays in conversation 365 days a year.",
     points: [
-      "Inbox & DM management",
-      "WhatsApp Business setup",
-      "LinkedIn growth",
-      "Reels & shorts production",
-      "Weekly performance recap",
+      "Content Strategy",
+      "Social Creatives",
+      "Short-Form Video",
+      "Campaign Concepts",
+      "Brand Content",
+      "Creative Direction",
+    ],
+  },
+  {
+    icon: Clapperboard,
+    color: "from-brand-pink to-brand-yellow",
+    title: "Ad Films & TVC",
+    tag: "Video Production",
+    image: "/ent-3.jpg",
+    desc: "Cinema-grade ad films, TVCs and social spots created to tell memorable stories, strengthen brands and move audiences to action.",
+    long: "From creative concepts and compelling scripts to professional production and cinematic storytelling, we create impactful ad films, television commercials and social video campaigns that bring brands to life and connect with audiences.",
+    points: [
+      "Concept Development",
+      "Script & Storytelling",
+      "Production",
+      "Ad Films",
+      "TVCs",
+      "Social Video Campaigns",
     ],
   },
 ];
 
 const faqs = [
   {
-    q: "How long until I see results from digital marketing?",
-    a: "Paid media usually delivers measurable leads within 14–30 days of going live. Organic SEO compounds over 3–6 months. Most of our clients see a clear lift in pipeline within the first quarter of working with us.",
+    q: "What services does Boost Up Digital provide?",
+    a: "We provide SEO, Google Ads, Meta Ads, social media marketing, web design & development, content and creative services, and ad film/TVC production.",
   },
   {
-    q: "Do you work with small businesses and startups?",
-    a: "Absolutely. From local boutiques in Hooghly and Kolkata to D2C startups across India — if you're serious about growth, we tailor packages to your stage and budget.",
+    q: "Do you work with businesses of all sizes?",
+    a: "Yes. We work with startups, growing businesses and established brands, with strategies tailored to their goals and stage of growth.",
   },
   {
-    q: "Do you produce video content in-house?",
-    a: "Yes. Through our sister studio Boost Up Entertainment we shoot, edit and deliver ad films, TVCs, reels and corporate videos end-to-end — no third-party hand-offs.",
+    q: "Do you guarantee leads or sales?",
+    a: "We don't promise unrealistic results. We focus on building, measuring and continuously optimizing campaigns around business objectives and performance.",
   },
   {
-    q: "How do you report on performance?",
-    a: "Every client gets a live Looker Studio dashboard plus a monthly strategy review call. You always know exactly what's been spent, what's been earned, and what we're testing next.",
+    q: "Is advertising spend included in your fees?",
+    a: "Advertising budgets are generally separate from our service fees and are planned according to campaign objectives.",
   },
   {
-    q: "Can I hire you for just one service?",
-    a: "Yes. While most clients prefer our integrated growth retainer, you can hire us for SEO only, Ads only or Web only — pricing scales with scope.",
+    q: "Can I hire Boost Up for only one service?",
+    a: "Yes. Businesses can work with us for individual services or combine multiple capabilities into a complete growth strategy.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Start with a conversation or free marketing audit. We'll understand your goals and recommend the most suitable approach.",
   },
 ];
 
@@ -156,9 +184,9 @@ export default function Services() {
               <span className="text-gradient-brand">scale</span>.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              One studio, six disciplines, zero hand-offs. From keyword to
-              conversion — and the cinematic ad film that seals the deal — we
-              run the full growth stack under one roof.
+              From strategy to acquisition, conversion and optimization, we
+              bring together the digital tools businesses need to attract
+              customers and scale with confidence.
             </p>
           </Reveal>
         </div>
@@ -260,12 +288,13 @@ export default function Services() {
               Our Process
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold">
-              Four steps from{" "}
-              <span className="text-gradient-brand">brief to boom</span>.
+              <span className="text-gradient-brand">
+                From Strategy to Growth.
+              </span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              A repeatable, transparent system that takes your brand from
-              kickoff call to compounding growth — without the agency runaround.
+              A simple, measurable process designed to turn business goals into
+              marketing outcomes.
             </p>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -273,22 +302,22 @@ export default function Services() {
               {
                 n: "01",
                 t: "Discover",
-                d: "Deep-dive audits, audience research and goal-setting so every rupee has a target.",
+                d: "Understand your business, audience, competition and growth objectives.",
               },
               {
                 n: "02",
-                t: "Design",
-                d: "Strategy, funnels, messaging and creative direction — locked before a single ad goes live.",
+                t: "Strategy",
+                d: "Build the right marketing and acquisition strategy around your goals.",
               },
               {
                 n: "03",
-                t: "Deploy",
-                d: "Campaigns, websites and films launched on tight timelines with rigorous QA.",
+                t: "Execute",
+                d: "Launch campaigns, content, creative and digital experiences across the right channels.",
               },
               {
                 n: "04",
-                t: "Double Down",
-                d: "Weekly optimisation, monthly reviews — kill what fails, scale what wins.",
+                t: "Optimize",
+                d: "Measure performance, identify opportunities and continuously improve what works.",
               },
             ].map((p, i) => (
               <Reveal key={p.n} delay={i * 0.1}>
@@ -310,117 +339,55 @@ export default function Services() {
       {/* PRICING */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-16">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-3">
+          {/* Heading */}
+          <Reveal className="mb-16 text-center">
+            <div className="mb-3 text-xs uppercase tracking-[0.3em] text-brand-cyan">
               Pricing
             </div>
 
-            <h2 className="text-4xl sm:text-5xl font-bold">
-              Plans that <span className="text-gradient-brand">grow</span> with you.
+            <h2 className="text-4xl font-bold sm:text-5xl">
+              Solutions That{" "}
+              <span className="text-gradient-brand">Grow With You.</span>
             </h2>
 
-            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              Whether you're just starting or ready to scale aggressively, we have a
-              package designed to generate measurable business growth.
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Every business has different goals. Choose a starting point, and
+              we'll build the right strategy around your needs.
             </p>
           </Reveal>
 
-          <div className="grid gap-8 lg:grid-cols-3 items-stretch">
-
-            {/* Starter */}
+          {/* Pricing Cards */}
+          <div className="grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-3">
+            {/* 01 - Starter Growth */}
             <Reveal delay={0}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative glass rounded-3xl p-8 h-full flex flex-col"
+                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
               >
                 <div className="mb-6">
-                  <div className="inline-flex rounded-full bg-brand-cyan/15 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-cyan">
-                    Starter
+                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-cyan">
+                    01 <span className="text-muted-foreground/50">·</span> Entry
+                    Level
                   </div>
 
-                  <h3 className="mt-5 text-3xl font-bold">
-                    ₹9,999
-                    <span className="text-lg text-muted-foreground font-normal">
-                      /month
-                    </span>
-                  </h3>
+                  <h3 className="text-2xl font-bold">Starter Growth</h3>
 
-                  <p className="mt-3 text-muted-foreground">
-                    Perfect for startups and local businesses.
+                  <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
+                    For businesses building their digital presence.
                   </p>
                 </div>
 
-                <ul className="space-y-4 flex-1">
-                  {[
-                    "Social Media Management",
-                    "12 Creative Posts",
-                    "Facebook & Instagram",
-                    "Monthly Performance Report",
-                    "Basic SEO",
-                    "WhatsApp Support",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <Check className="h-5 w-5 shrink-0 text-brand-cyan" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link href="/contact?quote=true&plan=Starter"
-                  className="mt-8 inline-flex justify-center items-center rounded-full border border-border px-6 py-3 font-semibold hover:bg-secondary transition"
-                >
-                  Get Quote
-                </Link>
-              </motion.div>
-            </Reveal>
-
-            {/* Growth */}
-            <Reveal delay={0.1}>
-              <motion.div
-                whileHover={{ y: -8 }}
-                className="relative h-full rounded-3xl overflow-hidden bg-gradient-brand p-[1px]"
-              >
-                <div className="absolute top-5 right-5 rounded-full bg-background px-4 py-1 text-xs font-semibold text-brand-yellow">
-                  MOST POPULAR
+                <div className="mb-6 rounded-2xl bg-brand-cyan/5 p-5">
+                  <p className="text-sm font-semibold leading-7">
+                    Local SEO + Social Media Management + Brand Awareness
+                    Campaigns.
+                  </p>
                 </div>
 
-                <div className="glass rounded-[calc(1.5rem-1px)] p-8 h-full flex flex-col">
-                  <div className="mb-6">
-                    <div className="inline-flex rounded-full bg-brand-yellow/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-yellow">
-                      Growth
-                    </div>
-
-                    <h3 className="mt-5 text-3xl font-bold">
-                      ₹24,999
-                      <span className="text-lg text-muted-foreground font-normal">
-                        /month
-                      </span>
-                    </h3>
-
-                    <p className="mt-3 text-muted-foreground">
-                      Designed for brands ready to scale.
-                    </p>
-                  </div>
-
-                  <ul className="space-y-4 flex-1">
-                    {[
-                      "Everything in Starter",
-                      "Meta Ads Management",
-                      "Google Ads",
-                      "Advanced SEO",
-                      "Landing Page",
-                      "Weekly Reporting",
-                      "Lead Generation Funnel",
-                    ].map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <Check className="h-5 w-5 shrink-0 text-brand-yellow" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link href="/contact?quote=true&plan=Growth"
-                    className="mt-8 inline-flex justify-center items-center rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+                <div className="mt-auto">
+                  <Link
+                    href="/contact?quote=true&plan=Starter%20Growth"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-cyan/30 px-6 py-3 font-semibold transition hover:border-brand-cyan hover:bg-brand-cyan/10"
                   >
                     Get Quote
                   </Link>
@@ -428,58 +395,175 @@ export default function Services() {
               </motion.div>
             </Reveal>
 
-            {/* Enterprise */}
-            <Reveal delay={0.2}>
+            {/* 02 - Growth Essential */}
+            <Reveal delay={0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative glass rounded-3xl p-8 h-full flex flex-col"
+                className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-brand p-[1px]"
               >
-                <div className="mb-6">
-                  <div className="inline-flex rounded-full bg-brand-magenta/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-magenta">
-                    Enterprise
-                  </div>
-
-                  <h3 className="mt-5 text-3xl font-bold">
-                    Custom
-                  </h3>
-
-                  <p className="mt-3 text-muted-foreground">
-                    Complete growth partner for ambitious brands.
-                  </p>
+                <div className="absolute right-5 top-5 z-10 rounded-full bg-background px-4 py-1.5 text-[10px] font-bold tracking-wider text-brand-yellow">
+                  MOST ACCESSIBLE
                 </div>
 
-                <ul className="space-y-4 flex-1">
-                  {[
-                    "Unlimited Campaigns",
-                    "Dedicated Account Manager",
-                    "SEO + Ads + Social",
-                    "Website Development",
-                    "Ad Film Production",
-                    "Brand Strategy",
-                    "Priority Support",
-                    "Monthly Growth Meetings",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <Check className="h-5 w-5 shrink-0 text-brand-magenta" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex h-full flex-col rounded-[calc(1.5rem-1px)] glass p-7 sm:p-8">
+                  <div className="mb-6">
+                    <div className="mb-5 text-sm font-bold tracking-widest text-brand-magenta">
+                      02 <span className="text-muted-foreground/50">·</span>{" "}
+                      Lead Generation
+                    </div>
 
-                <Link href="/contact?quote=true&plan=Enterprise"
-                  className="mt-8 inline-flex justify-center items-center rounded-full border border-border px-6 py-3 font-semibold hover:bg-secondary transition"
-                >
-                  Get Quote
-                </Link>
+                    <h3 className="text-2xl font-bold">Growth Essential</h3>
+
+                    <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
+                      For businesses that want visibility and enquiries.
+                    </p>
+                  </div>
+
+                  <div className="mb-6 rounded-2xl bg-brand-magenta/5 p-5">
+                    <p className="text-sm font-semibold leading-7">
+                      Everything in Starter + Meta Ads Management + Lead
+                      Generation.
+                    </p>
+                  </div>
+
+                  <div className="mt-auto">
+                    <Link
+                      href="/contact?quote=true&plan=Growth%20Essential"
+                      className="inline-flex w-full items-center justify-center rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
+                    >
+                      Get Quote
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             </Reveal>
 
+            {/* 03 - Growth Pro */}
+            <Reveal delay={0.2}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+              >
+                <div className="mb-6">
+                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-yellow">
+                    03 <span className="text-muted-foreground/50">·</span>{" "}
+                    Advanced
+                  </div>
+
+                  <h3 className="text-2xl font-bold">Growth Pro</h3>
+
+                  <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
+                    For businesses ready to acquire customers through multiple
+                    channels.
+                  </p>
+                </div>
+
+                <div className="mb-6 rounded-2xl bg-brand-yellow/5 p-5">
+                  <p className="text-sm font-semibold leading-7">
+                    Everything in Growth Essential + AEO + Google Ads + Website
+                    Content Marketing.
+                  </p>
+                </div>
+
+                <div className="mt-auto">
+                  <Link
+                    href="/contact?quote=true&plan=Growth%20Pro"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-yellow/30 px-6 py-3 font-semibold transition hover:border-brand-yellow hover:bg-brand-yellow/10"
+                  >
+                    Get Quote
+                  </Link>
+                </div>
+              </motion.div>
+            </Reveal>
+
+            {/* 04 - Growth Accelerator */}
+            <Reveal delay={0.1}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+              >
+                <div className="mb-6">
+                  <div className="mb-5 text-sm font-bold tracking-widest text-purple-400">
+                    04 <span className="text-muted-foreground/50">·</span>{" "}
+                    Premium
+                  </div>
+
+                  <h3 className="text-2xl font-bold">Growth Accelerator</h3>
+
+                  <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
+                    For businesses looking for strategic performance marketing
+                    and brand building.
+                  </p>
+                </div>
+
+                <div className="mb-6 rounded-2xl bg-purple-400/5 p-5">
+                  <p className="text-sm font-semibold leading-7">
+                    Performance Marketing Strategy + Branding + Ad Films + Reel
+                    Commercials.
+                  </p>
+                </div>
+
+                <div className="mt-auto">
+                  <Link
+                    href="/contact?quote=true&plan=Growth%20Accelerator"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-purple-400/30 px-6 py-3 font-semibold transition hover:border-purple-400 hover:bg-purple-400/10"
+                  >
+                    Get Quote
+                  </Link>
+                </div>
+              </motion.div>
+            </Reveal>
+
+            {/* 05 - Custom Growth Solutions */}
+            <Reveal delay={0.2}>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+              >
+                <div className="mb-6">
+                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-magenta">
+                    05 <span className="text-muted-foreground/50">·</span>{" "}
+                    Flexible
+                  </div>
+
+                  <h3 className="text-2xl font-bold">
+                    Custom Growth Solutions
+                  </h3>
+
+                  <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
+                    For businesses with specific marketing requirements.
+                  </p>
+                </div>
+
+                <div className="mb-6 rounded-2xl bg-brand-magenta/5 p-5">
+                  <p className="text-sm font-semibold leading-7">
+                    Tailored marketing strategy, services and execution.
+                  </p>
+                </div>
+
+                <div className="mt-auto">
+                  <Link
+                    href="/contact?quote=true&plan=Custom%20Growth%20Solutions"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-magenta/30 px-6 py-3 font-semibold transition hover:border-brand-magenta hover:bg-brand-magenta/10"
+                  >
+                    Get Quote
+                  </Link>
+                </div>
+              </motion.div>
+            </Reveal>
           </div>
 
+          {/* Closing Message */}
           <Reveal delay={0.3}>
-            <p className="mt-10 text-center text-sm text-muted-foreground">
-              Need a custom solution? Every business is different. Contact us for a
-              tailored proposal based on your goals and budget.
+            <p className="mt-12 text-center text-sm leading-7 text-muted-foreground">
+              Not sure which plan is right for you?{" "}
+              <Link
+                href="/contact"
+                className="font-semibold text-brand-cyan transition hover:text-brand-magenta"
+              >
+                Talk to our team
+              </Link>{" "}
+              and get a growth strategy tailored to your business goals.
             </p>
           </Reveal>
         </div>
@@ -525,11 +609,11 @@ export default function Services() {
             <div className="rounded-3xl bg-gradient-brand p-10 md:p-14 text-center">
               <Film className="h-10 w-10 mx-auto text-primary-foreground mb-4" />
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
-                Let's draft a plan.
+                Let's Build Your Growth Plan.
               </h2>
               <p className="text-primary-foreground/80 mb-6">
-                A free 30-minute strategy call — we'll map quick wins and a
-                90-day roadmap tailored to your business.
+                Tell us what you're trying to achieve. We'll help you identify
+                the right channels, strategy and next steps.
               </p>
               <Link
                 href="/contact"

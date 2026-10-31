@@ -14,7 +14,7 @@ import {
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/#services", label: "Services" },
+  { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

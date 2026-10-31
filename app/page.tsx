@@ -23,16 +23,24 @@ import { Counter, Typewriter } from "@/components/Counter";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
-
 import Link from "next/link";
 import { DirReveal } from "@/components/DirReveal";
-import { caseStudies, faqs, industries, services, stats, testimonials, tools, whyChooseUs } from "@/lib/data";
-
+import {
+  caseStudies,
+  faqs,
+  industries,
+  services,
+  stats,
+  testimonials,
+  tools,
+  whyChooseUs,
+} from "@/lib/data";
+import Image from "next/image";
 
 export default function HomePage() {
-
-  const [selectedCaseStudy, setSelectedCaseStudy] =
-    useState<(typeof caseStudies)[number] | null>(null);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<
+    (typeof caseStudies)[number] | null
+  >(null);
 
   useEffect(() => {
     if (!selectedCaseStudy) return;
@@ -78,40 +86,28 @@ export default function HomePage() {
 
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid min-w-0 grid-cols-1 items-center gap-12 sm:gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-
             {/* LEFT */}
             <div>
-
               <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
-
                 <Sparkles className="h-4 w-4 text-brand-yellow" />
-
                 Performance-Driven Digital Marketing Agency
-
               </div>
 
               <h1 className="text-3xl lg:text-5xl font-bold leading-tight tracking-tight">
-
                 Helping Businesses
-
                 <br />
-
                 <span className="text-gradient-brand">
-
                   Generate More Leads,
-
                 </span>
-
                 <br />
-
                 Increase Sales & <br />
                 Grow Faster
               </h1>
 
               <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-8 ">
-
-                We help businesses attract the right audience, generate qualified leads, and turn digital marketing into measurable business growth.
-
+                We help businesses attract the right audience, generate
+                qualified leads, and turn digital marketing into measurable
+                business growth.
               </p>
               <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold leading-6 tracking-wide sm:text-sm sm:leading-8">
                 <span className="text-brand-cyan">Strategy</span>
@@ -147,10 +143,22 @@ export default function HomePage() {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 {[
-                  { icon: Megaphone, label: "Google Ads", color: "text-brand-magenta" },
+                  {
+                    icon: Megaphone,
+                    label: "Google Ads",
+                    color: "text-brand-magenta",
+                  },
                   { icon: Search, label: "SEO", color: "text-brand-cyan" },
-                  { icon: Target, label: "Meta Ads", color: "text-brand-yellow" },
-                  { icon: Globe, label: "Web Development", color: "text-brand-magenta" },
+                  {
+                    icon: Target,
+                    label: "Meta Ads",
+                    color: "text-brand-yellow",
+                  },
+                  {
+                    icon: Globe,
+                    label: "Web Development",
+                    color: "text-brand-magenta",
+                  },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -161,81 +169,45 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-
             </div>
 
             {/* RIGHT */}
 
-            <div className="relative hidden lg:block">
+            {/* RIGHT - HERO VISUAL */}
+            <div className="relative hidden min-w-0 items-center justify-center lg:flex">
+              {/* Background glow */}
+              <div className="absolute inset-0 rounded-full bg-brand-magenta/15 blur-[100px]" />
 
               <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                initial={{ opacity: 0, scale: 2, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -8, 0],
                 }}
-                className="glass rounded-3xl p-8 shadow-glow"
+                transition={{
+                  opacity: { duration: 0.8 },
+                  scale: { duration: 0.8 },
+                  y: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                className="relative z-10 w-full max-w-[680px]"
               >
-
-                <img
-                  src="/dashboard.png"
-                  alt=""
-                  className="rounded-2xl"
+                <Image
+                  src="/hero2.png"
+                  alt="BoostUp Digital marketing growth with advertising, SEO and analytics"
+                  fetchPriority="high"
+                  width={980}
+                  height={780}
+                  className="h-full w-full object-contain"
                 />
-
               </motion.div>
-
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                }}
-                className="absolute -left-8 top-12 glass rounded-2xl p-5"
-              >
-
-                <div className="text-xs text-muted-foreground">
-                  Leads
-                </div>
-
-                <div className="text-3xl font-bold text-brand-cyan">
-
-                  +125%
-
-                </div>
-
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{
-                  duration: 7,
-                  repeat: Infinity,
-                }}
-                className="absolute -right-6 bottom-16 glass rounded-2xl p-5"
-              >
-
-                <div className="text-xs text-muted-foreground">
-
-                  ROAS
-
-                </div>
-
-                <div className="text-3xl font-bold text-brand-magenta">
-
-                  4.8x
-
-                </div>
-
-              </motion.div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* STATS */}
@@ -326,11 +298,7 @@ export default function HomePage() {
               ];
 
               return (
-                <DirReveal
-                  key={s.title}
-                  from={dirs[i]}
-                  delay={(i % 3) * 0.08}
-                >
+                <DirReveal key={s.title} from={dirs[i]} delay={(i % 3) * 0.08}>
                   <motion.div
                     whileHover={{ y: -6 }}
                     className="group relative h-full rounded-2xl glass p-7 overflow-hidden"
@@ -342,13 +310,9 @@ export default function HomePage() {
                         <s.icon className="h-6 w-6 text-primary-foreground" />
                       </div>
 
-                      <h3 className="text-xl font-semibold mb-2">
-                        {s.title}
-                      </h3>
+                      <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
 
-                      <p className="text-sm text-muted-foreground">
-                        {s.desc}
-                      </p>
+                      <p className="text-sm text-muted-foreground">{s.desc}</p>
                     </div>
                   </motion.div>
                 </DirReveal>
@@ -371,9 +335,7 @@ export default function HomePage() {
       {/* INDUSTRIES */}
       <section className="py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
-
             <Reveal>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
                 <Sparkles className="h-4 w-4 text-brand-yellow" />
@@ -388,8 +350,8 @@ export default function HomePage() {
               </h2>
 
               <p className="mt-5 text-muted-foreground leading-7">
-                Every industry has different customers, buying behaviour
-                and competition. That's why we create customized marketing
+                Every industry has different customers, buying behaviour and
+                competition. That's why we create customized marketing
                 strategies tailored to your business goals.
               </p>
             </Reveal>
@@ -424,7 +386,6 @@ export default function HomePage() {
                 </DirReveal>
               ))}
             </div>
-
           </div>
         </div>
       </section>
@@ -432,7 +393,6 @@ export default function HomePage() {
       {/* TRUSTED BY */}
       <section className="border-y border-border/40 bg-background/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-
           <Reveal className="text-center mb-8">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
               <Sparkles className="h-4 w-4 text-brand-yellow" />
@@ -522,14 +482,12 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* CASE STUDIES */}
       <section className="py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12">
             <Reveal>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
@@ -539,9 +497,7 @@ export default function HomePage() {
 
               <h2 className="text-4xl sm:text-5xl font-bold">
                 Real Results.{" "}
-                <span className="text-gradient-brand">
-                  Real Impact.
-                </span>
+                <span className="text-gradient-brand">Real Impact.</span>
               </h2>
             </Reveal>
 
@@ -553,7 +509,6 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             {caseStudies.map((item, i) => (
@@ -627,8 +582,6 @@ export default function HomePage() {
               </DirReveal>
             ))}
           </div>
-
-
         </div>
       </section>
       {/* CASE STUDY MODAL */}
@@ -716,9 +669,7 @@ export default function HomePage() {
 
               {/* Challenge */}
               <div className="mt-7">
-                <h3 className="text-lg font-bold sm:text-xl">
-                  The Challenge
-                </h3>
+                <h3 className="text-lg font-bold sm:text-xl">The Challenge</h3>
                 <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
                   {selectedCaseStudy.challenge}
                 </p>
@@ -803,15 +754,13 @@ export default function HomePage() {
             <h2 className="text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
               Marketing that moves
               <br className="hidden sm:block" /> the{" "}
-              <span className="text-gradient-brand">
-                business forward.
-              </span>
+              <span className="text-gradient-brand">business forward.</span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              We connect strategy, acquisition, conversion and measurement
-              into a structured growth process that turns digital attention
-              into real customers and measurable business results.
+              We connect strategy, acquisition, conversion and measurement into
+              a structured growth process that turns digital attention into real
+              customers and measurable business results.
             </p>
           </Reveal>
 
@@ -830,7 +779,8 @@ export default function HomePage() {
                 icon: Target,
                 color: "text-brand-cyan",
                 line: "border-brand-cyan/30",
-                iconBorder: "border-brand-cyan/30 group-hover:border-brand-cyan",
+                iconBorder:
+                  "border-brand-cyan/30 group-hover:border-brand-cyan",
                 iconBg: "bg-brand-cyan/10",
                 glow: "group-hover:shadow-[0_0_30px_rgba(0,220,255,0.12)]",
                 numberColor: "text-brand-cyan/40 group-hover:text-brand-cyan",
@@ -843,10 +793,12 @@ export default function HomePage() {
                 icon: Megaphone,
                 color: "text-brand-magenta",
                 line: "border-brand-magenta/30",
-                iconBorder: "border-brand-magenta/30 group-hover:border-brand-magenta",
+                iconBorder:
+                  "border-brand-magenta/30 group-hover:border-brand-magenta",
                 iconBg: "bg-brand-magenta/10",
                 glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.12)]",
-                numberColor: "text-brand-magenta/40 group-hover:text-brand-magenta",
+                numberColor:
+                  "text-brand-magenta/40 group-hover:text-brand-magenta",
                 dot: "bg-brand-magenta",
               },
               {
@@ -856,10 +808,12 @@ export default function HomePage() {
                 icon: TrendingUp,
                 color: "text-brand-yellow",
                 line: "border-brand-yellow/30",
-                iconBorder: "border-brand-yellow/30 group-hover:border-brand-yellow",
+                iconBorder:
+                  "border-brand-yellow/30 group-hover:border-brand-yellow",
                 iconBg: "bg-brand-yellow/10",
                 glow: "group-hover:shadow-[0_0_30px_rgba(250,204,21,0.12)]",
-                numberColor: "text-brand-yellow/40 group-hover:text-brand-yellow",
+                numberColor:
+                  "text-brand-yellow/40 group-hover:text-brand-yellow",
                 dot: "bg-brand-yellow",
               },
               {
@@ -869,7 +823,8 @@ export default function HomePage() {
                 icon: ChartNoAxesCombined,
                 color: "text-purple-400",
                 line: "border-purple-400/30",
-                iconBorder: "border-purple-400/30 group-hover:border-purple-400",
+                iconBorder:
+                  "border-purple-400/30 group-hover:border-purple-400",
                 iconBg: "bg-purple-400/10",
                 glow: "group-hover:shadow-[0_0_30px_rgba(192,132,252,0.12)]",
                 numberColor: "text-purple-400/40 group-hover:text-purple-400",
@@ -882,7 +837,8 @@ export default function HomePage() {
                 icon: SlidersHorizontal,
                 color: "text-emerald-400",
                 line: "border-emerald-400/30",
-                iconBorder: "border-emerald-400/30 group-hover:border-emerald-400",
+                iconBorder:
+                  "border-emerald-400/30 group-hover:border-emerald-400",
                 iconBg: "bg-emerald-400/10",
                 glow: "group-hover:shadow-[0_0_30px_rgba(52,211,153,0.12)]",
                 numberColor: "text-emerald-400/40 group-hover:text-emerald-400",
@@ -953,11 +909,7 @@ export default function HomePage() {
 
                   <div className="space-y-9">
                     {steps.map((step, i) => (
-                      <DirReveal
-                        key={step.number}
-                        from="left"
-                        delay={i * 0.08}
-                      >
+                      <DirReveal key={step.number} from="left" delay={i * 0.08}>
                         <motion.div
                           whileHover={{ x: 3 }}
                           className="group relative flex items-start gap-5 sm:gap-6"
@@ -1017,7 +969,6 @@ export default function HomePage() {
       {/* TOOLS & TECHNOLOGIES */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-
           <Reveal className="text-center mb-10">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
               <Sparkles className="h-4 w-4 text-brand-yellow" />
@@ -1026,9 +977,7 @@ export default function HomePage() {
 
             <h2 className="text-3xl sm:text-4xl font-bold">
               Powered by the{" "}
-              <span className="text-gradient-brand">
-                right tools
-              </span>
+              <span className="text-gradient-brand">right tools</span>
             </h2>
           </Reveal>
 
@@ -1080,16 +1029,13 @@ export default function HomePage() {
               </DirReveal>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* ABOUT BOOST UP DIGITAL */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
             {/* IMAGE */}
             <DirReveal from="left">
               <div className="relative overflow-hidden rounded-3xl glass">
@@ -1119,9 +1065,7 @@ export default function HomePage() {
 
               <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
                 Digital Marketing That Delivers{" "}
-                <span className="text-gradient-brand">
-                  Business Growth
-                </span>
+                <span className="text-gradient-brand">Business Growth</span>
               </h2>
 
               <div className="mt-6 space-y-4 text-muted-foreground leading-7">
@@ -1132,18 +1076,18 @@ export default function HomePage() {
                 </p>
 
                 <p>
-                  We don't believe in marketing for the sake of marketing.
-                  Every campaign we create is designed with one objective —
-                  to generate more leads, increase sales and deliver measurable
+                  We don't believe in marketing for the sake of marketing. Every
+                  campaign we create is designed with one objective — to
+                  generate more leads, increase sales and deliver measurable
                   business growth.
                 </p>
 
                 <p>
                   Whether you're a healthcare clinic looking for more patient
                   enquiries, an educational institution trying to increase
-                  admissions, or a local business wanting more customers,
-                  our team builds customized digital marketing strategies
-                  around your business goals.
+                  admissions, or a local business wanting more customers, our
+                  team builds customized digital marketing strategies around
+                  your business goals.
                 </p>
               </div>
 
@@ -1172,9 +1116,7 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Reveal>
-
           </div>
-
         </div>
       </section>
 
@@ -1194,7 +1136,6 @@ export default function HomePage() {
               Real brands. Real numbers. Real results.
             </p>
           </Reveal>
-
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {testimonials.map((t, i) => (
@@ -1240,9 +1181,7 @@ export default function HomePage() {
                     />
 
                     <div className="min-w-0">
-                      <div className="font-semibold leading-snug">
-                        {t.name}
-                      </div>
+                      <div className="font-semibold leading-snug">{t.name}</div>
                       <div className="text-xs text-muted-foreground leading-relaxed">
                         {t.role}
                       </div>
@@ -1255,13 +1194,10 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* FAQ + SEO */}
       <section className="py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-
             {/* FAQ */}
             <Reveal>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
@@ -1271,9 +1207,7 @@ export default function HomePage() {
 
               <h2 className="text-4xl sm:text-5xl font-bold mb-8">
                 Questions businesses{" "}
-                <span className="text-gradient-brand">
-                  ask us
-                </span>
+                <span className="text-gradient-brand">ask us</span>
               </h2>
 
               <div className="space-y-3">
@@ -1299,21 +1233,20 @@ export default function HomePage() {
             {/* SEO CONTENT */}
             <Reveal delay={0.15}>
               <div className="h-full rounded-3xl glass p-7 sm:p-9">
-
                 <h2 className="text-3xl font-bold mb-5">
                   Best Digital Marketing Agency in Kolkata
                 </h2>
 
                 <div className="space-y-4 text-sm text-muted-foreground leading-7">
                   <p>
-                    Boost Up Digital is a leading digital marketing agency
-                    in Kolkata focused on delivering measurable business growth
+                    Boost Up Digital is a leading digital marketing agency in
+                    Kolkata focused on delivering measurable business growth
                     through strategic online marketing.
                   </p>
 
                   <p>
-                    From performance marketing and Google Ads to Meta Ads,
-                    SEO, social media marketing and web development, we help
+                    From performance marketing and Google Ads to Meta Ads, SEO,
+                    social media marketing and web development, we help
                     businesses build stronger online visibility and generate
                     qualified leads.
                   </p>
@@ -1332,21 +1265,15 @@ export default function HomePage() {
                     "Customized growth strategies",
                     "Serving businesses across multiple industries",
                   ].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-2 text-sm"
-                    >
+                    <div key={item} className="flex items-center gap-2 text-sm">
                       <CheckCircle2 className="h-4 w-4 text-brand-magenta shrink-0" />
                       {item}
                     </div>
                   ))}
                 </div>
-
               </div>
             </Reveal>
-
           </div>
-
         </div>
       </section>
 

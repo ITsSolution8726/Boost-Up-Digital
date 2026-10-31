@@ -73,19 +73,19 @@ const team = [
   {
     img: "/Santanu.jpeg",
     name: "Santanu Ghosh",
-    role: "Founder",
+    role: "Founder & MD",
     bio: "Leads business vision and growth strategy, bringing 10+ years of experience in performance marketing, customer acquisition, and brand development.",
   },
   {
     img: "/ArpanH.png",
     name: "Arpan Halder",
-    role: "Co-founder & CMO",
+    role: "Co-founder & COO",
     bio: "Drives creative strategy and brand communication, combining impactful art direction with compelling storytelling across digital campaigns and TV commercials.",
   },
   {
     img: "/ArpanB.png",
     name: "Arpan Bhattacharyya",
-    role: "Co-founder & COO",
+    role: "Co-founder & CEO",
     bio: "Oversees campaign execution and operations, focusing on data-driven advertising, performance optimization, and measurable growth across Meta, Google, and YouTube.",
   },
 ];
@@ -163,7 +163,7 @@ const testimonials = [
       "BoostUp Digital has helped Bak Sruti Speech & Hearing Clinic generate regular, high-quality leads through Google Ads and Meta Ads. Their Local SEO strategies have also improved our visibility in local search results, helping us reach more potential patients. We appreciate their strategic approach and consistent efforts toward our digital growth.",
     name: "Nirmalya Ghosh",
     role: "Bardhaman Speech and Hearing Centre",
-    img: "/logos/bak-sruti.jpeg",
+    img: "/logos/Bardhaman.png",
   },
   {
     quote:
@@ -177,7 +177,7 @@ const testimonials = [
       "From building our online presence to reaching more local audiences, BoostUp Digital has supported Navshruti Clinic with creative social media marketing, targeted Meta Ads, and Local SEO.",
     name: "Debashis Basu",
     role: "Navshruti",
-    img: "/logos/navshruti.jpeg",
+    img: "/logos/Navsruti.png",
   },
 ];
 

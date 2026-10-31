@@ -11,7 +11,7 @@ import Image from "next/image";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  // { to: "/services", label: "Services" },
+  { to: "/services", label: "Services" },
   // { to: "/entertainment", label: "Entertainment" },
   { to: "/contact", label: "Contact" },
 ] as const;
