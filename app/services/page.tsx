@@ -12,6 +12,10 @@ import {
   Check,
   MessageCircle,
   Clapperboard,
+  ChartNoAxesCombined,
+  Rocket,
+  SlidersHorizontal,
+  Sparkles,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -337,234 +341,394 @@ export default function Services() {
       </section>
 
       {/* PRICING */}
-      <section className="py-24">
+
+      <section className="relative isolate overflow-hidden py-20 sm:py-24">
+        {/* Background decoration */}
+        <div className="pointer-events-none absolute -left-40 top-20 -z-10 h-80 w-80 rounded-full bg-brand-cyan/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-40 bottom-10 -z-10 h-96 w-96 rounded-full bg-brand-magenta/10 blur-[130px]" />
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Heading */}
-          <Reveal className="mb-16 text-center">
-            <div className="mb-3 text-xs uppercase tracking-[0.3em] text-brand-cyan">
-              Pricing
+          <Reveal className="mb-14 text-center sm:mb-16">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-cyan">
+              <Sparkles size={14} />
+              Growth Plans & Pricing
             </div>
 
-            <h2 className="text-4xl font-bold sm:text-5xl">
+            <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
               Solutions That{" "}
               <span className="text-gradient-brand">Grow With You.</span>
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
               Every business has different goals. Choose a starting point, and
               we'll build the right strategy around your needs.
             </p>
           </Reveal>
 
-          {/* Pricing Cards */}
-          <div className="grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-3">
-            {/* 01 - Starter Growth */}
+          {/* Pricing cards */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {/* 01 Starter Growth */}
             <Reveal delay={0}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+                transition={{ duration: 0.3 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 glass p-6 shadow-lg transition-all duration-500 hover:border-brand-cyan/40 hover:shadow-xl hover:shadow-brand-cyan/10 sm:p-7"
               >
-                <div className="mb-6">
-                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-cyan">
-                    01 <span className="text-muted-foreground/50">·</span> Entry
-                    Level
+                <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-cyan/10 blur-3xl transition-all duration-500 group-hover:bg-brand-cyan/20" />
+
+                <div className="relative">
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-xs font-bold tracking-[0.2em] text-brand-cyan">
+                      01 / ENTRY LEVEL
+                    </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                      <Globe size={22} />
+                    </div>
                   </div>
 
                   <h3 className="text-2xl font-bold">Starter Growth</h3>
-
                   <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
                     For businesses building their digital presence.
                   </p>
-                </div>
 
-                <div className="mb-6 rounded-2xl bg-brand-cyan/5 p-5">
-                  <p className="text-sm font-semibold leading-7">
-                    Local SEO + Social Media Management + Brand Awareness
-                    Campaigns.
+                  <div className="my-6 h-px bg-gradient-to-r from-brand-cyan/40 via-white/10 to-transparent" />
+
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-cyan">
+                    What's Included
                   </p>
+
+                  <ul className="space-y-3">
+                    {[
+                      "Google Business Profile Optimisation",
+                      "Local SEO",
+                      "Facebook Page Management",
+                      "Instagram Management",
+                      "Meta Brand Awareness Campaigns",
+                      "Social Media Engagement Growth",
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-cyan/10 text-brand-cyan">
+                          <Check size={12} />
+                        </span>
+                        <span className="leading-5">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mt-auto">
+                <div className="relative mt-auto pt-8">
                   <Link
                     href="/contact?quote=true&plan=Starter%20Growth"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-cyan/30 px-6 py-3 font-semibold transition hover:border-brand-cyan hover:bg-brand-cyan/10"
+                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full border border-brand-cyan/30 px-6 py-3 text-sm font-bold transition-all duration-300 hover:border-brand-cyan hover:bg-brand-cyan/10 hover:shadow-[0_0_20px_rgba(0,210,255,0.12)]"
                   >
                     Get Quote
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover/btn:translate-x-1"
+                    />
                   </Link>
                 </div>
               </motion.div>
             </Reveal>
 
-            {/* 02 - Growth Essential */}
+            {/* 02 Growth Essential */}
             <Reveal delay={0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-brand p-[1px]"
+                transition={{ duration: 0.3 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-brand p-[1px] shadow-xl shadow-brand-magenta/10"
               >
-                <div className="absolute right-5 top-5 z-10 rounded-full bg-background px-4 py-1.5 text-[10px] font-bold tracking-wider text-brand-yellow">
+                <div className="absolute right-5 top-5 z-20 rounded-full bg-background px-3.5 py-1.5 text-[9px] font-extrabold tracking-widest text-brand-yellow shadow-lg">
                   MOST ACCESSIBLE
                 </div>
 
-                <div className="flex h-full flex-col rounded-[calc(1.5rem-1px)] glass p-7 sm:p-8">
-                  <div className="mb-6">
-                    <div className="mb-5 text-sm font-bold tracking-widest text-brand-magenta">
-                      02 <span className="text-muted-foreground/50">·</span>{" "}
-                      Lead Generation
+                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1.5rem-1px)] glass p-6 sm:p-7">
+                  <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-magenta/10 blur-3xl transition-all duration-500 group-hover:bg-brand-magenta/20" />
+
+                  <div className="relative">
+                    <div className="mb-6 flex items-center justify-between">
+                      <span className="text-xs font-bold tracking-[0.2em] text-brand-magenta">
+                        02 / LEAD GENERATION
+                      </span>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                        <Target size={22} />
+                      </div>
                     </div>
 
                     <h3 className="text-2xl font-bold">Growth Essential</h3>
-
                     <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
-                      For businesses that want visibility and enquiries.
+                      For businesses looking to increase visibility and generate
+                      enquiries.
                     </p>
+
+                    <div className="my-6 h-px bg-gradient-to-r from-brand-magenta/50 via-white/10 to-transparent" />
+
+                    <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-magenta">
+                      Everything in Starter Growth, plus
+                    </p>
+
+                    <ul className="space-y-3">
+                      {[
+                        "Meta Ads Management",
+                        "Lead Generation Campaigns",
+                        "Audience Targeting & Retargeting",
+                        "Ad Creative Management",
+                        "Campaign Performance Monitoring",
+                      ].map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-3 text-sm text-muted-foreground"
+                        >
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-magenta/10 text-brand-magenta">
+                            <Check size={12} />
+                          </span>
+                          <span className="leading-5">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="mb-6 rounded-2xl bg-brand-magenta/5 p-5">
-                    <p className="text-sm font-semibold leading-7">
-                      Everything in Starter + Meta Ads Management + Lead
-                      Generation.
-                    </p>
-                  </div>
-
-                  <div className="mt-auto">
+                  <div className="relative mt-auto pt-8">
                     <Link
                       href="/contact?quote=true&plan=Growth%20Essential"
-                      className="inline-flex w-full items-center justify-center rounded-full bg-gradient-brand px-6 py-3 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
+                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
                     >
                       Get Quote
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform group-hover/btn:translate-x-1"
+                      />
                     </Link>
                   </div>
                 </div>
               </motion.div>
             </Reveal>
 
-            {/* 03 - Growth Pro */}
+            {/* 03 Growth Pro */}
             <Reveal delay={0.2}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+                transition={{ duration: 0.3 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 glass p-6 shadow-lg transition-all duration-500 hover:border-brand-yellow/40 hover:shadow-xl hover:shadow-brand-yellow/10 sm:p-7"
               >
-                <div className="mb-6">
-                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-yellow">
-                    03 <span className="text-muted-foreground/50">·</span>{" "}
-                    Advanced
+                <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-yellow/10 blur-3xl transition-all duration-500 group-hover:bg-brand-yellow/20" />
+
+                <div className="relative">
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-xs font-bold tracking-[0.2em] text-brand-yellow">
+                      03 / ADVANCED
+                    </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                      <ChartNoAxesCombined size={22} />
+                    </div>
                   </div>
 
                   <h3 className="text-2xl font-bold">Growth Pro</h3>
-
                   <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
                     For businesses ready to acquire customers through multiple
                     channels.
                   </p>
-                </div>
 
-                <div className="mb-6 rounded-2xl bg-brand-yellow/5 p-5">
-                  <p className="text-sm font-semibold leading-7">
-                    Everything in Growth Essential + AEO + Google Ads + Website
-                    Content Marketing.
+                  <div className="my-6 h-px bg-gradient-to-r from-brand-yellow/40 via-white/10 to-transparent" />
+
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-yellow">
+                    Everything in Growth Essential, plus
                   </p>
+
+                  <ul className="space-y-3">
+                    {[
+                      "Advanced Local SEO",
+                      "Answer Engine Optimisation (AEO)",
+                      "Google Search Ads Management",
+                      "Website SEO Content & Blog Publishing",
+                      "Conversion Tracking & Optimisation",
+                      "Performance Reporting",
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/10 text-brand-yellow">
+                          <Check size={12} />
+                        </span>
+                        <span className="leading-5">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mt-auto">
+                <div className="relative mt-auto pt-8">
                   <Link
                     href="/contact?quote=true&plan=Growth%20Pro"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-yellow/30 px-6 py-3 font-semibold transition hover:border-brand-yellow hover:bg-brand-yellow/10"
+                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full border border-brand-yellow/30 px-6 py-3 text-sm font-bold transition-all duration-300 hover:border-brand-yellow hover:bg-brand-yellow/10"
                   >
                     Get Quote
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover/btn:translate-x-1"
+                    />
                   </Link>
                 </div>
               </motion.div>
             </Reveal>
 
-            {/* 04 - Growth Accelerator */}
+            {/* 04 Growth Accelerator */}
             <Reveal delay={0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+                transition={{ duration: 0.3 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 glass p-6 shadow-lg transition-all duration-500 hover:border-purple-400/40 hover:shadow-xl hover:shadow-purple-400/10 sm:p-7"
               >
-                <div className="mb-6">
-                  <div className="mb-5 text-sm font-bold tracking-widest text-purple-400">
-                    04 <span className="text-muted-foreground/50">·</span>{" "}
-                    Premium
+                <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-purple-400/10 blur-3xl transition-all duration-500 group-hover:bg-purple-400/20" />
+
+                <div className="relative">
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-xs font-bold tracking-[0.2em] text-purple-400">
+                      04 / PREMIUM
+                    </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                      <Rocket size={22} />
+                    </div>
                   </div>
 
                   <h3 className="text-2xl font-bold">Growth Accelerator</h3>
-
                   <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
-                    For businesses looking for strategic performance marketing
-                    and brand building.
+                    For businesses looking to scale through performance
+                    marketing and brand building.
                   </p>
+
+                  <div className="my-6 h-px bg-gradient-to-r from-purple-400/40 via-white/10 to-transparent" />
+
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-purple-400">
+                    What's Included
+                  </p>
+
+                  <ul className="space-y-3">
+                    {[
+                      "Growth & Marketing Strategy",
+                      "Performance Marketing Management",
+                      "Meta & Google Ads Strategy",
+                      "Brand Positioning & Identity",
+                      "Professional Ad Film Production",
+                      "Social Media Reel Commercials",
+                      "Creative Campaign Development",
+                      "Performance Analysis & Optimisation",
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-400/10 text-purple-400">
+                          <Check size={12} />
+                        </span>
+                        <span className="leading-5">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mb-6 rounded-2xl bg-purple-400/5 p-5">
-                  <p className="text-sm font-semibold leading-7">
-                    Performance Marketing Strategy + Branding + Ad Films + Reel
-                    Commercials.
-                  </p>
-                </div>
-
-                <div className="mt-auto">
+                <div className="relative mt-auto pt-8">
                   <Link
                     href="/contact?quote=true&plan=Growth%20Accelerator"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-purple-400/30 px-6 py-3 font-semibold transition hover:border-purple-400 hover:bg-purple-400/10"
+                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full border border-purple-400/30 px-6 py-3 text-sm font-bold transition-all duration-300 hover:border-purple-400 hover:bg-purple-400/10"
                   >
                     Get Quote
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover/btn:translate-x-1"
+                    />
                   </Link>
                 </div>
               </motion.div>
             </Reveal>
 
-            {/* 05 - Custom Growth Solutions */}
+            {/* 05 Custom Growth Solutions */}
             <Reveal delay={0.2}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="relative flex h-full flex-col rounded-3xl glass p-7 sm:p-8"
+                transition={{ duration: 0.3 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 glass p-6 shadow-lg transition-all duration-500 hover:border-brand-magenta/40 hover:shadow-xl hover:shadow-brand-magenta/10 sm:p-7"
               >
-                <div className="mb-6">
-                  <div className="mb-5 text-sm font-bold tracking-widest text-brand-magenta">
-                    05 <span className="text-muted-foreground/50">·</span>{" "}
-                    Flexible
+                <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-magenta/10 blur-3xl transition-all duration-500 group-hover:bg-brand-magenta/20" />
+
+                <div className="relative">
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-xs font-bold tracking-[0.2em] text-brand-magenta">
+                      05 / FLEXIBLE
+                    </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                      <SlidersHorizontal size={22} />
+                    </div>
                   </div>
 
                   <h3 className="text-2xl font-bold">
                     Custom Growth Solutions
                   </h3>
-
                   <p className="mt-3 min-h-[48px] text-sm leading-6 text-muted-foreground">
                     For businesses with specific marketing requirements.
                   </p>
-                </div>
 
-                <div className="mb-6 rounded-2xl bg-brand-magenta/5 p-5">
-                  <p className="text-sm font-semibold leading-7">
-                    Tailored marketing strategy, services and execution.
+                  <div className="my-6 h-px bg-gradient-to-r from-brand-magenta/40 via-white/10 to-transparent" />
+
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-magenta">
+                    What's Included
                   </p>
+
+                  <ul className="space-y-3">
+                    {[
+                      "Custom Marketing Strategy",
+                      "Tailored Service Combinations",
+                      "Industry-Specific Campaigns",
+                      "Dedicated Growth Planning",
+                      "Flexible Marketing Solutions",
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-magenta/10 text-brand-magenta">
+                          <Check size={12} />
+                        </span>
+                        <span className="leading-5">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mt-auto">
+                <div className="relative mt-auto pt-8">
                   <Link
                     href="/contact?quote=true&plan=Custom%20Growth%20Solutions"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-brand-magenta/30 px-6 py-3 font-semibold transition hover:border-brand-magenta hover:bg-brand-magenta/10"
+                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full border border-brand-magenta/30 px-6 py-3 text-sm font-bold transition-all duration-300 hover:border-brand-magenta hover:bg-brand-magenta/10"
                   >
                     Get Quote
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover/btn:translate-x-1"
+                    />
                   </Link>
                 </div>
               </motion.div>
             </Reveal>
           </div>
 
-          {/* Closing Message */}
+          {/* Closing message */}
           <Reveal delay={0.3}>
-            <p className="mt-12 text-center text-sm leading-7 text-muted-foreground">
-              Not sure which plan is right for you?{" "}
-              <Link
-                href="/contact"
-                className="font-semibold text-brand-cyan transition hover:text-brand-magenta"
-              >
-                Talk to our team
-              </Link>{" "}
-              and get a growth strategy tailored to your business goals.
-            </p>
+            <div className="mt-12 text-center">
+              <p className="text-sm leading-7 text-muted-foreground">
+                Not sure which plan is right for you?{" "}
+                <Link
+                  href="/contact"
+                  className="font-semibold text-brand-cyan transition-colors hover:text-brand-magenta"
+                >
+                  Talk to our team
+                </Link>{" "}
+                and get a growth strategy tailored to your business goals.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
