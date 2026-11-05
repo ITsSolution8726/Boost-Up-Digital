@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/2.svg",
         width: 1200,
         height: 630,
         alt: "Boost Up Digital",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     description:
       "Performance marketing, creative storytelling and cinematic ad films that help brands grow faster.",
 
-    images: ["/og-image.jpg"],
+    images: ["/2.svg"],
   },
 
   icons: {
