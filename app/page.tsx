@@ -36,6 +36,15 @@ import {
   whyChooseUs,
 } from "@/lib/data";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import WebsiteProjects from "@/components/WebsiteProjects";
+const InfiniteMovingCards = dynamic(
+  () =>
+    import("@/components/InfiniteTestimonials").then(
+      (mod) => mod.InfiniteMovingCards,
+    ),
+  { ssr: false },
+);
 
 export default function HomePage() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<
@@ -171,15 +180,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* RIGHT */}
-
             {/* RIGHT - HERO VISUAL */}
-            <div className="relative hidden min-w-0 items-center justify-center lg:flex">
+            <div className="relative flex min-w-0 w-full items-center justify-center lg:justify-end">
               {/* Background glow */}
-              <div className="absolute inset-0 rounded-full bg-brand-magenta/15 blur-[100px]" />
+              <div className="pointer-events-none absolute inset-0 rounded-full bg-brand-magenta/15 blur-[80px] sm:blur-[100px]" />
 
               <motion.div
-                initial={{ opacity: 0, scale: 2, y: 20 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{
                   opacity: 1,
                   scale: 1,
@@ -194,15 +201,16 @@ export default function HomePage() {
                     ease: "easeInOut",
                   },
                 }}
-                className="relative z-10 w-full max-w-[680px]"
+                className="relative z-10 w-full max-w-130 sm:max-w-162.5 lg:max-w-187.5 xl:max-w-212.5"
               >
                 <Image
-                  src="/hero2.png"
+                  src="/hero1.png"
                   alt="BoostUp Digital marketing growth with advertising, SEO and analytics"
                   fetchPriority="high"
-                  width={980}
-                  height={780}
-                  className="h-full w-full object-contain"
+                  width={2000}
+                  height={950}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 55vw"
+                  className="h-auto w-max object-fill"
                 />
               </motion.div>
             </div>
@@ -733,6 +741,9 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* Website Projects */}
+      <WebsiteProjects />
+
       {/* HOW WE THINK */}
       <section className="relative overflow-hidden bg-background py-24 text-foreground sm:py-28">
         {/* Multicolor background accents */}
@@ -1137,59 +1148,16 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {testimonials.map((t, i) => (
-              <Reveal
-                key={`${t.name}-${i}`}
-                delay={i * 0.12}
-                className="h-full"
-              >
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl glass p-7"
-                >
-                  {/* Decorative hover effect */}
-                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30" />
-
-                  {/* Quote icon */}
-                  <Quote className="relative h-8 w-8 shrink-0 text-brand-magenta mb-4" />
-
-                  {/* Star rating */}
-                  <div className="relative flex gap-1 mb-4 shrink-0">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star
-                        key={j}
-                        className="h-4 w-4 fill-brand-yellow text-brand-yellow"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Testimonial text */}
-                  <p className="relative mb-6 flex-1 text-foreground/90 leading-relaxed">
-                    "{t.quote}"
-                  </p>
-
-                  {/* Reviewer details: consistently aligned at the bottom */}
-                  <div className="relative mt-auto flex min-h-[65px] shrink-0 items-center gap-3 border-t border-border/40 pt-4">
-                    <img
-                      src={t.img}
-                      alt={t.name}
-                      loading="lazy"
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-brand-magenta/40"
-                    />
-
-                    <div className="min-w-0">
-                      <div className="font-semibold leading-snug">{t.name}</div>
-                      <div className="text-xs text-muted-foreground leading-relaxed">
-                        {t.role}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </Reveal>
-            ))}
+          <div
+            // remove bg-white dark:bg-black dark:bg-grid-white/[0.05], h-[40rem] to 30rem , md:h-[30rem] are for the responsive design
+            className="h-[50vh] md:h-120 rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden"
+          >
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="left"
+              speed="slow"
+              pauseOnHover={true}
+            />
           </div>
         </div>
       </section>

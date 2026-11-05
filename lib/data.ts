@@ -63,45 +63,45 @@ export const testimonials = [
     quote:
       "BoostUp Digital has helped Annapurna Interior strengthen its online presence through social media marketing, Meta Ads, and Local SEO. Their strategic approach has helped us reach more potential customers and improve our local visibility. We appreciate their efforts in supporting our business growth.",
     name: "Supratim Kundu",
-    role: "Annapurna Interior",
-    img: "/logos/annapurna.jpeg",
+    title: "Annapurna Interior",
+    image: "/logos/annapurna.jpeg",
   },
  
   {
     quote:
       "With BoostUp Digital’s support, Redplus has taken a step forward in digital marketing. Their social media campaigns, Meta Ads, and Local SEO have helped us build stronger online visibility and connect with our target audience.",
     name: "Apurba Krishna Sinha",
-    role: "Red Plus Nursing Home",
-    img: "/logos/rps.jpeg",
+    title: "Red Plus Nursing Home",
+    image: "/logos/rps.jpeg",
   },
   
   {
     quote:
       "Since partnering with BoostUp Digital, New Looks has been building a stronger digital presence. Their targeted ads, creative social media, and Local SEO have helped us reach the right audience.",
     name: "Mithun Das",
-    role: "New Looks",
-    img: "/logos/new-looks.jpeg",
+    title: "New Looks",
+    image: "/logos/new-looks.jpeg",
   },
   {
     quote:
       "Our online reach is growing with BoostUp Digital’s support. From Meta Ads to social media and Local SEO, their team has helped AP’s Glow Star get noticed by more potential customers.",
     name: "Amit Paul",
-    role: "AP’s Glow Star",
-    img: "/logos/ap-glowstar.png",
+    title: "AP’s Glow Star",
+    image: "/logos/ap-glowstar.png",
   },
   {
     quote:
       "A fresh digital approach with visible impact! BoostUp Digital has helped Jewar Jewellers strengthen its online presence and showcase our brand to a wider audience.",
     name: "Subham Barman",
-    role: "Jewar Jewellers",
-    img: "/logos/Jewar.jpeg",
+    title: "Jewar Jewellers",
+    image: "/logos/Jewar.jpeg",
   },
   {
     quote:
       "From showcasing our collections to reaching new customers, BoostUp Digital has added value to Adi A.P. Jewellers’ online marketing journey. A creative and supportive team!",
     name: "Amit Paul",
-    role: "Adi A.P. Jewellers",
-    img: "/logos/adi-ap-jewellers.jpeg",
+    title: "Adi A.P. Jewellers",
+    image: "/logos/adi-ap-jewellers.jpeg",
   },
 ];
 
@@ -331,6 +331,25 @@ export const tools = [
   {
     name: "Lovable",
     logo: "/tech/lovable.svg",
+  },
+];
+
+export const websiteProjects = [
+   {
+    name: "Danish Surgical",
+    industry: "Medical & Healthcare",
+    description:
+      "A professional digital platform for a trusted supplier of neurosurgical and spine surgery implants, instruments, and medical equipment across India.",
+    image: "/projects/danish-surgical.jpeg",
+    url: "https://danishsurgical.com",
+  },
+  {
+    name: "JEWAR Jewellers",
+    industry: "Luxury Jewellery",
+    description:
+      "A premium jewellery website showcasing a legacy since 1973, featuring BIS hallmarked gold, certified diamonds, silver, and traditional Kundan collections.",
+    image: "/projects/jewar-jewellers.jpeg",
+    url: "https://www.jewar1974.com",
   },
 ];
 

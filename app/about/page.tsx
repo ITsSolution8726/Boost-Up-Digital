@@ -16,7 +16,7 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { DirReveal } from "@/components/DirReveal";
 import Image from "next/image";
-
+import { InfiniteMovingCards } from "@/components/InfiniteTestimonials";
 
 const milestones = [
   {
@@ -73,20 +73,20 @@ const team = [
   {
     img: "/Santanu.jpeg",
     name: "Santanu Ghosh",
-    role: "Founder & MD",
-    bio: "Leads business vision and growth strategy, bringing 10+ years of experience in performance marketing, customer acquisition, and brand development.",
+    title: "Co-Founder & Managing Director",
+    bio: "A Filmmaker and Creative Strategist with 20+ years of experience in Mumbai & Kolkata film industries. Specialising in creative direction, ad film production, visual storytelling and branding, he leads Boost Up Digital with a vision to help businesses grow through strategic digital marketing.",
   },
   {
     img: "/ArpanH.png",
     name: "Arpan Halder",
-    role: "Co-founder & COO",
-    bio: "Drives creative strategy and brand communication, combining impactful art direction with compelling storytelling across digital campaigns and TV commercials.",
+    title: "Co-founder & COO",
+    bio: "A Digital Marketing Strategist with 5+ years of experience in developing marketing strategies, building brands and driving performance. At Boost Up Digital, he oversees digital marketing operations, team management and strategic execution, while continuously improving internal systems, processes and technological capabilities to deliver efficient, data-driven results.",
   },
   {
     img: "/ArpanB.png",
     name: "Arpan Bhattacharyya",
-    role: "Co-founder & CEO",
-    bio: "Oversees campaign execution and operations, focusing on data-driven advertising, performance optimization, and measurable growth across Meta, Google, and YouTube.",
+    title: "Co-founder & CEO",
+    bio: "An Entrepreneur and Business Strategist focused on business development, strategic planning and organisational growth. At Boost Up Digital, he leads key business decisions, drives growth initiatives and explores new opportunities for expansion, working towards building a sustainable and scalable organisation.",
   },
 ];
 
@@ -129,7 +129,6 @@ const portfolio = [
   },
 ];
 
-
 const clients = [
   // Existing clients
   { name: "ADS Hospital", logo: "/logos/ads.jpeg" },
@@ -143,7 +142,10 @@ const clients = [
   { name: "AP's Champion Gym", logo: "/logos/ap-gym.jpeg" },
   { name: "Appayan Caterer", logo: "/logos/appayan.jpeg" },
   { name: "Brainsight Neurovision Institute", logo: "/logos/brainsight.jpeg" },
-  { name: "Hare Krishna Nursing Home", logo: "/logos/hare-krishna-nursing.jpeg" },
+  {
+    name: "Hare Krishna Nursing Home",
+    logo: "/logos/hare-krishna-nursing.jpeg",
+  },
   { name: "HK Health Care Private Limited", logo: "/logos/hk-healthcare.jpeg" },
   { name: "Jewellery Museum", logo: "/logos/jewellery-museum.jpeg" },
   { name: "Kidz Dental Solution", logo: "/logos/kidz-dental.jpeg" },
@@ -162,22 +164,22 @@ const testimonials = [
     quote:
       "BoostUp Digital has helped Bak Sruti Speech & Hearing Clinic generate regular, high-quality leads through Google Ads and Meta Ads. Their Local SEO strategies have also improved our visibility in local search results, helping us reach more potential patients. We appreciate their strategic approach and consistent efforts toward our digital growth.",
     name: "Nirmalya Ghosh",
-    role: "Bardhaman Speech and Hearing Centre",
-    img: "/logos/Bardhaman.png",
+    title: "Bardhaman Speech and Hearing Centre",
+    image: "/logos/Bardhaman.png",
   },
   {
     quote:
       "BoostUp Digital brought a fresh approach to our online marketing. Their social media campaigns, Meta Ads, and Local SEO have helped AKS Medicare Pvt. Ltd. connect with a wider audience and strengthen their digital presence.",
     name: "Apurba Krishna Sinha",
-    role: "AKS Medicare Pvt. Ltd.",
-    img: "/logos/aks.png",
+    title: "AKS Medicare Pvt. Ltd.",
+    image: "/logos/aks.png",
   },
   {
     quote:
       "From building our online presence to reaching more local audiences, BoostUp Digital has supported Navshruti Clinic with creative social media marketing, targeted Meta Ads, and Local SEO.",
     name: "Debashis Basu",
-    role: "Navshruti",
-    img: "/logos/Navsruti.png",
+    title: "Navshruti",
+    image: "/logos/Navsruti.png",
   },
 ];
 
@@ -361,7 +363,7 @@ export default function About() {
                   <div className="relative aspect-4/5 overflow-hidden">
                     <img
                       src={m.img}
-                      alt={`${m.name}, ${m.role} at Boost Up Digital`}
+                      alt={`${m.name}, ${m.title} at Boost Up Digital`}
                       loading="lazy"
                       width={768}
                       height={960}
@@ -370,7 +372,7 @@ export default function About() {
                     <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5">
                       <div className="text-xs uppercase tracking-widest text-brand-yellow mb-1">
-                        {m.role}
+                        {m.title}
                       </div>
                       <div className="font-display font-bold text-xl">
                         {m.name}
@@ -472,12 +474,13 @@ export default function About() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              From healthcare and education to retail, jewellery and hospitality,
-              we partner with businesses across different industries.
+              From healthcare and education to retail, jewellery and
+              hospitality, we partner with businesses across different
+              industries.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-3 items-center gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-7 lg:gap-x-10 lg:gap-y-12">
+          <div className="grid grid-cols-3 items-center gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 md:grid-cols-5 md:gap-x-4 md:gap-y-8 lg:grid-cols-7 lg:gap-x-10 lg:gap-y-12">
             {clients.map((client, i) => (
               <DirReveal
                 key={client.name}
@@ -546,61 +549,16 @@ export default function About() {
               Clients, on record.
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {testimonials.map((t, i) => (
-              <Reveal
-                key={`${t.name}-${i}`}
-                delay={i * 0.12}
-                className="h-full"
-              >
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl glass p-7"
-                >
-                  {/* Decorative hover effect */}
-                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30" />
-
-                  {/* Quote icon */}
-                  <Quote className="relative h-8 w-8 shrink-0 text-brand-magenta mb-4" />
-
-                  {/* Star rating */}
-                  <div className="relative flex gap-1 mb-4 shrink-0">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star
-                        key={j}
-                        className="h-4 w-4 fill-brand-yellow text-brand-yellow"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Testimonial text */}
-                  <p className="relative mb-6 flex-1 text-foreground/90 leading-relaxed">
-                    "{t.quote}"
-                  </p>
-
-                  {/* Reviewer details: consistently aligned at the bottom */}
-                  <div className="relative mt-auto flex min-h-[65px] shrink-0 items-center gap-3 border-t border-border/40 pt-4">
-                    <img
-                      src={t.img}
-                      alt={t.name}
-                      loading="lazy"
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-brand-magenta/40"
-                    />
-
-                    <div className="min-w-0">
-                      <div className="font-semibold leading-snug">
-                        {t.name}
-                      </div>
-                      <div className="text-xs text-muted-foreground leading-relaxed">
-                        {t.role}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </Reveal>
-            ))}
+          <div
+            // remove bg-white dark:bg-black dark:bg-grid-white/[0.05], h-[40rem] to 30rem , md:h-[30rem] are for the responsive design
+            className="h-[50vh] md:h-120 rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden"
+          >
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="left"
+              speed="slow"
+              pauseOnHover={true}
+            />
           </div>
         </div>
       </section>

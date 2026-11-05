@@ -36,6 +36,14 @@
   --color-brand-cyan: var(--brand-cyan);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
 }
 
 :root {
@@ -69,9 +77,23 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --gradient-brand: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-pink) 30%, var(--brand-orange) 60%, var(--brand-yellow) 100%);
-  --gradient-cool: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-magenta) 100%);
-  --gradient-radial: radial-gradient(circle at 50% 50%, oklch(0.62 0.3 340 / 0.4), transparent 60%);
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--brand-magenta) 0%,
+    var(--brand-pink) 30%,
+    var(--brand-orange) 60%,
+    var(--brand-yellow) 100%
+  );
+  --gradient-cool: linear-gradient(
+    135deg,
+    var(--brand-cyan) 0%,
+    var(--brand-magenta) 100%
+  );
+  --gradient-radial: radial-gradient(
+    circle at 50% 50%,
+    oklch(0.62 0.3 340 / 0.4),
+    transparent 60%
+  );
   --shadow-glow: 0 0 60px -10px oklch(0.68 0.28 350 / 0.6);
   --shadow-card: 0 20px 60px -20px oklch(0.05 0 0 / 0.8);
 }
@@ -95,8 +117,16 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.68 0.28 350 / 0.15), transparent),
-      radial-gradient(ellipse 60% 40% at 90% 80%, oklch(0.78 0.15 200 / 0.1), transparent);
+      radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        oklch(0.68 0.28 350 / 0.15),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 90% 80%,
+        oklch(0.78 0.15 200 / 0.1),
+        transparent
+      );
     background-attachment: fixed;
   }
 
