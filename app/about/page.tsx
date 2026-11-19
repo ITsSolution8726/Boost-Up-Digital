@@ -186,7 +186,7 @@ const testimonials = [
 export default function About() {
   return (
     <>
-      <section className="pt-24 pb-16 text-center">
+      <section className="py-16 text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-brand-cyan mb-4">
@@ -484,8 +484,8 @@ export default function About() {
             {clients.map((client, i) => (
               <DirReveal
                 key={client.name}
-                from={i % 2 === 0 ? "left" : "right"}
-                delay={(i % 4) * 0.08}
+                from={i % 3 === 0 ? "left" : i % 3 === 1 ? "up" : "right"}
+                delay={(i % 3) * 0.08}
               >
                 <motion.div
                   whileHover={{ scale: 1.06 }}

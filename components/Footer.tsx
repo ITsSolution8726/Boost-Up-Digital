@@ -23,8 +23,8 @@ const services = [
   { to: "/services#google-ads", label: "Google Ads" },
   { to: "/services#meta-ads", label: "Meta Ads" },
   { to: "/services#social-media", label: "Social Media" },
-  { to: "/services#web-development", label: "Web Design & Development", },
-  { to: "/services#ad-films", label: "Ad Films & Entertainment", },
+  { to: "/services#web-development", label: "Web Design & Development" },
+  { to: "/services#ad-films", label: "Ad Films & Entertainment" },
 ];
 
 export default function Footer() {
@@ -33,7 +33,6 @@ export default function Footer() {
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-
           {/* COLUMN 1 - Logo & Social */}
           <div>
             <Link href="/" className="inline-flex flex-col -mt-10">
@@ -52,17 +51,36 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 text-sm text-muted-foreground max-w-sm leading-7">
-              A new-age digital marketing studio helping brands generate
-              leads, scale fast, and create unforgettable content.
+              A new-age digital marketing studio helping brands generate leads,
+              scale fast, and create unforgettable content.
             </p>
 
             <div className="flex gap-3 mt-6">
-              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
+              {[
+                {
+                  Icon: Facebook,
+                  href: "https://www.facebook.com/BoostUpDigital.official",
+                },
+                {
+                  Icon: Instagram,
+                  href: "https://www.instagram.com/boostup_digital_official/",
+                },
+                {
+                  Icon: Linkedin,
+                  href: "https://www.linkedin.com/company/boost-up-digital-official/",
+                },
+                {
+                  Icon: Youtube,
+                  href: "https://www.youtube.com/@BoosUpEntertainment",
+                },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
-                  aria-label="Social media"
-                  className="h-10 w-10 grid place-items-center rounded-full glass border border-border/40 hover:bg-gradient-brand hover:scale-110 transition-all"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit our ${Icon.displayName || "social media"} page`}
+                  className="grid h-10 w-10 place-items-center rounded-full glass border border-border/40 transition-all duration-300 hover:scale-110 hover:bg-gradient-brand hover:text-white"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -103,7 +121,7 @@ export default function Footer() {
                     href={service.to}
                     className="text-foreground/80 hover:text-brand-magenta transition-colors"
                   > */}
-                    {service.label}
+                  {service.label}
                   {/* </Link> */}
                 </li>
               ))}

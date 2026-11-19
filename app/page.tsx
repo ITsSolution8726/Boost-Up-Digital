@@ -118,7 +118,7 @@ export default function HomePage() {
                 qualified leads, and turn digital marketing into measurable
                 business growth.
               </p>
-              <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold leading-6 tracking-wide sm:text-sm sm:leading-8">
+              <p className="mt-6 flex flex-nowrap items-center justify-center gap-x-1.5 whitespace-nowrap text-[10px] font-bold leading-none tracking-wide sm:mt-8 sm:gap-x-2 sm:text-sm sm:leading-8 md:text-base">
                 <span className="text-brand-cyan">Strategy</span>
                 <span className="text-muted-foreground/50">•</span>
 
@@ -134,23 +134,23 @@ export default function HomePage() {
                 <span className="text-brand-magenta">Optimization</span>
               </p>
 
-              <div className="mt-10 flex w-full flex-nowrap items-center gap-3 sm:gap-4">
+              <div className="mt-7 flex w-full items-center gap-2.5 sm:mt-10 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="relative isolate flex h-14 flex-1 items-center justify-center whitespace-nowrap rounded-full bg-gradient-brand px-2 text-center text-[13px] font-semibold leading-none text-primary-foreground shadow-glow sm:px-6 sm:text-base lg:px-7"
+                  className="relative isolate flex h-12 min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-full bg-gradient-brand px-3 text-center text-xs font-medium leading-none text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02] sm:h-14 sm:px-6 sm:text-base lg:px-7"
                 >
                   Get Free Marketing Audit
                 </Link>
 
                 <Link
                   href="#services"
-                  className="relative isolate glass flex h-14 flex-1 items-center justify-center whitespace-nowrap rounded-full px-2 text-center text-[13px] font-semibold leading-none sm:px-6 sm:text-base lg:px-7"
+                  className="relative isolate flex h-12 min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-full glass px-3 text-center text-xs font-semibold leading-none transition-all duration-300 hover:scale-[1.02] sm:h-14 sm:px-6 sm:text-base lg:px-7"
                 >
                   View Services
                 </Link>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-2 sm:mt-10 sm:gap-3">
                 {[
                   {
                     icon: Megaphone,
@@ -171,10 +171,15 @@ export default function HomePage() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center gap-2 rounded-full glass px-4 py-2 border border-border/40"
+                    className="flex items-center gap-1.5 rounded-full border border-border/40 glass px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2"
                   >
-                    <item.icon className={`h-4 w-4 ${item.color}`} />
-                    <span className="text-sm font-medium">{item.label}</span>
+                    <item.icon
+                      className={`h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 ${item.color}`}
+                    />
+
+                    <span className="whitespace-nowrap text-[11px] font-medium sm:text-sm">
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -239,7 +244,7 @@ export default function HomePage() {
       </section>
 
       {/* GROWTH SYSTEMS */}
-      <section className="relative overflow-hidden py-20 sm:py-24">
+      <section className="relative overflow-hidden pt-12 pb-2 md:pt-16 md:pb-2 lg:py-20">
         {/* Background accents */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-brand-magenta/10 blur-[100px]" />
@@ -272,7 +277,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24" id="services">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24" id="services">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto mb-16">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
@@ -341,7 +346,7 @@ export default function HomePage() {
       </section>
 
       {/* INDUSTRIES */}
-      <section className="py-24 bg-muted/20 border-y border-border/30">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
             <Reveal>
@@ -494,7 +499,7 @@ export default function HomePage() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="py-24 bg-muted/20 border-y border-border/30">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12">
             <Reveal>
@@ -509,13 +514,13 @@ export default function HomePage() {
               </h2>
             </Reveal>
 
-            <Link
+            {/* <Link
               href="/case-studies"
               className="inline-flex items-center gap-2 text-sm font-semibold text-gradient-brand shrink-0"
             >
               View All Case Studies
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </Link> */}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
@@ -745,7 +750,7 @@ export default function HomePage() {
       <WebsiteProjects />
 
       {/* HOW WE THINK */}
-      <section className="relative overflow-hidden bg-background py-24 text-foreground sm:py-28">
+      <section className="relative overflow-hidden bg-background pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24 text-foreground">
         {/* Multicolor background accents */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute left-[5%] top-10 h-80 w-80 rounded-full bg-brand-cyan/10 blur-[130px]" />
@@ -978,21 +983,21 @@ export default function HomePage() {
       </section>
 
       {/* TOOLS & TECHNOLOGIES */}
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-10">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
-              <Sparkles className="h-4 w-4 text-brand-yellow" />
+      <section className="pt-10 pb-2 md:pt-16 md:pb-2 lg:py-20">
+        <div className="mx-auto max-w-6xl px-3 sm:px-6 lg:px-8">
+          <Reveal className="mb-7 text-center sm:mb-10">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-brand-cyan sm:mb-5 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.25em]">
+              <Sparkles className="h-3.5 w-3.5 text-brand-yellow sm:h-4 sm:w-4" />
               Tools &amp; Technologies We Use
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold">
+            <h2 className="text-2xl font-bold leading-tight sm:text-4xl">
               Powered by the{" "}
               <span className="text-gradient-brand">right tools</span>
             </h2>
           </Reveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-5">
             {tools.map((tool, i) => (
               <DirReveal
                 key={tool.name}
@@ -1001,39 +1006,37 @@ export default function HomePage() {
               >
                 <div
                   className="
-          group
-          flex items-center gap-3
-          rounded-xl
-          glass
-          border border-border/40
-          px-4 py-4
-          min-h-[72px]
-          transition-all duration-300
-          hover:border-brand-magenta/40
-          hover:-translate-y-1
-          hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-        "
+              group flex h-full items-center gap-2
+              rounded-lg glass border border-border/40
+              px-2 py-2.5
+              transition-all duration-300
+              hover:border-brand-magenta/40
+              hover:-translate-y-1
+              hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+              sm:gap-3 sm:rounded-xl sm:px-3.5 sm:py-3.5
+              md:px-4 md:py-4
+            "
                 >
                   <div
                     className="
-            flex h-10 w-10 shrink-0
-            items-center justify-center
-            rounded-lg
-            bg-background/80
-            border border-border/30
-            p-2
-            transition-transform duration-300
-            group-hover:scale-110
-          "
+                flex h-7 w-7 shrink-0 items-center justify-center
+                rounded-md bg-background/80 border border-border/30 p-1
+                transition-transform duration-300
+                group-hover:scale-110
+                sm:h-9 sm:w-9 sm:rounded-lg sm:p-1.5
+                md:h-10 md:w-10 md:p-2
+              "
                   >
                     <img
                       src={tool.logo}
                       alt={`${tool.name} logo`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-contain"
                     />
                   </div>
 
-                  <span className="text-sm font-medium text-foreground/90">
+                  <span className="min-w-0 break-words text-[10px] font-medium leading-tight text-foreground/90 sm:text-xs md:text-sm">
                     {tool.name}
                   </span>
                 </div>
@@ -1044,7 +1047,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT BOOST UP DIGITAL */}
-      <section className="py-24">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* IMAGE */}
@@ -1132,7 +1135,7 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto mb-16">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-brand-cyan">
@@ -1163,7 +1166,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ + SEO */}
-      <section className="py-24 bg-muted/20 border-y border-border/30">
+      <section className="pt-12 pb-2 md:pt-16 md:pb-2 lg:py-24 bg-muted/20 border-y border-border/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* FAQ */}
